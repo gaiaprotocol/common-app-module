@@ -1,1 +1,1 @@
-# gaia-protocol-dapp-commons
+# common-dapp-module
