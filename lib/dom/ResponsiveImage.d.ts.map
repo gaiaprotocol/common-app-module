@@ -1,0 +1,1 @@
+{"version":3,"file":"ResponsiveImage.d.ts","sourceRoot":"","sources":["../../src/dom/ResponsiveImage.ts"],"names":[],"mappings":"AAAA,OAAO,OAAO,MAAM,cAAc,CAAC;AAEnC,MAAM,CAAC,OAAO,OAAO,eAAgB,SAAQ,OAAO,CAAC,gBAAgB,CAAC;IAClE,OAAO,CAAC,MAAM,CAAC,QAAQ,CAAC,iBAAiB,CAA6B;gBAE1D,GAAG,EAAE,MAAM,EAAE,GAAG,EAAE,MAAM;IAKpC,IAAW,GAAG,CAAC,GAAG,EAAE,MAAM,EAUzB;CACJ"}

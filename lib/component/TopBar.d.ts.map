@@ -1,0 +1,1 @@
+{"version":3,"file":"TopBar.d.ts","sourceRoot":"","sources":["../../src/component/TopBar.ts"],"names":[],"mappings":"AAAA,OAAO,OAAO,MAAM,mBAAmB,CAAC;AAGxC,OAAO,SAAS,MAAM,gBAAgB,CAAC;AAEvC,MAAM,CAAC,OAAO,OAAO,MAAO,SAAQ,SAAS;gBAE7B,OAAO,EAAE;QACjB,IAAI,EAAE,OAAO,CAAC;KACjB;CAaJ"}
