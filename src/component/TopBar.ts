@@ -11,13 +11,15 @@ export default class TopBar extends Component {
         super(".topbar");
 
         this.append(
-            el("a.logo", options.logo, {
-                href: "/",
-                click: (event) => {
-                    event.preventDefault();
-                    Router.go("/");
-                },
-            }),
+            el(".container",
+                el("a.logo", options.logo, {
+                    href: "/",
+                    click: (event) => {
+                        event.preventDefault();
+                        Router.go("/");
+                    },
+                }),
+            ),
         );
     }
 }

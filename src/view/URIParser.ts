@@ -8,8 +8,6 @@ class URIParser {
             const patternPart = patternParts[i];
             const uriPart = uriParts[i];
 
-            if (!patternPart) return false;
-
             if (patternPart === "**") return true;
 
             const paramMatch = this.paramRegex.exec(patternPart);

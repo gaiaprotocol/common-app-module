@@ -1,3 +1,4 @@
+export { default as PageFooter } from "./component/PageFooter.js";
 export { default as TopBar } from "./component/TopBar.js";
 export { default as BodyNode } from "./dom/BodyNode.js";
 export { default as DomNode } from "./dom/DomNode.js";
