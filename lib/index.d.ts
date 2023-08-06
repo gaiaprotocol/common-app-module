@@ -1,3 +1,4 @@
+export { default as ErrorAlert } from "./component/dialogue/ErrorAlert.js";
 export { default as Loader } from "./component/Loader.js";
 export { default as PageFooter } from "./component/PageFooter.js";
 export { default as TopBar } from "./component/TopBar.js";

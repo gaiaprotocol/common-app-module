@@ -1,3 +1,4 @@
+export { default as ErrorAlert } from "./component/dialogue/ErrorAlert.js";
 export { default as Loader } from "./component/Loader.js";
 export { default as PageFooter } from "./component/PageFooter.js";
 export { default as TopBar } from "./component/TopBar.js";
@@ -10,4 +11,3 @@ export { default as msg } from "./i18n/msg.js";
 export { default as StringUtil } from "./util/StringUtil.js";
 export { default as Router } from "./view/Router.js";
 export { default as View, ViewParams } from "./view/View.js";
-
