@@ -1,6 +1,7 @@
 import DomNode from "../../dom/DomNode.js";
 import el from "../../dom/el.js";
 import Component from "../Component.js";
+import Loader from "../Loader.js";
 import Popup from "../Popup.js";
 
 export default class Confirm extends Popup {
@@ -12,7 +13,7 @@ export default class Confirm extends Popup {
     cancelTitle: string;
     confirmTitle: string;
     confirmColor: string;
-  }, callback: () => void) {
+  }, callback: () => Promise<void>) {
     super({ barrierDismissible: true });
     this.append(
       this.content = new Component(
@@ -29,8 +30,10 @@ export default class Confirm extends Popup {
           el(
             "button.confirm-button",
             {
-              click: () => {
-                callback();
+              click: async (event, node) => {
+                node.domElement.setAttribute("disabled", "disabled");
+                node.empty().append(new Loader());
+                await callback();
                 this.delete();
               },
               style: `background-color: ${options.confirmColor}`,
