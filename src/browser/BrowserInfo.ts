@@ -31,6 +31,10 @@ class BrowserInfo {
     this.language = language;
     Router.refresh();
   }
+
+  public get isPhoneSize() {
+      return window.innerWidth <= 859;
+  }
 }
 
 export default new BrowserInfo();

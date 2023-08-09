@@ -1,9 +1,10 @@
+import DomNode from "../dom/DomNode.js";
 import el from "../dom/el.js";
 import RetroComponent from "./RetroComponent.js";
 
 export default class RetroTitleBar extends RetroComponent {
   constructor(options: {
-    title: string;
+    title: string | DomNode;
     buttons: {
       type: "close" | "help";
       click: () => void;
@@ -11,7 +12,9 @@ export default class RetroTitleBar extends RetroComponent {
   }) {
     super(
       "header.title-bar",
-      el("h1", options.title),
+      options.title instanceof DomNode
+        ? options.title
+        : el("h1", options.title),
       el(
         ".controls",
         ...options.buttons.map((b) =>
