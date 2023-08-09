@@ -1,0 +1,1 @@
+{"version":3,"file":"RetroComponent.d.ts","sourceRoot":"","sources":["../../src/retro-component/RetroComponent.ts"],"names":[],"mappings":"AAAA,OAAO,OAAO,MAAM,mBAAmB,CAAC;AAExC,MAAM,CAAC,OAAO,OAAO,cAAc,CAAC,EAAE,SAAS,WAAW,GAAG,WAAW,CACtE,SAAQ,OAAO,CAAC,EAAE,CAAC;gBACP,GAAG,EAAE,MAAM,EAAE,GAAG,KAAK,EAAE,CAAC,OAAO,GAAG,MAAM,GAAG,SAAS,CAAC,EAAE;CAIpE"}

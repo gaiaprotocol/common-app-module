@@ -1,0 +1,1 @@
+{"version":3,"file":"RetroStatusBar.d.ts","sourceRoot":"","sources":["../../src/retro-component/RetroStatusBar.ts"],"names":[],"mappings":"AACA,OAAO,cAAc,MAAM,qBAAqB,CAAC;AAEjD,MAAM,CAAC,OAAO,OAAO,cAAe,SAAQ,cAAc;gBAC5C,OAAO,EAAE;QACnB,QAAQ,EAAE,MAAM,EAAE,CAAC;KACpB;CAMF"}
