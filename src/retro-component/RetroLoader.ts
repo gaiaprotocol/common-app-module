@@ -7,7 +7,7 @@ export default class RetroLoader extends RetroComponent {
     super(
       ".loader.index-" + index,
       el("img", {
-        src: `images/loader/loader-${index}.gif`,
+        src: `/images/loader/loader-${index}.gif`,
       }),
     );
   }
