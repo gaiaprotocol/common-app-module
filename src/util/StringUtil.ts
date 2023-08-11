@@ -6,6 +6,11 @@ export default class StringUtil {
     );
   }
 
+  public static shortenEthereumAddress(address: string) {
+    if (address.length !== 42 || !address.startsWith("0x")) return address;
+    return `${address.substring(0, 6)}...${address.substring(38)}`;
+  }
+
   public static numberWithCommas(x: string, fixed?: number) {
     if (fixed === undefined || +(+x) > Number.MAX_SAFE_INTEGER) {
       const parts = x.split(".");

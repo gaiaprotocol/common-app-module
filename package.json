@@ -7,9 +7,13 @@
     "types": "./lib/index.d.ts",
     "main": "./lib/index.js",
     "dependencies": {
-        "js-yaml": "^4.1.0"
+        "color": "^4.2.3",
+        "js-yaml": "^4.1.0",
+        "mersenne-twister": "^1.1.0"
     },
     "devDependencies": {
-        "@types/js-yaml": "^4.0.5"
+        "@types/color": "^3.0.3",
+        "@types/js-yaml": "^4.0.5",
+        "@types/mersenne-twister": "^1.1.3"
     }
 }
