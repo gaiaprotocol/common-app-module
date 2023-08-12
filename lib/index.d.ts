@@ -13,6 +13,7 @@ export { default as ResponsiveImage } from "./dom/ResponsiveImage.js";
 export { default as el } from "./dom/el.js";
 export { default as EventContainer } from "./event/EventContainer.js";
 export { default as msg } from "./i18n/msg.js";
+export { default as RetroCheckbox } from "./retro-component/RetroCheckbox.js";
 export { default as RetroLoader } from "./retro-component/RetroLoader.js";
 export { default as RetroStatusBar } from "./retro-component/RetroStatusBar.js";
 export { default as RetroTitleBar } from "./retro-component/RetroTitleBar.js";

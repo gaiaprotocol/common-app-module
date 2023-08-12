@@ -1,0 +1,1 @@
+{"version":3,"file":"RetroCheckbox.d.ts","sourceRoot":"","sources":["../../src/retro-component/RetroCheckbox.ts"],"names":[],"mappings":"AAGA,OAAO,cAAc,MAAM,qBAAqB,CAAC;AAEjD,MAAM,CAAC,OAAO,OAAO,QAAS,SAAQ,cAAc;IAClD,OAAO,CAAC,KAAK,CAA4B;gBAE7B,OAAO,EAAE;QACnB,KAAK,EAAE,MAAM,CAAC;KACf;IAUD,IAAW,OAAO,YAEjB;CACF"}
