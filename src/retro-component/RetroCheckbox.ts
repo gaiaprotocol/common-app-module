@@ -3,7 +3,7 @@ import DomNode from "../dom/DomNode.js";
 import el from "../dom/el.js";
 import RetroComponent from "./RetroComponent.js";
 
-export default class Checkbox extends RetroComponent {
+export default class RetroCheckbox extends RetroComponent {
   private input: DomNode<HTMLInputElement>;
 
   constructor(options: {

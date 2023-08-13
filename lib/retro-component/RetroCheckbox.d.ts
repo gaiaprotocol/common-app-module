@@ -1,5 +1,5 @@
 import RetroComponent from "./RetroComponent.js";
-export default class Checkbox extends RetroComponent {
+export default class RetroCheckbox extends RetroComponent {
     private input;
     constructor(options: {
         label: string;
