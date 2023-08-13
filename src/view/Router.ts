@@ -34,9 +34,7 @@ class Router extends EventContainer {
   constructor() {
     super();
     window.addEventListener("popstate", (event) => {
-      if (event.state !== null) {
-        this.check(event.state);
-      }
+      this.check(event.state ?? undefined);
     });
   }
 
