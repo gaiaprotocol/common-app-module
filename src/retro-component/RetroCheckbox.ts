@@ -13,7 +13,9 @@ export default class RetroCheckbox extends RetroComponent {
 
     const id = uuidv4();
     this.append(
-      this.input = el("input", { id, type: "checkbox" }),
+      this.input = el("input", { id, type: "checkbox" }, {
+        change: () => this.fireEvent("change"),
+      }),
       el("label", { for: id }, options.label),
     );
   }
