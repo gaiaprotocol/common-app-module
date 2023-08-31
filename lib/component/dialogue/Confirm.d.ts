@@ -5,9 +5,8 @@ export default class Confirm extends Popup {
     constructor(options: {
         title: string;
         message: string;
-        cancelTitle: string;
-        confirmTitle: string;
-        confirmColor: string;
+        cancelTitle?: string;
+        confirmTitle?: string;
     }, callback: () => Promise<void>);
 }
 //# sourceMappingURL=Confirm.d.ts.map

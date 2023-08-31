@@ -3,6 +3,8 @@ import el from "../../dom/el.js";
 import Component from "../Component.js";
 import Loader from "../Loader.js";
 import Popup from "../Popup.js";
+import Button from "../button/Button.js";
+import ButtonType from "../button/ButtonType.js";
 
 export default class Confirm extends Popup {
   public content: DomNode;
@@ -10,9 +12,8 @@ export default class Confirm extends Popup {
   constructor(options: {
     title: string;
     message: string;
-    cancelTitle: string;
-    confirmTitle: string;
-    confirmColor: string;
+    cancelTitle?: string;
+    confirmTitle?: string;
   }, callback: () => Promise<void>) {
     super({ barrierDismissible: true });
     this.append(
@@ -22,24 +23,23 @@ export default class Confirm extends Popup {
         el("p", options.message),
         el(
           "footer",
-          el(
-            "button.cancel-button",
-            { click: () => this.delete() },
-            options.cancelTitle,
-          ),
-          el(
-            "button.confirm-button",
-            {
-              click: async (event, node) => {
-                node.domElement.setAttribute("disabled", "disabled");
-                node.empty().append(new Loader());
-                await callback();
-                this.delete();
-              },
-              style: `background-color: ${options.confirmColor}`,
+          new Button({
+            type: ButtonType.Text,
+            tag: ".cancel-button",
+            click: () => this.delete(),
+            title: options.cancelTitle ?? "Cancel",
+          }),
+          new Button({
+            type: ButtonType.Text,
+            tag: ".confirm-button",
+            click: async (event, node) => {
+              node.domElement.setAttribute("disabled", "disabled");
+              node.empty().append(new Loader());
+              await callback();
+              this.delete();
             },
-            options.confirmTitle,
-          ),
+            title: options.confirmTitle ?? "Confirm",
+          }),
         ),
       ),
     );
