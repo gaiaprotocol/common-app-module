@@ -73,10 +73,21 @@ function generateJazziconSVG(
     shapes.join("") + "</svg>";
 }
 
+export function generateJazziconDataURL(
+  address: string,
+  shapeCount = DEFAULT_SHAPE_COUNT,
+  wobble = DEFAULT_WOBBLE,
+  baseColors = DEFAULT_BASE_COLORS,
+): string {
+  return "data:image/svg+xml;utf8," +
+    encodeURIComponent(
+      generateJazziconSVG(address, shapeCount, wobble, baseColors),
+    );
+}
+
 export default class Jazzicon extends Component<HTMLImageElement> {
   constructor(address: string) {
     super("img.jazzicon");
-    this.domElement.src = "data:image/svg+xml;utf8," +
-      encodeURIComponent(generateJazziconSVG(address));
+    this.domElement.src = generateJazziconDataURL(address);
   }
 }

@@ -5,6 +5,8 @@ export { default as Loader } from "./component/Loader.js";
 export { default as PageFooter } from "./component/PageFooter.js";
 export { default as Popup } from "./component/Popup.js";
 export { default as TopBar } from "./component/TopBar.js";
+export { default as Button } from "./component/button/Button.js";
+export { default as ButtonType } from "./component/button/ButtonType.js";
 export { default as Alert } from "./component/dialogue/Alert.js";
 export { default as Confirm } from "./component/dialogue/Confirm.js";
 export { default as ErrorAlert } from "./component/dialogue/ErrorAlert.js";

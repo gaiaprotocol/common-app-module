@@ -23,10 +23,10 @@ export type Child<EL extends HTMLElement> =
 
 const el: <EL extends HTMLElement>(
   tag: string,
-  ...children: Child<EL>[]
+  ...children: Child<HTMLElement>[]
 ) => DomNode<EL> = <EL extends HTMLElement>(
   tag: string,
-  ...children: Child<EL>[]
+  ...children: Child<HTMLElement>[]
 ) => {
   const domNode = new DomNode<EL>(DomNode.createElement(tag) as EL);
   for (const child of children) {
