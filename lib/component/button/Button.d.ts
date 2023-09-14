@@ -3,11 +3,12 @@ import Component from "../Component.js";
 import ButtonType from "./ButtonType.js";
 export default class Button extends Component<HTMLAnchorElement> {
     private titleContainer;
+    private titleText;
     constructor(options: {
         tag?: string;
         type?: ButtonType;
         icon?: DomNode;
-        title?: string | DomNode;
+        title?: string;
         href?: string;
         disabled?: boolean;
         click?: (event: Event, node: DomNode) => void;

@@ -2,6 +2,8 @@ import DomNode from "../../dom/DomNode.js";
 import el from "../../dom/el.js";
 import Component from "../Component.js";
 import Popup from "../Popup.js";
+import Button from "../button/Button.js";
+import ButtonType from "../button/ButtonType.js";
 
 export default class Alert extends Popup {
   public content: DomNode;
@@ -19,11 +21,12 @@ export default class Alert extends Popup {
         el("p", options.message),
         el(
           "footer",
-          el(
-            "button.confirm-button",
-            { click: () => this.delete() },
-            options.confirmTitle,
-          ),
+          new Button({
+            type: ButtonType.Text,
+            tag: ".confirm-button",
+            title: options.confirmTitle,
+            click: () => this.delete(),
+          }),
         ),
       ),
     );

@@ -6,11 +6,13 @@ import ButtonType from "./ButtonType.js";
 export default class Button extends Component<HTMLAnchorElement> {
   private titleContainer: DomNode | undefined;
 
+  private titleText: string | undefined;
+
   constructor(options: {
     tag?: string;
     type?: ButtonType;
     icon?: DomNode;
-    title?: string | DomNode;
+    title?: string;
     href?: string;
     disabled?: boolean;
     click?: (event: Event, node: DomNode) => void;
@@ -24,7 +26,9 @@ export default class Button extends Component<HTMLAnchorElement> {
       this.append(options.icon);
     }
     if (options.title !== undefined) {
-      this.append(this.titleContainer = el("span.title", options.title));
+      this.append(
+        this.titleContainer = el("span.title", this.titleText = options.title),
+      );
     }
     if (options.href !== undefined) {
       this.domElement.href = options.href;
@@ -48,11 +52,13 @@ export default class Button extends Component<HTMLAnchorElement> {
     } else {
       this.append(this.titleContainer = el("span.title", title));
     }
+    this.titleText = title;
   }
 
   public disable(): void {
     this.addClass("disabled");
   }
+
   public enable(): void {
     this.deleteClass("disabled");
   }
