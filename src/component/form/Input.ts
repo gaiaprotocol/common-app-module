@@ -13,6 +13,7 @@ export default class Input extends Component {
     disabled?: boolean;
     required?: boolean;
     multiline?: boolean;
+    value?: string;
   }) {
     super(
       "fieldset.input" + (options.disabled === true ? ".disabled" : "") +
@@ -34,6 +35,9 @@ export default class Input extends Component {
         },
       }) as any,
     );
+    if (options.value !== undefined) {
+      this.value = options.value;
+    }
   }
 
   public get value(): string {

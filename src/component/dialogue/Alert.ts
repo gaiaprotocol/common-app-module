@@ -11,7 +11,7 @@ export default class Alert extends Popup {
   constructor(options: {
     title: string;
     message: string;
-    confirmTitle: string;
+    confirmTitle?: string;
   }) {
     super({ barrierDismissible: true });
     this.append(
@@ -24,7 +24,7 @@ export default class Alert extends Popup {
           new Button({
             type: ButtonType.Text,
             tag: ".confirm-button",
-            title: options.confirmTitle,
+            title: options.confirmTitle ?? "OK",
             click: () => this.delete(),
           }),
         ),

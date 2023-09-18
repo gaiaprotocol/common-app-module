@@ -11,6 +11,7 @@ export { default as Alert } from "./component/dialogue/Alert.js";
 export { default as Confirm } from "./component/dialogue/Confirm.js";
 export { default as ErrorAlert } from "./component/dialogue/ErrorAlert.js";
 export { default as Input } from "./component/form/Input.js";
+export { default as WarningMessageBox } from "./component/messagebox/WarningMessageBox.js";
 export { default as BodyNode } from "./dom/BodyNode.js";
 export { default as DomNode } from "./dom/DomNode.js";
 export { default as ResponsiveImage } from "./dom/ResponsiveImage.js";

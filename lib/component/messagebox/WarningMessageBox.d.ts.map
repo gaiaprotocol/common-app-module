@@ -1,0 +1,1 @@
+{"version":3,"file":"WarningMessageBox.d.ts","sourceRoot":"","sources":["../../../src/component/messagebox/WarningMessageBox.ts"],"names":[],"mappings":"AACA,OAAO,SAAS,MAAM,iBAAiB,CAAC;AAGxC,MAAM,CAAC,OAAO,OAAO,iBAAkB,SAAQ,SAAS;gBAC1C,OAAO,EAAE;QAAE,GAAG,CAAC,EAAE,MAAM,CAAC;QAAC,OAAO,EAAE,MAAM,CAAA;KAAE;CAOvD"}

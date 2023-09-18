@@ -5,7 +5,7 @@ export default class Alert extends Popup {
     constructor(options: {
         title: string;
         message: string;
-        confirmTitle: string;
+        confirmTitle?: string;
     });
 }
 //# sourceMappingURL=Alert.d.ts.map
