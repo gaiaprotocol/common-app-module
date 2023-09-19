@@ -10,11 +10,20 @@ class URIParser {
   ): boolean {
     for (let i = 0; i < patternParts.length; i++) {
       const patternPart = patternParts[i];
-      const uriPart = uriParts[i];
+      let uriPart = uriParts[i];
 
       if (patternPart === "**") return true;
 
       const paramMatch = this.paramRegex.exec(patternPart);
+
+      if (!patternPart.startsWith("{")) {
+        const index = patternPart.indexOf("{");
+        if (uriPart.substring(0, index) !== patternPart.substring(0, index)) {
+          return false;
+        } else {
+          uriPart = uriPart.substring(index);
+        }
+      }
 
       if (uriPart && paramMatch) {
         params && (params[paramMatch[1]] = uriPart);
