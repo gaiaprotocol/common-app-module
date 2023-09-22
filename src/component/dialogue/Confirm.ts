@@ -9,12 +9,16 @@ import ButtonType from "../button/ButtonType.js";
 export default class Confirm extends Popup {
   public content: DomNode;
 
-  constructor(options: {
-    title: string;
-    message: string;
-    cancelTitle?: string;
-    confirmTitle?: string;
-  }, callback: () => Promise<void>) {
+  constructor(
+    options: {
+      title: string;
+      message: string;
+      cancelTitle?: string;
+      confirmTitle?: string;
+    },
+    callback: () => Promise<void>,
+    cancelCallback?: () => Promise<void>,
+  ) {
     super({ barrierDismissible: true });
     this.append(
       this.content = new Component(
@@ -26,7 +30,12 @@ export default class Confirm extends Popup {
           new Button({
             type: ButtonType.Text,
             tag: ".cancel-button",
-            click: () => this.delete(),
+            click: () => {
+              if (cancelCallback) {
+                cancelCallback();
+              }
+              this.delete();
+            },
             title: options.cancelTitle ?? "Cancel",
           }),
           new Button({

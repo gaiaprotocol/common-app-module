@@ -1,3 +1,4 @@
+import BodyNode from "../dom/BodyNode.js";
 import EventContainer from "../event/EventContainer.js";
 import ArrayUtil from "../util/ArrayUtil.js";
 import URIParser from "./URIParser.js";
@@ -30,11 +31,25 @@ class Router extends EventContainer {
   private redirects: { patterns: string[]; excludes: string[]; to: string }[] =
     [];
   private openingViews: View[] = [];
+  private forwarding = false;
 
   constructor() {
     super();
     window.addEventListener("popstate", (event) => {
-      this.check(event.state ?? undefined);
+      if (this.forwarding === true) {
+        this.forwarding = false;
+      } else {
+        const openedPopup = BodyNode.children.findLast((child) =>
+          child.hasClass("popup-background")
+        );
+        if (openedPopup) {
+          this.forwarding = true;
+          window.history.forward();
+          openedPopup.delete();
+        } else {
+          this.check(event.state ?? undefined);
+        }
+      }
     });
   }
 
