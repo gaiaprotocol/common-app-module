@@ -74,6 +74,7 @@ export default class DomNode<EL extends HTMLElement = HTMLElement>
 
   constructor(domElement: EL | string) {
     super();
+    this.addAllowedEvents("visible");
     if (domElement instanceof HTMLElement) {
       this.domElement = domElement;
     } else {

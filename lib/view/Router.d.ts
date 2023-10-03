@@ -7,6 +7,7 @@ declare class Router extends EventContainer {
     private openingViews;
     private forwarding;
     constructor();
+    closeAllPopup(): void;
     check(preParams?: ViewParams): void;
     route(patterns: string | string[], viewType: ViewType, excludes?: string[]): void;
     redirect(patterns: string | string[], to: string, excludes?: string[]): void;

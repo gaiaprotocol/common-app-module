@@ -9,12 +9,23 @@ export default abstract class EventContainer {
 
   public id = EventContainer.NEXT_ID++;
 
+  private allowedEvents: string[] = ["delete"];
   private eventMap: Events = {};
   private delegateEvents: { delegate: EventContainer; events: Events }[] = [];
 
   public deleted = false;
 
+  protected addAllowedEvents(...events: string[]): void {
+    this.allowedEvents.push(...events);
+  }
+
   private addEventHandler(eventName: string, eventHandler: EventHandler): void {
+    if (!this.allowedEvents.includes(eventName)) {
+      throw new Error(
+        `EventContainer ${this.constructor.name} does not allow event ${eventName}`,
+      );
+    }
+
     if (this.eventMap[eventName] === undefined) {
       this.eventMap[eventName] = [];
     }
@@ -32,8 +43,14 @@ export default abstract class EventContainer {
     ArrayUtil.pull(this.delegateEvents, delegateEvents);
   }
 
-  public on(eventName: string, eventHandler: EventHandler) {
-    this.addEventHandler(eventName, eventHandler);
+  public on(eventName: string | string[], eventHandler: EventHandler) {
+    if (Array.isArray(eventName)) {
+      for (const name of eventName) {
+        this.addEventHandler(name, eventHandler);
+      }
+    } else {
+      this.addEventHandler(eventName, eventHandler);
+    }
   }
 
   public once(eventName: string, eventHandler: EventHandler) {
@@ -54,6 +71,12 @@ export default abstract class EventContainer {
   }
 
   public async fireEvent(eventName: string, ...params: any[]): Promise<any[]> {
+    if (!this.allowedEvents.includes(eventName)) {
+      throw new Error(
+        `EventContainer ${this.constructor.name} does not allow event ${eventName}`,
+      );
+    }
+
     const results: any[] = [];
     const promises: Promise<void>[] = [];
     if (this.eventMap[eventName] !== undefined) {
@@ -112,6 +135,7 @@ export default abstract class EventContainer {
     (this.delegateEvents as unknown) = undefined;
 
     this.fireEvent("delete");
+    (this.allowedEvents as unknown) = undefined;
     (this.eventMap as unknown) = undefined;
     this.deleted = true;
   }

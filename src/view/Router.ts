@@ -39,7 +39,7 @@ class Router extends EventContainer {
       if (this.forwarding === true) {
         this.forwarding = false;
       } else {
-        const openedPopup = BodyNode.children.findLast((child) =>
+        const openedPopup = (BodyNode.children as any).findLast((child: any) =>
           child.hasClass("popup-background")
         );
         if (openedPopup) {
@@ -51,6 +51,14 @@ class Router extends EventContainer {
         }
       }
     });
+  }
+
+  public closeAllPopup() {
+    for (const child of BodyNode.children) {
+      if (child.hasClass("popup-background")) {
+        child.delete();
+      }
+    }
   }
 
   public check(preParams?: ViewParams) {

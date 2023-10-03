@@ -6,6 +6,7 @@ export default interface I18NText {
     de?: string;
     it?: string;
     pt?: string;
+    ru?: string;
     "zh-CN"?: string;
     "zh-TW"?: string;
     ja?: string;

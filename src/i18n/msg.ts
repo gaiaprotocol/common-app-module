@@ -1,8 +1,9 @@
 import yaml from "js-yaml";
 import BrowserInfo from "../browser/BrowserInfo.js";
 import I18NText from "./I18NText.js";
+import common_words from "./common_words.json" assert { type: "json" };
 
-const data: { [key: string]: I18NText } = {};
+const data: { [key: string]: I18NText } = common_words as any;
 
 const getNormalizedLanguage = () => {
   let language: string = "";
