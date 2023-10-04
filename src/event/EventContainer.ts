@@ -19,6 +19,10 @@ export default abstract class EventContainer {
     this.allowedEvents.push(...events);
   }
 
+  constructor(...events: string[]) {
+    this.addAllowedEvents(...events);
+  }
+
   private addEventHandler(eventName: string, eventHandler: EventHandler): void {
     if (!this.allowedEvents.includes(eventName)) {
       throw new Error(

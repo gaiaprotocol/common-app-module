@@ -12,11 +12,18 @@ export default class Store {
   }
 
   public set(key: string, value: any, permanently: boolean = false) {
-    this.selectStorage(permanently).setItem(
-      this.getKey(key),
-      JSON.stringify(value),
-    );
     this.selectStorage(!permanently).removeItem(this.getKey(key));
+    const storage = this.selectStorage(permanently);
+    try {
+      storage.setItem(this.getKey(key), JSON.stringify(value));
+    } catch (e) {
+      if (e instanceof DOMException && e.code === 22) { // 22: QuotaExceededError in some browsers
+        storage.clear();
+        location.reload();
+      } else {
+        throw e;
+      }
+    }
   }
 
   public get<T>(key: string, defaultValue?: T): T | undefined {
