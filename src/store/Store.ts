@@ -17,7 +17,14 @@ export default class Store {
     try {
       storage.setItem(this.getKey(key), JSON.stringify(value));
     } catch (e) {
-      if (e instanceof DOMException && e.code === 22) { // 22: QuotaExceededError in some browsers
+      if (
+        e instanceof DOMException && (
+          e.code === 22 ||
+          e.code === 1014 ||
+          e.name === "QuotaExceededError" ||
+          e.name === "NS_ERROR_DOM_QUOTA_REACHED"
+        )
+      ) {
         storage.clear();
         location.reload();
       } else {
