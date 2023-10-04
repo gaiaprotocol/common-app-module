@@ -1,56 +1,13 @@
-import DomNode, { Style } from "./DomNode.js";
-
-export type EventHandler<EV, EL extends HTMLElement> = (
-  event: EV,
-  domNode: DomNode<EL>,
-) => void;
-
-interface Attributes<EL extends HTMLElement> {
-  [name: string]:
-    | Style
-    | string
-    | number
-    | boolean
-    | undefined
-    | EventHandler<any, EL>;
-}
-
-export type Child<EL extends HTMLElement> =
-  | Attributes<HTMLElement>
-  | DomNode<EL>
-  | string
-  | undefined;
+import DomNode, { DomChild } from "./DomNode.js";
 
 const el: <EL extends HTMLElement>(
   tag: string,
-  ...children: Child<HTMLElement>[]
+  ...children: DomChild[]
 ) => DomNode<EL> = <EL extends HTMLElement>(
   tag: string,
-  ...children: Child<HTMLElement>[]
+  ...children: DomChild[]
 ) => {
-  const domNode = new DomNode<EL>(DomNode.createElement(tag) as EL);
-  for (const child of children) {
-    if (child !== undefined) {
-      if (typeof child === "string") {
-        domNode.appendText(child);
-      } else if (child instanceof DomNode) {
-        domNode.append(child);
-      } else {
-        for (const [name, value] of Object.entries(child)) {
-          if (typeof value === "function") {
-            domNode.onDom(name, value);
-          } else if (name === "style" && typeof value === "object") {
-            domNode.style(value);
-          } else if (value === undefined) {
-            domNode.domElement.removeAttribute(name);
-          } else {
-            domNode.domElement.setAttribute(name, String(value));
-          }
-        }
-      }
-    }
-  }
-  return domNode;
+  return new DomNode<EL>(DomNode.createElement(tag) as EL, ...children);
 };
 
 export default el;

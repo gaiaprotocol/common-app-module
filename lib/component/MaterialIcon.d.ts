@@ -1,5 +1,5 @@
-import DomNode from "../dom/DomNode.js";
-export default class MaterialIcon extends DomNode {
+import Component from "./Component.js";
+export default class MaterialIcon extends Component {
     constructor(iconName: string);
 }
 //# sourceMappingURL=MaterialIcon.d.ts.map

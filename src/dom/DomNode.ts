@@ -3,10 +3,27 @@ import TreeNode from "../tree/TreeNode.js";
 import ArrayUtil from "../util/ArrayUtil.js";
 
 export type Style = { [key: string]: string | number | undefined };
+
 export type DomEventHandler<ET extends Event, DT extends DomNode> = (
   event: ET,
   domNode: DT,
 ) => any;
+
+interface Attributes<DT extends DomNode> {
+  [name: string]:
+    | Style
+    | string
+    | number
+    | boolean
+    | undefined
+    | DomEventHandler<any, DT>;
+}
+
+export type DomChild<DT extends DomNode = DomNode> =
+  | Attributes<DT>
+  | DT
+  | string
+  | undefined;
 
 type Events = {
   [eventName: string]: {
@@ -72,7 +89,7 @@ export default class DomNode<EL extends HTMLElement = HTMLElement>
 
   public domElement: EL;
 
-  constructor(domElement: EL | string) {
+  constructor(domElement: EL | string, ...children: DomChild[]) {
     super();
     this.addAllowedEvents("visible");
     if (domElement instanceof HTMLElement) {
@@ -80,6 +97,7 @@ export default class DomNode<EL extends HTMLElement = HTMLElement>
     } else {
       this.domElement = DomNode.createElement<EL>(domElement);
     }
+    this.append(...children);
   }
 
   public style(style: Style): this {
@@ -189,12 +207,26 @@ export default class DomNode<EL extends HTMLElement = HTMLElement>
     this.empty().appendText(text);
   }
 
-  public append(...nodes: (TreeNode | string | undefined)[]): this {
-    for (const node of nodes) {
-      if (typeof node === "string") {
-        this.appendText(node);
-      } else if (node !== undefined) {
-        node.appendTo(this);
+  public append(...children: any[]): this {
+    for (const child of children) {
+      if (child !== undefined) {
+        if (typeof child === "string") {
+          this.appendText(child);
+        } else if (child instanceof DomNode) {
+          child.appendTo(this);
+        } else {
+          for (const [name, value] of Object.entries<any>(child)) {
+            if (typeof value === "function") {
+              this.onDom(name, value);
+            } else if (name === "style" && typeof value === "object") {
+              this.style(value);
+            } else if (value === undefined) {
+              this.domElement.removeAttribute(name);
+            } else {
+              this.domElement.setAttribute(name, String(value));
+            }
+          }
+        }
       }
     }
     return this;

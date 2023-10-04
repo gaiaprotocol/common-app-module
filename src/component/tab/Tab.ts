@@ -1,6 +1,6 @@
-import DomNode from "../../dom/DomNode.js";
+import Component from "../Component.js";
 
-export default class Tab extends DomNode {
+export default class Tab extends Component {
   constructor(public _id: string, label: string) {
     super("li.tab");
     this.append(label);
