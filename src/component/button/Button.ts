@@ -55,11 +55,13 @@ export default class Button extends Component<HTMLAnchorElement> {
     this.titleText = title;
   }
 
-  public disable(): void {
+  public disable(): this {
     this.addClass("disabled");
+    return this;
   }
 
-  public enable(): void {
+  public enable(): this {
     this.deleteClass("disabled");
+    return this;
   }
 }

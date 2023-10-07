@@ -7,7 +7,6 @@ export default abstract class EventContainer {
     private delegateEvents;
     deleted: boolean;
     protected addAllowedEvents(...events: string[]): void;
-    constructor(...events: string[]);
     private addEventHandler;
     private removeDelegateEvents;
     on(eventName: string | string[], eventHandler: EventHandler): void;

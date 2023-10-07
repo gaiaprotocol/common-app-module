@@ -14,7 +14,7 @@ export default class Button extends Component<HTMLAnchorElement> {
         click?: (event: Event, node: Button) => void;
     });
     set title(title: string);
-    disable(): void;
-    enable(): void;
+    disable(): this;
+    enable(): this;
 }
 //# sourceMappingURL=Button.d.ts.map
