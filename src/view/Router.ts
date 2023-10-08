@@ -35,6 +35,8 @@ class Router extends EventContainer {
 
   constructor() {
     super();
+    this.addAllowedEvents("go");
+
     window.addEventListener("popstate", (event) => {
       if (this.forwarding === true) {
         this.forwarding = false;
