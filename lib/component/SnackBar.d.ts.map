@@ -1,0 +1,1 @@
+{"version":3,"file":"SnackBar.d.ts","sourceRoot":"","sources":["../../src/component/SnackBar.ts"],"names":[],"mappings":"AACA,OAAO,SAAS,MAAM,gBAAgB,CAAC;AAIvC,MAAM,CAAC,OAAO,OAAO,QAAS,SAAQ,SAAS;gBACjC,OAAO,EAAE;QACnB,OAAO,EAAE,MAAM,CAAC;QAChB,MAAM,CAAC,EAAE;YACP,KAAK,EAAE,MAAM,CAAC;YACd,KAAK,EAAE,MAAM,IAAI,CAAC;SACnB,CAAC;KACH;CAqBF"}
