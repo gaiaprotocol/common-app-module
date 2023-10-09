@@ -51,6 +51,7 @@ export default abstract class EventContainer {
     } else {
       this.addEventHandler(eventName, eventHandler);
     }
+    return this;
   }
 
   public once(eventName: string, eventHandler: EventHandler) {

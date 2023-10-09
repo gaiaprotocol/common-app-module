@@ -1,13 +1,14 @@
 export { default as BrowserInfo } from "./browser/BrowserInfo.js";
 export { default as Component } from "./component/Component.js";
 export { default as Details } from "./component/Details.js";
+export { default as DropdownMenu } from "./component/DropdownMenu.js";
 export { default as Jazzicon } from "./component/Jazzicon.js";
 export { default as Loader } from "./component/Loader.js";
 export { default as MaterialIcon } from "./component/MaterialIcon.js";
 export { default as NavBar } from "./component/NavBar.js";
 export { default as PageFooter } from "./component/PageFooter.js";
 export { default as Popup } from "./component/Popup.js";
-export { default as Snackbar } from "./component/SnackBar.js";
+export { default as Snackbar } from "./component/Snackbar.js";
 export { default as SplashScreen } from "./component/SplashScreen.js";
 export { default as TopBar } from "./component/TopBar.js";
 export { default as Button } from "./component/button/Button.js";
@@ -29,7 +30,7 @@ export { default as msg } from "./i18n/msg.js";
 export { default as Store } from "./store/Store.js";
 export { default as Supabase } from "./supabase/Supabase.js";
 export { default as ArrayUtil } from "./util/ArrayUtil.js";
+export { default as JSONUtil } from "./util/JSONUtil.js";
 export { default as StringUtil } from "./util/StringUtil.js";
 export { default as Router } from "./view/Router.js";
 export { default as View, ViewParams } from "./view/View.js";
-

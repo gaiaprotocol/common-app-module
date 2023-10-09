@@ -15,20 +15,21 @@ export default class Confirm extends Popup {
       message: string;
       cancelTitle?: string;
       confirmTitle?: string;
+      buttonType?: ButtonType;
     },
-    callback: () => Promise<void>,
-    cancelCallback?: () => Promise<void>,
+    callback: () => Promise<void> | void,
+    cancelCallback?: () => Promise<void> | void,
   ) {
     super({ barrierDismissible: true });
     this.append(
       this.content = new Component(
-        ".confirm",
-        el("h1", options.title),
-        el("p", options.message),
+        ".popup.confirm",
+        el("header", el("h1", options.title)),
+        el("main", el("p", options.message)),
         el(
           "footer",
           new Button({
-            type: ButtonType.Text,
+            type: options.buttonType ?? ButtonType.Text,
             tag: ".cancel-button",
             click: () => {
               if (cancelCallback) {
@@ -39,7 +40,7 @@ export default class Confirm extends Popup {
             title: options.cancelTitle ?? "Cancel",
           }),
           new Button({
-            type: ButtonType.Text,
+            type: options.buttonType ?? ButtonType.Text,
             tag: ".confirm-button",
             click: async (event, node) => {
               node.domElement.setAttribute("disabled", "disabled");

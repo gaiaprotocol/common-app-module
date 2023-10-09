@@ -16,9 +16,9 @@ export default class Alert extends Popup {
     super({ barrierDismissible: true });
     this.append(
       this.content = new Component(
-        ".alert",
-        el("h1", options.title),
-        el("p", options.message),
+        ".popup.alert",
+        el("header", el("h1", options.title)),
+        el("main", el("p", options.message)),
         el(
           "footer",
           new Button({

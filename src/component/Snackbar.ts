@@ -6,6 +6,8 @@ import Button from "./button/Button.js";
 import ButtonType from "./button/ButtonType.js";
 
 export default class Snackbar extends Component {
+  private timeoutId: number;
+
   constructor(options: {
     message: string;
     action?: {
@@ -37,6 +39,11 @@ export default class Snackbar extends Component {
     );
     BodyNode.append(this);
 
-    setTimeout(() => this.delete(), 5000);
+    this.timeoutId = setTimeout(() => this.delete(), 5000) as any;
+  }
+
+  public delete() {
+    clearTimeout(this.timeoutId);
+    super.delete();
   }
 }

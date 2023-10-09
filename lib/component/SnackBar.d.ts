@@ -1,5 +1,6 @@
 import Component from "./Component.js";
 export default class Snackbar extends Component {
+    private timeoutId;
     constructor(options: {
         message: string;
         action?: {
@@ -7,5 +8,6 @@ export default class Snackbar extends Component {
             click: () => void;
         };
     });
+    delete(): void;
 }
-//# sourceMappingURL=SnackBar.d.ts.map
+//# sourceMappingURL=Snackbar.d.ts.map

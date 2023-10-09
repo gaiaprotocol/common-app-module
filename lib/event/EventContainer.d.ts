@@ -9,7 +9,7 @@ export default abstract class EventContainer {
     protected addAllowedEvents(...events: string[]): void;
     private addEventHandler;
     private removeDelegateEvents;
-    on(eventName: string | string[], eventHandler: EventHandler): void;
+    on(eventName: string | string[], eventHandler: EventHandler): this;
     once(eventName: string, eventHandler: EventHandler): void;
     off(eventName: string, eventHandler: EventHandler): void;
     fireEvent(eventName: string, ...params: any[]): Promise<any[]>;
