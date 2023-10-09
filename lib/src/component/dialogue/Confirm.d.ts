@@ -8,7 +8,6 @@ export default class Confirm extends Popup {
         message: string;
         cancelTitle?: string;
         confirmTitle?: string;
-        loadingTitle?: string;
         buttonType?: ButtonType;
     }, callback: () => Promise<void> | void, cancelCallback?: () => Promise<void> | void);
 }

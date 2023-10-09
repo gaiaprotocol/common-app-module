@@ -1,7 +1,6 @@
 import DomNode from "../../dom/DomNode.js";
 import el from "../../dom/el.js";
 import Component from "../Component.js";
-import Loader from "../Loader.js";
 import Popup from "../Popup.js";
 import Button from "../button/Button.js";
 import ButtonType from "../button/ButtonType.js";
@@ -15,6 +14,7 @@ export default class Confirm extends Popup {
       message: string;
       cancelTitle?: string;
       confirmTitle?: string;
+      loadingTitle?: string;
       buttonType?: ButtonType;
     },
     callback: () => Promise<void> | void,
@@ -44,7 +44,7 @@ export default class Confirm extends Popup {
             tag: ".confirm-button",
             click: async (event, node) => {
               node.domElement.setAttribute("disabled", "disabled");
-              node.empty().append(new Loader());
+              if (options.loadingTitle) node.text = options.loadingTitle;
               await callback();
               this.delete();
             },

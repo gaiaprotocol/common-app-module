@@ -3,6 +3,7 @@ export { default as Component } from "./component/Component.js";
 export { default as Details } from "./component/Details.js";
 export { default as DropdownMenu } from "./component/DropdownMenu.js";
 export { default as Jazzicon } from "./component/Jazzicon.js";
+export { default as Loader } from "../old/Loader.js";
 export { default as MaterialIcon } from "./component/MaterialIcon.js";
 export { default as NavBar } from "./component/NavBar.js";
 export { default as PageFooter } from "./component/PageFooter.js";
@@ -33,3 +34,4 @@ export { default as JSONUtil } from "./util/JSONUtil.js";
 export { default as StringUtil } from "./util/StringUtil.js";
 export { default as Router } from "./view/Router.js";
 export { default as View, ViewParams } from "./view/View.js";
+//# sourceMappingURL=index.d.ts.map
