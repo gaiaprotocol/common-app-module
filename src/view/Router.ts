@@ -52,6 +52,11 @@ class Router extends EventContainer {
           this.check(event.state ?? undefined);
         }
       }
+      for (const child of BodyNode.children) {
+        if (child.hasClass("dropdown-menu")) {
+          child.delete();
+        }
+      }
     });
   }
 
