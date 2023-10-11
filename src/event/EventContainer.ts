@@ -95,7 +95,7 @@ export default abstract class EventContainer {
 
   public onDelegate(
     delegate: EventContainer,
-    eventName: string,
+    eventNames: string | string[],
     eventHandler: EventHandler,
   ): void {
     let delegateEvents = this.delegateEvents.find((de) =>
@@ -105,11 +105,14 @@ export default abstract class EventContainer {
       delegateEvents = { delegate, events: {} };
       this.delegateEvents.push(delegateEvents);
     }
-    if (delegateEvents.events[eventName] === undefined) {
-      delegateEvents.events[eventName] = [];
+    if (typeof eventNames === "string") eventNames = [eventNames];
+    for (const eventName of eventNames) {
+      if (delegateEvents.events[eventName] === undefined) {
+        delegateEvents.events[eventName] = [];
+      }
+      delegateEvents.events[eventName].push(eventHandler);
+      delegate.on(eventName, eventHandler);
     }
-    delegateEvents.events[eventName].push(eventHandler);
-    delegate.on(eventName, eventHandler);
   }
 
   public offDelegate(delegate: EventContainer): void {
@@ -123,14 +126,14 @@ export default abstract class EventContainer {
 
   public offAll() {
     this.eventMap = {};
-    for (const delegateEvents of this.delegateEvents) {
+    for (const delegateEvents of [...this.delegateEvents]) {
       this.removeDelegateEvents(delegateEvents);
     }
     this.delegateEvents = [];
   }
 
   public delete() {
-    for (const delegateEvents of this.delegateEvents) {
+    for (const delegateEvents of [...this.delegateEvents]) {
       this.removeDelegateEvents(delegateEvents);
     }
     (this.delegateEvents as unknown) = undefined;

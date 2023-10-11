@@ -43,6 +43,25 @@ export default class Store {
     return JSONUtil.parseWithUndefined(value);
   }
 
+  public getAll<T>(): { [key: string]: T } {
+    const result: { [key: string]: T } = {};
+    for (let i = 0; i < sessionStorage.length; i++) {
+      const key = sessionStorage.key(i);
+      if (key && key.startsWith(this.name)) {
+        result[key.substring(this.name.length + 1)] = JSONUtil
+          .parseWithUndefined(sessionStorage.getItem(key));
+      }
+    }
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith(this.name)) {
+        result[key.substring(this.name.length + 1)] = JSONUtil
+          .parseWithUndefined(localStorage.getItem(key));
+      }
+    }
+    return result;
+  }
+
   public checkPermanently(key: string): boolean {
     return localStorage.getItem(this.getKey(key)) !== null;
   }
@@ -50,5 +69,20 @@ export default class Store {
   public delete(key: string) {
     sessionStorage.removeItem(this.getKey(key));
     localStorage.removeItem(this.getKey(key));
+  }
+
+  public clear() {
+    for (let i = 0; i < sessionStorage.length; i++) {
+      const key = sessionStorage.key(i);
+      if (key && key.startsWith(this.name)) {
+        sessionStorage.removeItem(key);
+      }
+    }
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith(this.name)) {
+        localStorage.removeItem(key);
+      }
+    }
   }
 }
