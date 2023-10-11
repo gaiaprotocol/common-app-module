@@ -15,7 +15,6 @@ export default class Confirm extends Popup {
       cancelTitle?: string;
       confirmTitle?: string;
       loadingTitle?: string;
-      buttonType?: ButtonType;
     },
     callback: () => Promise<void> | void,
     cancelCallback?: () => Promise<void> | void,
@@ -29,7 +28,7 @@ export default class Confirm extends Popup {
         el(
           "footer",
           new Button({
-            type: options.buttonType ?? ButtonType.Text,
+            type: ButtonType.Text,
             tag: ".cancel-button",
             click: () => {
               if (cancelCallback) {
@@ -40,7 +39,7 @@ export default class Confirm extends Popup {
             title: options.cancelTitle ?? "Cancel",
           }),
           new Button({
-            type: options.buttonType ?? ButtonType.Text,
+            type: ButtonType.Contained,
             tag: ".confirm-button",
             click: async (event, node) => {
               node.domElement.setAttribute("disabled", "disabled");
