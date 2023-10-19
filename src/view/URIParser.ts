@@ -8,8 +8,10 @@ class URIParser {
     patternParts: string[],
     params?: ViewParams,
   ): boolean {
-    for (let i = 0; i < patternParts.length; i++) {
+    for (let i = 0; i < uriParts.length; i++) {
       const patternPart = patternParts[i];
+      if (!patternPart) return false;
+
       let uriPart = uriParts[i];
 
       if (patternPart === "**") return true;
