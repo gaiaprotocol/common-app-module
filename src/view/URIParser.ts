@@ -10,7 +10,7 @@ class URIParser {
   ): boolean {
     for (let i = 0; i < uriParts.length; i++) {
       const patternPart = patternParts[i];
-      if (!patternPart) return false;
+      if (patternPart === undefined) return false;
 
       let uriPart = uriParts[i];
 
