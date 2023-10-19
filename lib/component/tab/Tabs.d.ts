@@ -1,3 +1,4 @@
+import { DomChild } from "../../dom/DomNode.js";
 import Component from "../Component.js";
 import Tab from "./Tab.js";
 export default class Tabs extends Component {
@@ -5,7 +6,7 @@ export default class Tabs extends Component {
     private store;
     constructor(id: string, tabs: {
         id: string;
-        label: string;
+        label: DomChild | DomChild[];
     }[]);
     init(): void;
     select(id: string): void;

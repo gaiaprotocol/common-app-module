@@ -302,6 +302,7 @@ export default class DomNode<EL extends HTMLElement = HTMLElement>
     (this.windowEventMap as unknown) = undefined;
 
     super.delete();
+    (this.domElement as unknown) = undefined;
   }
 
   public animate({

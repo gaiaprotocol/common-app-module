@@ -1,3 +1,4 @@
+import { DomChild } from "../../dom/DomNode.js";
 import Store from "../../store/Store.js";
 import Component from "../Component.js";
 import Tab from "./Tab.js";
@@ -6,7 +7,10 @@ export default class Tabs extends Component {
   public children: Tab[] = [];
   private store: Store;
 
-  constructor(id: string, tabs: { id: string; label: string }[]) {
+  constructor(
+    id: string,
+    tabs: { id: string; label: DomChild | DomChild[] }[],
+  ) {
     super("ul.tabs");
     this.addAllowedEvents("select");
     this.store = new Store(`tabs-${id}`);

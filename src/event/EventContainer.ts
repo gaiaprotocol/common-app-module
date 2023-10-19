@@ -80,13 +80,16 @@ export default abstract class EventContainer {
 
     const results: any[] = [];
     const promises: Promise<void>[] = [];
-    if (this.eventMap[eventName] !== undefined) {
-      for (const eventHandler of [...this.eventMap[eventName]]) {
-        const result = eventHandler(...params);
-        if (result instanceof Promise) {
-          promises.push(result);
-        } else {
-          results.push(result);
+    const events = this.eventMap[eventName];
+    if (events !== undefined) {
+      for (const eventHandler of [...events]) {
+        if (events.includes(eventHandler)) {
+          const result = eventHandler(...params);
+          if (result instanceof Promise) {
+            promises.push(result);
+          } else {
+            results.push(result);
+          }
         }
       }
     }
