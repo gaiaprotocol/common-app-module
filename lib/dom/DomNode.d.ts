@@ -34,7 +34,7 @@ export default class DomNode<EL extends HTMLElement = HTMLElement> extends TreeN
     private fireVisible;
     appendTo(node: DomNode, index?: number): this;
     empty(): this;
-    addClass(className: string): void;
+    addClass(className: string): this;
     deleteClass(className: string): void;
     hasClass(className: string): boolean;
     toggleClass(className: string): void;
