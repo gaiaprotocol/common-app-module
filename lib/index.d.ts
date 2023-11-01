@@ -32,7 +32,6 @@ export { default as Supabase } from "./supabase/Supabase.js";
 export { default as ArrayUtil } from "./util/ArrayUtil.js";
 export { default as JSONUtil } from "./util/JSONUtil.js";
 export { default as StringUtil } from "./util/StringUtil.js";
-export { n2u } from "./util/Utils.js";
 export { default as Router } from "./view/Router.js";
 export { default as View, ViewParams } from "./view/View.js";
 //# sourceMappingURL=index.d.ts.map
