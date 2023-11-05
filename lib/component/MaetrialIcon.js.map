@@ -1,1 +1,0 @@
-{"version":3,"file":"MaetrialIcon.js","sourceRoot":"","sources":["../../src/component/MaetrialIcon.ts"],"names":[],"mappings":"AAAA,OAAO,OAAO,MAAM,mBAAmB,CAAC;AAExC,MAAM,CAAC,OAAO,OAAO,YAAa,SAAQ,OAAO;IAC/C,YAAY,QAAgB;QAC1B,KAAK,CAAC,qCAAqC,CAAC,CAAC;QAC7C,IAAI,CAAC,IAAI,GAAG,QAAQ,CAAC;IACvB,CAAC;CACF"}

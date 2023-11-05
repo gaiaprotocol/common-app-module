@@ -5,31 +5,35 @@ security definer set search_path = public
 as $$
 begin
   if strpos(new.raw_user_meta_data ->> 'iss', 'twitter') > 0 then
-    insert into public.users_public (user_id, display_name, profile_image, profile_image_thumbnail, x_username)
+    insert into public.users_public (user_id, display_name, profile_image, profile_image_thumbnail, profile_image_stored, x_username)
     values (
       new.id,
       new.raw_user_meta_data ->> 'full_name',
       new.raw_user_meta_data ->> 'avatar_url',
       new.raw_user_meta_data ->> 'avatar_url',
+      false,
       new.raw_user_meta_data ->> 'user_name'
     ) on conflict (user_id) do update
     set
       display_name = new.raw_user_meta_data ->> 'full_name',
       profile_image = new.raw_user_meta_data ->> 'avatar_url',
       profile_image_thumbnail = new.raw_user_meta_data ->> 'avatar_url',
+      profile_image_stored = false,
       x_username = new.raw_user_meta_data ->> 'user_name';
   else
-    insert into public.users_public (user_id, display_name, profile_image, profile_image_thumbnail)
+    insert into public.users_public (user_id, display_name, profile_image, profile_image_thumbnail, profile_image_stored)
     values (
       new.id,
       new.raw_user_meta_data ->> 'full_name',
       new.raw_user_meta_data ->> 'avatar_url',
-      new.raw_user_meta_data ->> 'avatar_url'
+      new.raw_user_meta_data ->> 'avatar_url',
+      false
     ) on conflict (user_id) do update
     set
       display_name = new.raw_user_meta_data ->> 'full_name',
       profile_image = new.raw_user_meta_data ->> 'avatar_url',
-      profile_image_thumbnail = new.raw_user_meta_data ->> 'avatar_url';
+      profile_image_thumbnail = new.raw_user_meta_data ->> 'avatar_url',
+      profile_image_stored = false;
   end if;
   return new;
 end;
