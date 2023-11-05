@@ -1,3 +1,4 @@
+export { default as AppInitializer } from "./AppInitializer.js";
 export { default as BrowserInfo } from "./browser/BrowserInfo.js";
 export { default as Component } from "./component/Component.js";
 export { default as Details } from "./component/Details.js";
@@ -34,4 +35,3 @@ export { default as JSONUtil } from "./util/JSONUtil.js";
 export { default as StringUtil } from "./util/StringUtil.js";
 export { default as Router } from "./view/Router.js";
 export { default as View, ViewParams } from "./view/View.js";
-
