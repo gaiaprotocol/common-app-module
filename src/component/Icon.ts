@@ -1,7 +1,16 @@
 import Component from "./Component.js";
 import IconSystem from "./IconSystem.js";
 
-export type IconName = "x" | "error" | "warning" | "attachment";
+export type IconName =
+  | "x"
+  | "error"
+  | "warning"
+  | "attachment"
+  | "image"
+  | "section-menu"
+  | "comment"
+  | "repeat"
+  | "like";
 
 export default class Icon extends Component {
   constructor(iconName: IconName) {

@@ -7,6 +7,10 @@ export default abstract class UploadForm extends Component {
   protected toUploadFiles: File[] = [];
   protected uploadPreviewArea: DomNode | undefined;
 
+  constructor(tag: string) {
+    super(tag + ".upload-form");
+  }
+
   private uploadInput = el<HTMLInputElement>("input.upload", {
     type: "file",
     multiple: true,
@@ -65,5 +69,10 @@ export default abstract class UploadForm extends Component {
         );
       }
     }
+  }
+
+  protected clearUploads() {
+    this.toUploadFiles = [];
+    this.uploadPreviewArea?.empty();
   }
 }

@@ -4,7 +4,6 @@ users_public
 	profile_image - text - nullable
 	profile_image_thumbnail - text - nullable
 	profile_image_stored - bool - false
-	x_username - text - nullable
 	metadata - jsonb - nullable
 	blocked - bool - false
 	created_at - timestampz - now()
