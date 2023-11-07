@@ -1,0 +1,1 @@
+{"version":3,"file":"IconSystem.js","sourceRoot":"","sources":["../../src/component/IconSystem.ts"],"names":[],"mappings":"AAGA,MAAM,UAAU;IACP,WAAW,GAAG,GAAG,CAAC;IAClB,aAAa,GAAqC,CACvD,QAAkB,EAClB,EAAE;QACF,OAAO,QAAQ,CAAC;IAClB,CAAC,CAAC;CACH;AAED,eAAe,IAAI,UAAU,EAAE,CAAC"}

@@ -1,7 +1,7 @@
 import DomNode from "../../dom/DomNode.js";
 import el from "../../dom/el.js";
 import Component from "../Component.js";
-import MaterialIcon from "../MaterialIcon.js";
+import Icon from "../Icon.js";
 import Popup from "../Popup.js";
 import Button from "../button/Button.js";
 import ButtonType from "../button/ButtonType.js";
@@ -18,7 +18,7 @@ export default class Alert extends Popup {
     this.append(
       this.content = new Component(
         ".popup.error-alert",
-        el("header", el("h1", new MaterialIcon("error"), options.title)),
+        el("header", el("h1", new Icon("error"), options.title)),
         el("main", el("p", options.message)),
         el(
           "footer",

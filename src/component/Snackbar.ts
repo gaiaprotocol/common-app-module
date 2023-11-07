@@ -1,7 +1,7 @@
 import BodyNode from "../dom/BodyNode.js";
 import el from "../dom/el.js";
 import Component from "./Component.js";
-import MaterialIcon from "./MaterialIcon.js";
+import Icon from "./Icon.js";
 import Button from "./button/Button.js";
 import ButtonType from "./button/ButtonType.js";
 
@@ -32,7 +32,7 @@ export default class Snackbar extends Component {
             },
           })
           : undefined,
-        el("button.close", new MaterialIcon("close"), {
+        el("button.close", new Icon("x"), {
           click: () => this.delete(),
         }),
       ),
