@@ -46,6 +46,8 @@ export { default as I18NText } from "./i18n/I18NText.js";
 export { default as msg } from "./i18n/msg.js";
 export { default as Store } from "./store/Store.js";
 export { default as Supabase } from "./supabase/Supabase.js";
+export { default as TempUserCacher } from "./supabase/TempUserCacher.js";
+export { default as UserService } from "./supabase/UserService.js";
 export { default as TestLoginView } from "./test/TestLoginView.js";
 export { default as ArrayUtil } from "./util/ArrayUtil.js";
 export { default as DateUtil } from "./util/DateUtil.js";
