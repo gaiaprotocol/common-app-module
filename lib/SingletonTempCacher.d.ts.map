@@ -1,0 +1,1 @@
+{"version":3,"file":"SingletonTempCacher.d.ts","sourceRoot":"","sources":["../src/SingletonTempCacher.ts"],"names":[],"mappings":"AAAA,cAAM,mBAAmB;IACvB,OAAO,CAAC,GAAG,CAAmC;IAEvC,KAAK,CAAC,EAAE,EAAE,EAAE,EAAE,MAAM,GAAG,MAAM,EAAE,IAAI,EAAE,EAAE;IAIvC,GAAG,CAAC,EAAE,EAAE,EAAE,EAAE,MAAM,GAAG,MAAM,GAAG,EAAE,GAAG,SAAS;CAGpD;;AAED,wBAAyC"}

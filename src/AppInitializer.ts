@@ -1,5 +1,3 @@
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime.js";
 import Supabase from "./supabase/Supabase.js";
 import Router from "./view/Router.js";
 
@@ -9,8 +7,6 @@ class AppInitializer {
     supabaseAnonKey: string,
     devMode: boolean,
   ): void {
-    dayjs.extend(relativeTime);
-
     if (sessionStorage.__spa_path) {
       Router.goNoHistory(sessionStorage.__spa_path);
       sessionStorage.removeItem("__spa_path");
