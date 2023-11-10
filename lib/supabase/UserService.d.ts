@@ -4,6 +4,6 @@ export default class UserService<T extends UserPublic> {
     private selectQuery;
     private fetchLimit;
     constructor(tableName: string, selectQuery: string, fetchLimit: number);
-    fetchUser(userId: string): Promise<T>;
+    fetchUser(userId: string): Promise<T | undefined>;
 }
 //# sourceMappingURL=UserService.d.ts.map

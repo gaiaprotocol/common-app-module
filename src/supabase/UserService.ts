@@ -8,7 +8,7 @@ export default class UserService<T extends UserPublic> {
     private fetchLimit: number,
   ) {}
 
-  public async fetchUser(userId: string): Promise<T> {
+  public async fetchUser(userId: string): Promise<T | undefined> {
     const { data, error } = await Supabase.client.from(this.tableName).select(
       this.selectQuery,
     ).eq("user_id", userId);
