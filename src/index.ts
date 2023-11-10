@@ -1,5 +1,6 @@
 export { default as AppInitializer } from "./AppInitializer.js";
 export { default as SingletonTempCacher } from "./SingletonTempCacher.js";
+export { default as SplashLoader } from "./SplashLoader.js";
 export { default as BrowserInfo } from "./browser/BrowserInfo.js";
 export { default as Component } from "./component/Component.js";
 export { default as Details } from "./component/Details.js";
@@ -7,8 +8,8 @@ export { default as DropdownMenu } from "./component/DropdownMenu.js";
 export { default as Icon } from "./component/Icon.js";
 export { default as IconSystem } from "./component/IconSystem.js";
 export { default as Jazzicon } from "./component/Jazzicon.js";
+export { default as LottieAnimation } from "./component/LottieAnimation.js";
 export { default as MaterialIconSystem } from "./component/MaterialIconSystem.js";
-export { default as NavBar } from "./component/NavBar.js";
 export { default as PageFooter } from "./component/PageFooter.js";
 export { default as Popup } from "./component/Popup.js";
 export { default as Snackbar } from "./component/Snackbar.js";
@@ -28,11 +29,13 @@ export { default as UploadForm } from "./component/rich/UploadForm.js";
 export { default as Tab } from "./component/tab/Tab.js";
 export { default as Tabs } from "./component/tab/Tabs.js";
 export {
-  default as Rich, UploadedFile, isEqualRich
+  default as Rich,
+  isEqualRich,
+  UploadedFile,
 } from "./database-interface/Rich.js";
 export {
   default as UserPublic,
-  isEqualUserPublic
+  isEqualUserPublic,
 } from "./database-interface/UserPublic.js";
 export { default as BodyNode } from "./dom/BodyNode.js";
 export { default as DomNode } from "./dom/DomNode.js";
@@ -50,4 +53,3 @@ export { default as JSONUtil } from "./util/JSONUtil.js";
 export { default as StringUtil } from "./util/StringUtil.js";
 export { default as Router } from "./view/Router.js";
 export { default as View, ViewParams } from "./view/View.js";
-

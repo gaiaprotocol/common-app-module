@@ -5,7 +5,6 @@ import Component from "./Component.js";
 export default class SplashScreen extends Component {
   constructor(logo: DomNode) {
     super(".splash-screen");
-    this.append(logo);
-    this.appendTo(BodyNode);
+    this.append(logo).appendTo(BodyNode);
   }
 }

@@ -1,9 +1,19 @@
-import yaml from "js-yaml";
+import messages_de from "../../locales/de.yml";
+import messages_en from "../../locales/en.yml";
+import messages_es from "../../locales/es.yml";
+import messages_fr from "../../locales/fr.yml";
+import messages_it from "../../locales/it.yml";
+import messages_ja from "../../locales/ja.yml";
+import messages_ko from "../../locales/ko.yml";
+import messages_pt from "../../locales/pt.yml";
+import messages_ru from "../../locales/ru.yml";
+import messages_zh from "../../locales/zh.yml";
+import messages_zh_HK from "../../locales/zh_HK.yml";
+import messages_zh_TW from "../../locales/zh_TW.yml";
 import BrowserInfo from "../browser/BrowserInfo.js";
 import I18NText from "./I18NText.js";
-import common_words from "./common_words.json" assert { type: "json" };
 
-const data: { [key: string]: I18NText } = common_words as any;
+const data: { [key: string]: I18NText } = {};
 
 const getNormalizedLanguage = () => {
   let language: string = "";
@@ -73,35 +83,35 @@ const msg = (
   return "";
 };
 
-msg.loadYAML = (lang: string, content: string) => {
-  const raw: any = yaml.load(content);
-  for (const [key, value] of Object.entries(raw)) {
-    if (data[key] === undefined) {
-      data[key] = {};
+msg.setMessages = async (
+  messages: { [lang: string]: { [key: string]: string } },
+) => {
+  for (const [lang, ms] of Object.entries(messages)) {
+    if (ms) {
+      for (const [key, message] of Object.entries(ms)) {
+        if (data[key] === undefined) {
+          data[key] = {};
+        }
+        (data[key] as any)[lang] = message;
+      }
     }
-    (data[key] as any)[lang] = value;
   }
 };
 
-msg.loadYAMLs = async (paths: { [lang: string]: string[] }) => {
-  const promises: Promise<void>[] = [];
-  for (const [lang, urls] of Object.entries(paths)) {
-    for (const url of urls) {
-      promises.push((async () => {
-        const raw: any = yaml.load(await (await fetch(url)).text());
-        if (raw !== undefined) {
-          for (const [key, value] of Object.entries(raw)) {
-            if (data[key] === undefined) {
-              data[key] = {};
-            }
-            (data[key] as any)[lang] = value;
-          }
-        }
-      })());
-    }
-  }
-  await Promise.all(promises);
-};
+msg.setMessages({
+  en: messages_en,
+  ko: messages_ko,
+  es: messages_es,
+  fr: messages_fr,
+  de: messages_de,
+  it: messages_it,
+  pt: messages_pt,
+  ru: messages_ru,
+  zh: messages_zh,
+  "zh-tw": messages_zh_TW,
+  "zh-hk": messages_zh_HK,
+  ja: messages_ja,
+});
 
 msg.getMessages = (key: string) => {
   return data[key];

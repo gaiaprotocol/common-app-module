@@ -25,7 +25,8 @@ class Supabase extends EventContainer {
   }
 
   public async signOut() {
-    await this.client.auth.signOut();
+    const { error } = await this.client.auth.signOut();
+    if (error) throw error;
   }
 }
 

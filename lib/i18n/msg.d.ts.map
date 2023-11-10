@@ -1,1 +1,1 @@
-{"version":3,"file":"msg.d.ts","sourceRoot":"","sources":["../../src/i18n/msg.ts"],"names":[],"mappings":"AAEA,OAAO,QAAQ,MAAM,eAAe,CAAC;AAmBrC,QAAA,MAAM,GAAG;oBACQ,MAAM,GAAG,QAAQ;;yBAEf,MAAM;mBAmDH,MAAM,WAAW,MAAM;;;;qBA8BrB,MAAM;mCAKb,MAAM,GAAG,QAAQ,oBACf,MAAM;;;CAtCxB,CAAC;AAuFF,eAAe,GAAG,CAAC"}
+{"version":3,"file":"msg.d.ts","sourceRoot":"","sources":["../../src/i18n/msg.ts"],"names":[],"mappings":"AAaA,OAAO,QAAQ,MAAM,eAAe,CAAC;AAkBrC,QAAA,MAAM,GAAG;oBACQ,MAAM,GAAG,QAAQ;;yBAEf,MAAM;;;;;;qBAiFD,MAAM;mCAKb,MAAM,GAAG,QAAQ,oBACf,MAAM;;;CAtCxB,CAAC;AAuFF,eAAe,GAAG,CAAC"}

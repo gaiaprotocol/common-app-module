@@ -3,9 +3,10 @@ declare const msg: {
     (keyOrMessages: string | I18NText, replacements?: {
         [key: string]: string | number;
     }, defaultLanguage?: string): any;
-    loadYAML(lang: string, content: string): void;
-    loadYAMLs(paths: {
-        [lang: string]: string[];
+    setMessages(messages: {
+        [lang: string]: {
+            [key: string]: string;
+        };
     }): Promise<void>;
     getMessages(key: string): I18NText;
     getLangMessages(keyOrMessages: string | I18NText, defaultLanguage?: string): {

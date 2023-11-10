@@ -6,8 +6,9 @@ class BrowserInfo {
 
   private normalizeLanguage(language: string): string {
     if (
-      language.indexOf("-") !== -1 && language !== "zh-TC" &&
-      language !== "zh-SC"
+      language.indexOf("-") !== -1 &&
+      language !== "zh-TW" &&
+      language !== "zh-HK"
     ) {
       language = language.substring(0, language.indexOf("-"));
     }
@@ -33,7 +34,7 @@ class BrowserInfo {
   }
 
   public get isPhoneSize() {
-      return window.innerWidth <= 859;
+    return window.innerWidth <= 859;
   }
 }
 

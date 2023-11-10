@@ -7,7 +7,8 @@ export default interface I18NText {
   it?: string;
   pt?: string;
   ru?: string;
-  "zh-CN"?: string;
+  zh?: string;
   "zh-TW"?: string;
+  "zh-HK"?: string;
   ja?: string;
 }
