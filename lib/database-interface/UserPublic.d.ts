@@ -10,6 +10,5 @@ export default interface UserPublic {
     created_at: string;
     updated_at?: string;
 }
-export declare const isEqualUserPublic: (a: UserPublic, b: UserPublic) => boolean;
 export {};
 //# sourceMappingURL=UserPublic.d.ts.map
