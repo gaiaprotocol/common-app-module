@@ -1,7 +1,7 @@
 import I18NText from "./I18NText.js";
 declare const msg: {
     (keyOrMessages: string | I18NText, replacements?: {
-        [key: string]: string | number;
+        [key: string]: string | number | undefined;
     }, defaultLanguage?: string): any;
     setMessages(messages: {
         [lang: string]: {

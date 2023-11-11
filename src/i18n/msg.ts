@@ -31,7 +31,7 @@ const getNormalizedLanguage = () => {
 
 const msg = (
   keyOrMessages: string | I18NText,
-  replacements: { [key: string]: string | number } = {},
+  replacements: { [key: string]: string | number | undefined } = {},
   defaultLanguage: string = "en",
 ) => {
   const messages: I18NText = typeof keyOrMessages === "string"
