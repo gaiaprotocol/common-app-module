@@ -1,9 +1,6 @@
 import UserPublic from "../database-interface/UserPublic.js";
-export default class UserService<T extends UserPublic> {
-    private tableName;
-    private selectQuery;
-    private fetchLimit;
-    constructor(tableName: string, selectQuery: string, fetchLimit: number);
+import SupabaseService from "./SupabaseService.js";
+export default class UserService<T extends UserPublic> extends SupabaseService {
     fetchUser(userId: string): Promise<T | undefined>;
 }
 //# sourceMappingURL=UserService.d.ts.map
