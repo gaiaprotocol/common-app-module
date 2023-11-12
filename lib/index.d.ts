@@ -41,6 +41,7 @@ export { default as Store } from "./store/Store.js";
 export { default as Supabase } from "./supabase/Supabase.js";
 export { default as SupabaseService } from "./supabase/SupabaseService.js";
 export { default as TempUserCacher } from "./supabase/TempUserCacher.js";
+export { default as UploadManager } from "./supabase/UploadManager.js";
 export { default as UserService } from "./supabase/UserService.js";
 export { default as TestLoginView } from "./test/TestLoginView.js";
 export { default as ArrayUtil } from "./util/ArrayUtil.js";

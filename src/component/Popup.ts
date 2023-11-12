@@ -2,8 +2,6 @@ import BodyNode from "../dom/BodyNode.js";
 import DomNode from "../dom/DomNode.js";
 
 export default abstract class Popup extends DomNode {
-  public abstract content: DomNode | undefined;
-
   constructor(options: { barrierDismissible: boolean }) {
     super(".popup-background");
     this.onDom("click", (event: MouseEvent) => {

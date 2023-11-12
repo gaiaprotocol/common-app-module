@@ -1,4 +1,5 @@
 import {
+  PostgrestBuilder,
   PostgrestFilterBuilder,
   PostgrestQueryBuilder,
 } from "@supabase/postgrest-js";
@@ -47,7 +48,7 @@ class Supabase extends EventContainer {
     tableName: string,
     build: (
       builder: PostgrestQueryBuilder<any, any, unknown>,
-    ) => PostgrestFilterBuilder<any, any, any, unknown>,
+    ) => PostgrestFilterBuilder<any, any, any, unknown> | PostgrestBuilder<any>,
   ) {
     const { data, error } = await build(this.client.from(tableName));
     if (error) throw error;

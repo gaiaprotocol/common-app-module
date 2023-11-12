@@ -1,4 +1,5 @@
 import {
+  PostgrestBuilder,
   PostgrestFilterBuilder,
   PostgrestQueryBuilder,
 } from "@supabase/postgrest-js";
@@ -14,7 +15,7 @@ export default class SupabaseService {
   protected async safeFetch(
     build: (
       builder: PostgrestQueryBuilder<any, any, unknown>,
-    ) => PostgrestFilterBuilder<any, any, any, unknown>,
+    ) => PostgrestFilterBuilder<any, any, any, unknown> | PostgrestBuilder<any>,
   ) {
     return await Supabase.safeFetch(this.tableName, build);
   }
