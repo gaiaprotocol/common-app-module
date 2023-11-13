@@ -44,14 +44,7 @@ class Supabase extends EventContainer {
     });
   }
 
-  public async safeFetch(
-    tableName: string,
-    build: (
-      builder: PostgrestQueryBuilder<any, any, unknown>,
-    ) => PostgrestFilterBuilder<any, any, any, unknown> | PostgrestBuilder<any>,
-  ) {
-    const { data, error } = await build(this.client.from(tableName));
-    if (error) throw error;
+  public safeResult(data: any) {
     if (data) {
       if (Array.isArray(data)) {
         data.forEach((obj) => this.convertNullToUndefined(obj));
@@ -60,6 +53,17 @@ class Supabase extends EventContainer {
       }
     }
     return data;
+  }
+
+  public async safeFetch(
+    tableName: string,
+    build: (
+      builder: PostgrestQueryBuilder<any, any, unknown>,
+    ) => PostgrestFilterBuilder<any, any, any, unknown> | PostgrestBuilder<any>,
+  ) {
+    const { data, error } = await build(this.client.from(tableName));
+    if (error) throw error;
+    return this.safeResult(data);
   }
 }
 

@@ -3,14 +3,17 @@ import {
   PostgrestFilterBuilder,
   PostgrestQueryBuilder,
 } from "@supabase/postgrest-js";
+import EventContainer from "../event/EventContainer.js";
 import Supabase from "./Supabase.js";
 
-export default class SupabaseService {
+export default class SupabaseService extends EventContainer {
   constructor(
     protected tableName: string,
     protected selectQuery: string,
     protected fetchLimit: number,
-  ) {}
+  ) {
+    super();
+  }
 
   protected async safeFetch(
     build: (
