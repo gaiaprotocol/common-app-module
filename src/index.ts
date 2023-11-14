@@ -8,6 +8,7 @@ export { default as DropdownMenu } from "./component/DropdownMenu.js";
 export { default as Icon } from "./component/Icon.js";
 export { default as IconSystem } from "./component/IconSystem.js";
 export { default as Jazzicon } from "./component/Jazzicon.js";
+export { default as ListLoadingBar } from "./component/ListLoadingBar.js";
 export { default as LottieAnimation } from "./component/LottieAnimation.js";
 export { default as MaterialIconSystem } from "./component/MaterialIconSystem.js";
 export { default as PageFooter } from "./component/PageFooter.js";
@@ -50,3 +51,4 @@ export { default as JSONUtil } from "./util/JSONUtil.js";
 export { default as StringUtil } from "./util/StringUtil.js";
 export { default as Router } from "./view/Router.js";
 export { default as View, ViewParams } from "./view/View.js";
+
