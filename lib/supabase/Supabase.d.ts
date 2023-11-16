@@ -8,7 +8,7 @@ declare class Supabase extends EventContainer {
     signIn(provider: Provider): Promise<void>;
     signOut(): Promise<void>;
     private convertNullToUndefined;
-    safeResult(data: any): any;
+    safeResult<T>(data: T): T;
     safeFetch(tableName: string, build: (builder: PostgrestQueryBuilder<any, any, unknown>) => PostgrestFilterBuilder<any, any, any, unknown> | PostgrestBuilder<any>): Promise<any>;
 }
 declare const _default: Supabase;

@@ -4,8 +4,8 @@ export interface ViewParams {
 }
 export default abstract class View {
     protected closed: boolean;
-    protected container: DomNode | undefined;
-    changeParams(params: ViewParams, uri: string): void;
+    protected container: DomNode;
+    changeParams(params: ViewParams, uri: string, data?: any): void;
     close(): void;
 }
 //# sourceMappingURL=View.d.ts.map

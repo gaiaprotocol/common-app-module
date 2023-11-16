@@ -44,7 +44,7 @@ class Supabase extends EventContainer {
     });
   }
 
-  public safeResult(data: any) {
+  public safeResult<T>(data: T) {
     if (data) {
       if (Array.isArray(data)) {
         data.forEach((obj) => this.convertNullToUndefined(obj));

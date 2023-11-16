@@ -68,7 +68,7 @@ class Router extends EventContainer {
     }
   }
 
-  public check(preParams?: ViewParams) {
+  public check(preParams?: ViewParams, data?: any) {
     const uri = normalizePathname(location.pathname);
     const uriParts = uri.split("/");
 
@@ -82,7 +82,7 @@ class Router extends EventContainer {
         for (const [key, value] of Object.entries(params)) {
           uri = uri.replace(new RegExp(`\{${key}\}`, "g"), value ?? "");
         }
-        this.goNoHistory(`/${uri}`);
+        this.goNoHistory(`/${uri}`, params, data);
         return;
       }
     }
@@ -94,10 +94,10 @@ class Router extends EventContainer {
       );
       if (matchPattern(uriParts, patterns, excludes, params)) {
         if (openingView === undefined) {
-          this.openingViews.push(new viewType(params, uri));
+          this.openingViews.push(new viewType(params, uri, data));
           viewCreated = true;
         } else {
-          openingView.changeParams(params, uri);
+          openingView.changeParams(params, uri, data);
         }
       } else if (openingView !== undefined) {
         toCloseViews.push(openingView);
@@ -154,24 +154,24 @@ class Router extends EventContainer {
     }
   }
 
-  public go(uri: string, params?: ViewParams) {
+  public go(uri: string, params?: ViewParams, data?: any) {
     if (location.pathname !== uri) {
       history.pushState(undefined, "", uri);
-      this.check(params);
+      this.check(params, data);
       window.scrollTo(0, 0);
     }
   }
 
-  public goNoHistory(uri: string, params?: ViewParams) {
+  public goNoHistory(uri: string, params?: ViewParams, data?: any) {
     if (location.pathname !== uri) {
       history.replaceState(undefined, "", uri);
-      this.check(params);
+      this.check(params, data);
       window.scrollTo(0, 0);
     }
   }
 
-  public waitAndGo(uri: string, params?: ViewParams) {
-    setTimeout(() => this.go(uri, params));
+  public waitAndGo(uri: string, params?: ViewParams, data?: any) {
+    setTimeout(() => this.go(uri, params, data));
   }
 
   public refresh() {

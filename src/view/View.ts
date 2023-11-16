@@ -6,9 +6,9 @@ export interface ViewParams {
 
 export default abstract class View {
   protected closed = false;
-  protected container: DomNode | undefined;
+  protected container!: DomNode;
 
-  public changeParams(params: ViewParams, uri: string): void {}
+  public changeParams(params: ViewParams, uri: string, data?: any): void {}
   public close(): void {
     this.container?.delete();
     this.closed = true;

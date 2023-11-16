@@ -8,12 +8,12 @@ declare class Router extends EventContainer {
     private forwarding;
     constructor();
     closeAllPopup(): void;
-    check(preParams?: ViewParams): void;
+    check(preParams?: ViewParams, data?: any): void;
     route(patterns: string | string[], viewType: ViewType, excludes?: string[]): void;
     redirect(patterns: string | string[], to: string, excludes?: string[]): void;
-    go(uri: string, params?: ViewParams): void;
-    goNoHistory(uri: string, params?: ViewParams): void;
-    waitAndGo(uri: string, params?: ViewParams): void;
+    go(uri: string, params?: ViewParams, data?: any): void;
+    goNoHistory(uri: string, params?: ViewParams, data?: any): void;
+    waitAndGo(uri: string, params?: ViewParams, data?: any): void;
     refresh(): void;
 }
 declare const _default: Router;
