@@ -1,1 +1,1 @@
-{"version":3,"file":"SplashScreen.d.ts","sourceRoot":"","sources":["../../src/component/SplashScreen.ts"],"names":[],"mappings":"AACA,OAAO,OAAO,MAAM,mBAAmB,CAAC;AACxC,OAAO,SAAS,MAAM,gBAAgB,CAAC;AAEvC,MAAM,CAAC,OAAO,OAAO,YAAa,SAAQ,SAAS;gBACrC,IAAI,EAAE,OAAO;CAI1B"}
+{"version":3,"file":"SplashScreen.d.ts","sourceRoot":"","sources":["../../src/component/SplashScreen.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,QAAQ,EAAE,MAAM,mBAAmB,CAAC;AAC7C,OAAO,SAAS,MAAM,gBAAgB,CAAC;AAEvC,MAAM,CAAC,OAAO,OAAO,YAAa,SAAQ,SAAS;gBACrC,IAAI,EAAE,QAAQ;CAI3B"}

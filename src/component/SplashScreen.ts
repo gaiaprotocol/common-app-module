@@ -1,9 +1,9 @@
 import BodyNode from "../dom/BodyNode.js";
-import DomNode from "../dom/DomNode.js";
+import { DomChild } from "../dom/DomNode.js";
 import Component from "./Component.js";
 
 export default class SplashScreen extends Component {
-  constructor(logo: DomNode) {
+  constructor(logo: DomChild) {
     super(".splash-screen");
     this.append(logo).appendTo(BodyNode);
   }

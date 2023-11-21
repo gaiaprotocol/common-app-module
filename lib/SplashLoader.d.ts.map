@@ -1,1 +1,1 @@
-{"version":3,"file":"SplashLoader.d.ts","sourceRoot":"","sources":["../src/SplashLoader.ts"],"names":[],"mappings":"AACA,OAAO,OAAO,MAAM,kBAAkB,CAAC;AAEvC,cAAM,YAAY;IACH,IAAI,CAAC,IAAI,EAAE,OAAO,EAAE,QAAQ,EAAE,OAAO,CAAC,GAAG,CAAC,EAAE;CAK1D;;AAED,wBAAkC"}
+{"version":3,"file":"SplashLoader.d.ts","sourceRoot":"","sources":["../src/SplashLoader.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,QAAQ,EAAE,MAAM,kBAAkB,CAAC;AAE5C,cAAM,YAAY;IACH,IAAI,CAAC,IAAI,EAAE,QAAQ,EAAE,QAAQ,EAAE,OAAO,CAAC,GAAG,CAAC,EAAE;CAK3D;;AAED,wBAAkC"}

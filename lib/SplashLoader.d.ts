@@ -1,6 +1,6 @@
-import DomNode from "./dom/DomNode.js";
+import { DomChild } from "./dom/DomNode.js";
 declare class SplashLoader {
-    load(logo: DomNode, promises: Promise<any>[]): Promise<void>;
+    load(logo: DomChild, promises: Promise<any>[]): Promise<void>;
 }
 declare const _default: SplashLoader;
 export default _default;

@@ -8,7 +8,7 @@ export default class TestLoginView extends View {
     super();
     BodyNode.append(
       this.container = el(
-        ".test-login-view",
+        ".test-login-view.test-view",
         el("button.login", "Login", {
           click: () => Supabase.signIn("github"),
         }),
