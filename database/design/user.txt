@@ -1,5 +1,5 @@
 users_public
-	user_id - uuid - auth.uid() - pk
+	user_id - uuid, fk to auth.user - auth.uid() - pk
 	display_name - text - nullable
 	profile_image - text - nullable
 	profile_image_thumbnail - text - nullable
