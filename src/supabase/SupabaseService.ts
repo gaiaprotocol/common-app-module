@@ -15,11 +15,11 @@ export default class SupabaseService extends EventContainer {
     super();
   }
 
-  protected async safeFetch(
+  protected async safeFetch<T>(
     build: (
       builder: PostgrestQueryBuilder<any, any, unknown>,
     ) => PostgrestFilterBuilder<any, any, any, unknown> | PostgrestBuilder<any>,
   ) {
-    return await Supabase.safeFetch(this.tableName, build);
+    return await Supabase.safeFetch<T>(this.tableName, build);
   }
 }

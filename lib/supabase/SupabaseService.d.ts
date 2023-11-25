@@ -5,6 +5,6 @@ export default class SupabaseService extends EventContainer {
     protected selectQuery: string;
     protected fetchLimit: number;
     constructor(tableName: string, selectQuery: string, fetchLimit: number);
-    protected safeFetch(build: (builder: PostgrestQueryBuilder<any, any, unknown>) => PostgrestFilterBuilder<any, any, any, unknown> | PostgrestBuilder<any>): Promise<any>;
+    protected safeFetch<T>(build: (builder: PostgrestQueryBuilder<any, any, unknown>) => PostgrestFilterBuilder<any, any, any, unknown> | PostgrestBuilder<any>): Promise<T | undefined>;
 }
 //# sourceMappingURL=SupabaseService.d.ts.map

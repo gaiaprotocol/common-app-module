@@ -3,7 +3,7 @@ import {
   PostgrestFilterBuilder,
   PostgrestQueryBuilder,
 } from "@supabase/postgrest-js";
-import { createClient, Provider, SupabaseClient } from "@supabase/supabase-js";
+import { Provider, SupabaseClient, createClient } from "@supabase/supabase-js";
 import EventContainer from "../event/EventContainer.js";
 
 class Supabase extends EventContainer {
@@ -44,7 +44,7 @@ class Supabase extends EventContainer {
     });
   }
 
-  public safeResult<T>(data: T) {
+  public safeResult<T>(data: T): T | undefined {
     if (data) {
       if (Array.isArray(data)) {
         data.forEach((obj) => this.convertNullToUndefined(obj));
@@ -55,7 +55,7 @@ class Supabase extends EventContainer {
     return data;
   }
 
-  public async safeFetch(
+  public async safeFetch<T>(
     tableName: string,
     build: (
       builder: PostgrestQueryBuilder<any, any, unknown>,
@@ -63,7 +63,7 @@ class Supabase extends EventContainer {
   ) {
     const { data, error } = await build(this.client.from(tableName));
     if (error) throw error;
-    return this.safeResult(data);
+    return this.safeResult<T>(data);
   }
 }
 
