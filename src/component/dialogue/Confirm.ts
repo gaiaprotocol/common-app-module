@@ -1,5 +1,6 @@
 import DomNode from "../../dom/DomNode.js";
 import el from "../../dom/el.js";
+import msg from "../../i18n/msg.js";
 import Component from "../Component.js";
 import Popup from "../Popup.js";
 import Button from "../button/Button.js";
@@ -36,7 +37,7 @@ export default class Confirm extends Popup {
               }
               this.delete();
             },
-            title: options.cancelTitle ?? "Cancel",
+            title: options.cancelTitle ?? msg("cancel-button"),
           }),
           new Button({
             type: ButtonType.Contained,
@@ -47,7 +48,7 @@ export default class Confirm extends Popup {
               await callback();
               this.delete();
             },
-            title: options.confirmTitle ?? "Confirm",
+            title: options.confirmTitle ?? msg("confirm-button"),
           }),
         ),
       ),

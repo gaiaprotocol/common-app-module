@@ -2,8 +2,12 @@ import Component from "../Component.js";
 
 export default class FileDropArea<EL extends HTMLElement = HTMLElement>
   extends Component<EL> {
-  constructor(tag: string, onDrop: (files: File[]) => void) {
-    super(tag + ".file-drop-area");
+  constructor(
+    options: { tag: string; contenteditable: boolean },
+    onDrop: (files: File[]) => void,
+  ) {
+    super(options.tag + ".file-drop-area");
+    if (options.contenteditable) this.domElement.contentEditable = "true";
 
     this.onDom("dragenter", (event: DragEvent) => {
       event.preventDefault();
@@ -31,5 +35,13 @@ export default class FileDropArea<EL extends HTMLElement = HTMLElement>
 
   private unhighlight() {
     this.deleteClass("highlight");
+  }
+
+  public get value(): string {
+    return this.domElement.innerText ?? "";
+  }
+
+  public set value(value: string) {
+    this.domElement.innerText = value;
   }
 }

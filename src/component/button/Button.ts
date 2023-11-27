@@ -1,12 +1,10 @@
-import DomNode from "../../dom/DomNode.js";
+import DomNode, { DomChild } from "../../dom/DomNode.js";
 import el from "../../dom/el.js";
 import Component from "../Component.js";
 import ButtonType from "./ButtonType.js";
 
 export default class Button extends Component<HTMLAnchorElement> {
   private titleContainer: DomNode | undefined;
-
-  private titleText: string | undefined;
 
   constructor(options: {
     tag?: string;
@@ -27,7 +25,7 @@ export default class Button extends Component<HTMLAnchorElement> {
     }
     if (options.title !== undefined) {
       this.append(
-        this.titleContainer = el("span.title", this.titleText = options.title),
+        this.titleContainer = el("span.title", options.title),
       );
     }
     if (options.href !== undefined) {
@@ -46,13 +44,17 @@ export default class Button extends Component<HTMLAnchorElement> {
     }
   }
 
-  public set title(title: string) {
+  public set type(type: ButtonType) {
+    this.deleteClass("contained", "outlined", "text");
+    this.addClass(type);
+  }
+
+  public set title(title: DomChild) {
     if (this.titleContainer !== undefined) {
-      this.titleContainer.text = title;
+      this.titleContainer.empty().append(title);
     } else {
       this.append(this.titleContainer = el("span.title", title));
     }
-    this.titleText = title;
   }
 
   public disable(): this {
