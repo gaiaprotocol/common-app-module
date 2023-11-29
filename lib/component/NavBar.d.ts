@@ -1,8 +1,14 @@
-import DomNode from "../dom/DomNode.js";
+import { DomChild } from "../dom/DomNode.js";
 import Component from "./Component.js";
 export default class NavBar extends Component {
-    constructor(items: {
-        [key: string]: DomNode;
+    private activatedButton;
+    constructor(options: {
+        logo?: DomChild;
+        menu: {
+            title: DomChild;
+            uri: string;
+        }[];
     });
+    activeButton(buttonName: string): void;
 }
 //# sourceMappingURL=NavBar.d.ts.map
