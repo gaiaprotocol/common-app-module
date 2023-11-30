@@ -232,6 +232,31 @@ export default class DomNode<EL extends HTMLElement = HTMLElement>
     return this;
   }
 
+  public prepend(...children: any[]): this {
+    for (const child of children) {
+      if (child !== undefined) {
+        if (typeof child === "string") {
+          this.domElement.prepend(child);
+        } else if (child instanceof DomNode) {
+          child.appendTo(this, 0);
+        } else {
+          for (const [name, value] of Object.entries<any>(child)) {
+            if (typeof value === "function") {
+              this.onDom(name, value);
+            } else if (name === "style" && typeof value === "object") {
+              this.style(value);
+            } else if (value === undefined) {
+              this.domElement.removeAttribute(name);
+            } else {
+              this.domElement.setAttribute(name, String(value));
+            }
+          }
+        }
+      }
+    }
+    return this;
+  }
+
   private checkVisible(): boolean {
     if (this.parent !== undefined) {
       if (this.parent.domElement === document.body) {

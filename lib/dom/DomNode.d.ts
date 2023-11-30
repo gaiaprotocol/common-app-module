@@ -30,6 +30,7 @@ export default class DomNode<EL extends HTMLElement = HTMLElement> extends TreeN
     appendText(text: string): this;
     set text(text: string);
     append(...children: any[]): this;
+    prepend(...children: any[]): this;
     private checkVisible;
     private fireVisible;
     appendTo(node: DomNode, index?: number): this;
