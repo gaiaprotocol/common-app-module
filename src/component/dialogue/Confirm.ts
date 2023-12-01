@@ -9,6 +9,9 @@ import ButtonType from "../button/ButtonType.js";
 export default class Confirm extends Popup {
   public content: DomNode;
 
+  private resolve: (() => void) | undefined;
+  private reject: (() => void) | undefined;
+
   constructor(
     options: {
       title: string;
@@ -35,6 +38,7 @@ export default class Confirm extends Popup {
               if (cancelCallback) {
                 cancelCallback();
               }
+              this.reject?.();
               this.delete();
             },
             title: options.cancelTitle ?? msg("cancel-button"),
@@ -46,6 +50,7 @@ export default class Confirm extends Popup {
               node.domElement.setAttribute("disabled", "disabled");
               if (options.loadingTitle) node.text = options.loadingTitle;
               await callback();
+              this.resolve?.();
               this.delete();
             },
             title: options.confirmTitle ?? msg("confirm-button"),
@@ -53,5 +58,12 @@ export default class Confirm extends Popup {
         ),
       ),
     );
+  }
+
+  public async wait(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      this.resolve = resolve;
+      this.reject = reject;
+    });
   }
 }

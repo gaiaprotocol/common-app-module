@@ -1,6 +1,6 @@
 import DomNode from "../../dom/DomNode.js";
 import Popup from "../Popup.js";
-export default class Alert extends Popup {
+export default class ErrorAlert extends Popup {
     content: DomNode;
     constructor(options: {
         title: string;

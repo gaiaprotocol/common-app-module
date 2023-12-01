@@ -6,7 +6,7 @@ import Popup from "../Popup.js";
 import Button from "../button/Button.js";
 import ButtonType from "../button/ButtonType.js";
 
-export default class Alert extends Popup {
+export default class ErrorAlert extends Popup {
   public content: DomNode;
 
   constructor(options: {
