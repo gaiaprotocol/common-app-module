@@ -73,7 +73,7 @@ const msg = (
       for (const [key, value] of Object.entries(replacements)) {
         // Assumes the template string uses {key} for replacements
         const regex = new RegExp(`\{${key}\}`, "g");
-        str = str.replace(regex, String(value));
+        str = str.replace(regex, String(value ?? ""));
       }
     }
 

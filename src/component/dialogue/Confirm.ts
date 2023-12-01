@@ -38,7 +38,6 @@ export default class Confirm extends Popup {
               if (cancelCallback) {
                 cancelCallback();
               }
-              this.reject?.();
               this.delete();
             },
             title: options.cancelTitle ?? msg("cancel-button"),
@@ -51,6 +50,7 @@ export default class Confirm extends Popup {
               if (options.loadingTitle) node.text = options.loadingTitle;
               await callback();
               this.resolve?.();
+              this.reject = undefined;
               this.delete();
             },
             title: options.confirmTitle ?? msg("confirm-button"),
@@ -58,6 +58,10 @@ export default class Confirm extends Popup {
         ),
       ),
     );
+
+    this.on("delete", () => {
+      if (this.reject) this.reject();
+    });
   }
 
   public async wait(): Promise<void> {
