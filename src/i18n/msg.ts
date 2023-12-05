@@ -29,11 +29,11 @@ const getNormalizedLanguage = () => {
   return { language, locale };
 };
 
-const msg = (
+function msg(
   keyOrMessages: string | I18NText,
   replacements: { [key: string]: string | number | undefined } = {},
   defaultLanguage: string = "en",
-) => {
+): string {
   const messages: I18NText = typeof keyOrMessages === "string"
     ? data[keyOrMessages]
     : keyOrMessages;
@@ -81,7 +81,7 @@ const msg = (
   }
 
   return "";
-};
+}
 
 msg.setMessages = async (
   messages: { [lang: string]: { [key: string]: string } },

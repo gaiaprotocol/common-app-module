@@ -12,6 +12,7 @@ declare class Router extends EventContainer {
     route(patterns: string | string[], viewType: ViewType, excludes?: string[]): void;
     redirect(patterns: string | string[], to: string, excludes?: string[]): void;
     go(uri: string, params?: ViewParams, data?: any): void;
+    changeUri(uri: string): void;
     goNoHistory(uri: string, params?: ViewParams, data?: any): void;
     waitAndGo(uri: string, params?: ViewParams, data?: any): void;
     refresh(): void;

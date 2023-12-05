@@ -162,6 +162,10 @@ class Router extends EventContainer {
     }
   }
 
+  public changeUri(uri: string) {
+    history.replaceState(undefined, "", uri);
+  }
+
   public goNoHistory(uri: string, params?: ViewParams, data?: any) {
     if (location.pathname !== uri) {
       history.replaceState(undefined, "", uri);

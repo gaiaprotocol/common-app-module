@@ -1,6 +1,18 @@
 import BrowserInfo from "../browser/BrowserInfo.js";
 
 export default class DateUtil {
+  public static format(date: string | number | Date) {
+    const inputDate = date instanceof Date ? date : new Date(date);
+
+    const rtf = new Intl.DateTimeFormat(BrowserInfo.language, {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+
+    return rtf.format(inputDate);
+  }
+
   public static fromNow(date: string | number | Date) {
     const inputDate = date instanceof Date ? date : new Date(date);
     const now = new Date();

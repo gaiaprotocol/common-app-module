@@ -1,12 +1,11 @@
 import {
   PostgrestBuilder,
   PostgrestFilterBuilder,
-  PostgrestQueryBuilder,
 } from "@supabase/postgrest-js";
 import EventContainer from "../event/EventContainer.js";
 import Supabase from "./Supabase.js";
 
-export default class SupabaseService extends EventContainer {
+export default class SupabaseService<T> extends EventContainer {
   constructor(
     protected tableName: string,
     protected selectQuery: string,
@@ -15,11 +14,46 @@ export default class SupabaseService extends EventContainer {
     super();
   }
 
-  protected async safeFetch<T>(
+  protected async safeSelect(
     build: (
-      builder: PostgrestQueryBuilder<any, any, unknown>,
+      builder: PostgrestFilterBuilder<any, any, any, unknown>,
     ) => PostgrestFilterBuilder<any, any, any, unknown> | PostgrestBuilder<any>,
   ) {
-    return await Supabase.safeFetch<T>(this.tableName, build);
+    const data = await Supabase.safeFetch<T[]>(
+      this.tableName,
+      (b) => build(b.select(this.selectQuery).limit(this.fetchLimit)),
+    );
+    return data ?? [];
+  }
+
+  protected async safeSelectSingle(
+    build: (
+      builder: PostgrestFilterBuilder<any, any, any, unknown>,
+    ) => PostgrestFilterBuilder<any, any, any, unknown> | PostgrestBuilder<any>,
+  ) {
+    const data = await Supabase.safeFetch<T[]>(
+      this.tableName,
+      (b) => build(b.select(this.selectQuery).limit(1)),
+    );
+    return data?.[0];
+  }
+
+  protected async safeInsertAndSelect(data: Partial<T>) {
+    const saved = await Supabase.safeFetch<T>(
+      this.tableName,
+      (b) => b.insert(data).select(this.selectQuery).single(),
+    );
+    return saved!;
+  }
+
+  protected async safeDelete(
+    build: (
+      builder: PostgrestFilterBuilder<any, any, any, unknown>,
+    ) => PostgrestFilterBuilder<any, any, any, unknown> | PostgrestBuilder<any>,
+  ) {
+    const { error } = await build(
+      Supabase.client.from(this.tableName).delete(),
+    );
+    if (error) throw error;
   }
 }
