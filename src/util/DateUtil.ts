@@ -2,6 +2,8 @@ import BrowserInfo from "../browser/BrowserInfo.js";
 
 export default class DateUtil {
   public static format(date: string | number | Date) {
+    if (date === "-infinity") return "";
+
     const inputDate = date instanceof Date ? date : new Date(date);
 
     const rtf = new Intl.DateTimeFormat(BrowserInfo.language, {
