@@ -11,11 +11,12 @@ import messages_zh from "../../locales/zh.yml";
 import messages_zh_HK from "../../locales/zh_HK.yml";
 import messages_zh_TW from "../../locales/zh_TW.yml";
 import BrowserInfo from "../browser/BrowserInfo.js";
+import { DomChild } from "../dom/DomNode.js";
 import I18NText from "./I18NText.js";
 
 const data: { [key: string]: I18NText } = {};
 
-const getNormalizedLanguage = () => {
+function getNormalizedLanguage() {
   let language: string = "";
   let locale: string = "";
 
@@ -27,12 +28,11 @@ const getNormalizedLanguage = () => {
   }
 
   return { language, locale };
-};
+}
 
-function msg(
+function getMessage(
   keyOrMessages: string | I18NText,
-  replacements: { [key: string]: string | number | undefined } = {},
-  defaultLanguage: string = "en",
+  defaultLanguage: string,
 ): string {
   const messages: I18NText = typeof keyOrMessages === "string"
     ? data[keyOrMessages]
@@ -69,18 +69,44 @@ function msg(
       str = str[Object.keys(str)[0]];
     }
 
-    if (str !== undefined) {
-      for (const [key, value] of Object.entries(replacements)) {
-        // Assumes the template string uses {key} for replacements
-        const regex = new RegExp(`\{${key}\}`, "g");
-        str = str.replace(regex, String(value ?? ""));
-      }
-    }
-
     return str === undefined ? "" : str;
   }
 
   return "";
+}
+
+function msg(
+  keyOrMessages: string | I18NText,
+  replacements: { [key: string]: string | number | undefined } = {},
+  defaultLanguage: string = "en",
+): string {
+  let message = getMessage(keyOrMessages, defaultLanguage);
+  for (const [key, value] of Object.entries(replacements)) {
+    // Assumes the template string uses {key} for replacements
+    const regex = new RegExp(`\{${key}\}`, "g");
+    message = message.replace(regex, String(value ?? ""));
+  }
+  return message;
+}
+
+export function msgs(
+  keyOrMessages: string | I18NText,
+  replacements: { [key: string]: DomChild } = {},
+  defaultLanguage: string = "en",
+): DomChild[] {
+  const message = getMessage(keyOrMessages, defaultLanguage);
+  const parts = message.split(/\{|\}/);
+  const elements: DomChild[] = [];
+
+  for (let i = 0; i < parts.length; i++) {
+    const part = parts[i];
+    if (i % 2 === 0) {
+      elements.push(part);
+    } else {
+      elements.push(replacements[part]);
+    }
+  }
+  return elements;
 }
 
 msg.setMessages = async (

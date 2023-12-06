@@ -1,3 +1,4 @@
+import { DomChild } from "../dom/DomNode.js";
 import I18NText from "./I18NText.js";
 declare function msg(keyOrMessages: string | I18NText, replacements?: {
     [key: string]: string | number | undefined;
@@ -13,5 +14,8 @@ declare namespace msg {
         [x: string]: any;
     };
 }
+export declare function msgs(keyOrMessages: string | I18NText, replacements?: {
+    [key: string]: DomChild;
+}, defaultLanguage?: string): DomChild[];
 export default msg;
 //# sourceMappingURL=msg.d.ts.map

@@ -37,7 +37,7 @@ export { default as ResponsiveImage } from "./dom/ResponsiveImage.js";
 export { default as el } from "./dom/el.js";
 export { default as EventContainer } from "./event/EventContainer.js";
 export { default as I18NText } from "./i18n/I18NText.js";
-export { default as msg } from "./i18n/msg.js";
+export { default as msg, msgs } from "./i18n/msg.js";
 export { default as Store } from "./store/Store.js";
 export { default as Supabase } from "./supabase/Supabase.js";
 export { default as SupabaseService } from "./supabase/SupabaseService.js";
@@ -50,3 +50,4 @@ export { default as JSONUtil } from "./util/JSONUtil.js";
 export { default as StringUtil } from "./util/StringUtil.js";
 export { default as Router } from "./view/Router.js";
 export { default as View, ViewParams } from "./view/View.js";
+
