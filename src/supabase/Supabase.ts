@@ -3,7 +3,7 @@ import {
   PostgrestFilterBuilder,
   PostgrestQueryBuilder,
 } from "@supabase/postgrest-js";
-import { Provider, SupabaseClient, createClient } from "@supabase/supabase-js";
+import { createClient, Provider, SupabaseClient } from "@supabase/supabase-js";
 import EventContainer from "../event/EventContainer.js";
 
 class Supabase extends EventContainer {
@@ -44,13 +44,11 @@ class Supabase extends EventContainer {
     });
   }
 
-  public safeResult<T>(data: T): T | undefined {
-    if (data) {
-      if (Array.isArray(data)) {
-        data.forEach((obj) => this.convertNullToUndefined(obj));
-      } else {
-        this.convertNullToUndefined(data);
-      }
+  public safeResult<T>(data: T): T {
+    if (Array.isArray(data)) {
+      data.forEach((obj) => this.convertNullToUndefined(obj));
+    } else {
+      this.convertNullToUndefined(data);
     }
     return data;
   }
