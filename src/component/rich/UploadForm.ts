@@ -35,38 +35,29 @@ export default abstract class UploadForm extends Component {
   private appendPreview(file: File) {
     if (this.uploadPreviewArea) {
       const preview = el(
-        ".preview",
-        el("button", new Icon("x"), {
-          click: () => {
+        "a.preview",
+        el("button.x", new Icon("x"), {
+          click: (event) => {
+            event.preventDefault();
             this.toUploadFiles = this.toUploadFiles.filter(
               (f) => f !== file,
             );
             preview.delete();
           },
         }),
+        {
+          href: URL.createObjectURL(file),
+          download: file.name,
+          target: "_blank",
+        },
       ).appendTo(this.uploadPreviewArea);
 
       if (file.type.startsWith("image/")) {
-        preview.addClass("image").append(
-          el(
-            ".preview.image",
-            el<HTMLImageElement>("img", {
-              src: URL.createObjectURL(file),
-            }),
-          ),
-        );
+        preview.addClass("image").style({
+          backgroundImage: `url(${URL.createObjectURL(file)})`,
+        });
       } else {
-        preview.addClass("file").append(
-          el(
-            ".preview.file",
-            el<HTMLAnchorElement>(
-              "a",
-              file.name,
-              { href: URL.createObjectURL(file) },
-              { click: () => URL.revokeObjectURL(file.name) },
-            ),
-          ),
-        );
+        preview.addClass("file").append(file.name);
       }
     }
   }

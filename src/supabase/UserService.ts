@@ -7,13 +7,24 @@ export default class UserService<T extends UserPublic>
     return await this.safeSelectSingle((b) => b.eq("user_id", userId));
   }
 
-  public async fetchNewUsers(): Promise<T[]> {
+  public async fetchNewUsers(lastCreatedAt: string | undefined): Promise<T[]> {
     return await this.safeSelect((b) =>
-      b.order("created_at", { ascending: false })
+      b.order("created_at", { ascending: false }).gt(
+        "created_at",
+        lastCreatedAt ?? "1970-01-01T00:00:00.000Z",
+      )
     );
   }
 
-  public async findUsers(query: string): Promise<T[]> {
-    return await this.safeSelect((b) => b.or(`display_name.ilike.%${query}%`));
+  public async findUsers(
+    query: string,
+    lastCreatedAt: string | undefined,
+  ): Promise<T[]> {
+    return await this.safeSelect((b) =>
+      b.or(`display_name.ilike.%${query}%`).gt(
+        "created_at",
+        lastCreatedAt ?? "1970-01-01T00:00:00.000Z",
+      )
+    );
   }
 }
