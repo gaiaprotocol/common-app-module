@@ -12,4 +12,8 @@ export default class UserService<T extends UserPublic>
       b.order("created_at", { ascending: false })
     );
   }
+
+  public async findUsers(query: string): Promise<T[]> {
+    return await this.safeSelect((b) => b.or(`display_name.ilike.%${query}%`));
+  }
 }

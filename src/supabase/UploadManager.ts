@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 import Supabase from "./Supabase.js";
 
 class UploadManager {
-  private async uploadFile(
+  private async _uploadFile(
     bucketId: string,
     folderPath: string,
     file: File,
@@ -26,7 +26,7 @@ class UploadManager {
     return data.signedUrl;
   }
 
-  public async uploadImage(
+  public async uploadAttachment(
     bucketId: string,
     folderPath: string,
     file: File,
@@ -34,9 +34,19 @@ class UploadManager {
   ): Promise<string> {
     return await this.createSignedUrl(
       bucketId,
-      await this.uploadFile(bucketId, folderPath, file),
+      await this._uploadFile(bucketId, folderPath, file),
       expiresIn,
     );
+  }
+
+  public async uploadFile(
+    bucketId: string,
+    folderPath: string,
+    file: File,
+  ): Promise<string> {
+    const path = await this._uploadFile(bucketId, folderPath, file);
+    return Supabase.client.storage.from(bucketId).getPublicUrl(path).data
+      .publicUrl;
   }
 }
 
