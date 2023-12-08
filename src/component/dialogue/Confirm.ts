@@ -45,9 +45,9 @@ export default class Confirm extends Popup {
           new Button({
             type: ButtonType.Contained,
             tag: ".confirm-button",
-            click: async (event, node) => {
-              node.domElement.setAttribute("disabled", "disabled");
-              if (options.loadingTitle) node.text = options.loadingTitle;
+            click: async (event, button) => {
+              button.domElement.setAttribute("disabled", "disabled");
+              if (options.loadingTitle) button.text = options.loadingTitle;
               await callback();
               this.resolve?.();
               this.reject = undefined;
