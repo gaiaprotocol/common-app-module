@@ -23,7 +23,12 @@ export default class RichDisplay extends Component {
                   }
                 },
               }),
-              { click: () => this.openImage(file) },
+              {
+                click: (event) => {
+                  event.stopPropagation();
+                  this.openImage(file);
+                },
+              },
             ),
           ));
         }
