@@ -6,7 +6,14 @@ export default class FileDropArea extends Component {
     onDrop: (files: File[]) => void,
   ) {
     super(options.tag + ".file-drop-area");
-    if (options.contenteditable) this.domElement.contentEditable = "true";
+    if (options.contenteditable) {
+      this.domElement.contentEditable = "true";
+      this.onDom("paste", (e: ClipboardEvent) => {
+        e.preventDefault();
+        const text = e.clipboardData?.getData("text/plain");
+        document.execCommand("insertText", false, text);
+      });
+    }
 
     this.onDom("dragenter", (event: DragEvent) => {
       event.preventDefault();

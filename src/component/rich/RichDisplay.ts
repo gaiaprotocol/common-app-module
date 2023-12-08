@@ -16,11 +16,16 @@ export default class RichDisplay extends Component {
                 src: file.url,
                 alt: file.fileName,
               }),
-              //click: () => this.openImage(file),
+              { click: () => this.openImage(file) },
             ),
           ));
         }
       }
     }
+  }
+
+  private openImage(file: { url: string; fileName: string }) {
+    window.open(file.url, "_blank");
+    //TODO:
   }
 }
