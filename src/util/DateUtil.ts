@@ -1,8 +1,9 @@
+import Constants from "../Constants.js";
 import BrowserInfo from "../browser/BrowserInfo.js";
 
 export default class DateUtil {
   public static format(date: string | number | Date) {
-    if (date === "-infinity") return "";
+    if (date === Constants.NEGATIVE_INFINITY) return "";
 
     const inputDate = date instanceof Date ? date : new Date(date);
 

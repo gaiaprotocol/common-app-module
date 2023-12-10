@@ -1,3 +1,4 @@
+import Constants from "../Constants.js";
 import UserPublic from "../database-interface/UserPublic.js";
 import SupabaseService from "./SupabaseService.js";
 
@@ -11,7 +12,7 @@ export default class UserService<T extends UserPublic>
     return await this.safeSelect((b) =>
       b.order("created_at", { ascending: false }).gt(
         "created_at",
-        lastCreatedAt ?? "1970-01-01T00:00:00.000Z",
+        lastCreatedAt ?? Constants.UNIX_EPOCH_START_DATE,
       )
     );
   }
@@ -23,7 +24,7 @@ export default class UserService<T extends UserPublic>
     return await this.safeSelect((b) =>
       b.or(`display_name.ilike.%${query}%`).gt(
         "created_at",
-        lastCreatedAt ?? "1970-01-01T00:00:00.000Z",
+        lastCreatedAt ?? Constants.UNIX_EPOCH_START_DATE,
       )
     );
   }
