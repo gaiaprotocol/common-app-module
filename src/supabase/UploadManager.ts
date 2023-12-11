@@ -8,7 +8,9 @@ class UploadManager {
     file: File,
   ): Promise<string> {
     const { data, error } = await Supabase.client.storage.from(bucketId).upload(
-      `${folderPath}/${uuidv4()}_${file.name}`,
+      `${folderPath}/${uuidv4()}_${
+        file.name.replace(/[^(\w\/!-.*'() &@$=;:+,?)]/g, "")
+      }`,
       file,
     );
     if (error) throw error;

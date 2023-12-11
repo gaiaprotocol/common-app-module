@@ -1,8 +1,11 @@
 import BodyNode from "../dom/BodyNode.js";
+import DomNode from "../dom/DomNode.js";
 import el from "../dom/el.js";
 import Component from "./Component.js";
 
 export default class DropdownMenu extends Component {
+  private ul: DomNode;
+
   constructor(options: {
     left: number;
     top: number;
@@ -10,10 +13,17 @@ export default class DropdownMenu extends Component {
       title: string;
       click: () => void;
     }[];
+    footer?: DomNode;
   }) {
-    super("ul.dropdown-menu");
+    super(".dropdown-menu");
+
+    this.append(
+      this.ul = el("ul"),
+      options.footer,
+    );
+
     for (const item of options.items) {
-      this.append(el(
+      this.ul.append(el(
         "li",
         el("button", item.title, {
           click: (event) => {
@@ -24,6 +34,7 @@ export default class DropdownMenu extends Component {
         }),
       ));
     }
+
     this.style({ left: options.left, top: options.top });
     BodyNode.append(this);
     window.addEventListener("click", this.windowClickHandler);
