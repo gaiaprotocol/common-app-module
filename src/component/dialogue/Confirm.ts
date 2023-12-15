@@ -48,10 +48,17 @@ export default class Confirm extends Popup {
             click: async (event, button) => {
               button.domElement.setAttribute("disabled", "disabled");
               if (options.loadingTitle) button.text = options.loadingTitle;
-              await callback();
-              this.resolve?.();
-              this.reject = undefined;
-              this.delete();
+              try {
+                await callback();
+                this.resolve?.();
+                this.reject = undefined;
+                this.delete();
+              } catch (e) {
+                console.error(e);
+                button.domElement.removeAttribute("disabled");
+                button.text = options.confirmTitle ?? msg("confirm-button");
+                this.reject?.();
+              }
             },
             title: options.confirmTitle ?? msg("confirm-button"),
           }),
@@ -59,9 +66,7 @@ export default class Confirm extends Popup {
       ),
     );
 
-    this.on("delete", () => {
-      if (this.reject) this.reject();
-    });
+    this.on("delete", () => this.reject?.());
   }
 
   public async wait(): Promise<void> {
