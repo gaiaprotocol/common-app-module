@@ -12,6 +12,7 @@ class UploadManager {
         file.name.replace(/[^(\w\/!-.*'() &@$=;:+,?)]/g, "")
       }`,
       file,
+      { cacheControl: "31536000" },
     );
     if (error) throw error;
     return data.path;
