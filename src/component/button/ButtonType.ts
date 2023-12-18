@@ -1,7 +1,6 @@
 enum ButtonType {
-    Contained = "contained",
-    Outlined = "outlined",
-    Text = "text",
+  Contained = "contained",
+  Text = "text",
 }
 
 export default ButtonType;

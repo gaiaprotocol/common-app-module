@@ -13,9 +13,23 @@
 }
 
 .popup.component {
-    padding: 20px 30px;
+    max-width       : 614px;
+    width           : 90%;
+    margin          : auto;
+    border          : 1px solid var(--line-color);
+    border-radius   : 16px;
+    background-color: var(--content-bg-color);
 
-    @container (width < @safe-width) {
-        padding: 20px;
+    >header {
+        display    : flex;
+        align-items: center;
+        padding    : 30px;
+
+        >h1 {
+            flex-grow     : 1;
+            font-size     : 24px;
+            font-weight   : bold;
+            text-transform: capitalize;
+        }
     }
 }

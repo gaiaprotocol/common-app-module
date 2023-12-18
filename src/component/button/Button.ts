@@ -4,6 +4,7 @@ import Component from "../Component.js";
 import ButtonType from "./ButtonType.js";
 
 export default class Button extends Component<HTMLAnchorElement> {
+  private _icon: DomNode | undefined;
   private titleContainer: DomNode | undefined;
 
   constructor(options: {
@@ -21,7 +22,7 @@ export default class Button extends Component<HTMLAnchorElement> {
         (options.tag ?? ""),
     );
     if (options.icon !== undefined) {
-      this.append(options.icon);
+      this.append(this._icon = options.icon);
     }
     if (options.title !== undefined) {
       this.append(
@@ -54,6 +55,11 @@ export default class Button extends Component<HTMLAnchorElement> {
     } else {
       this.append(this.titleContainer = el("span.title", title));
     }
+  }
+
+  public set icon(icon: DomNode) {
+    this._icon?.delete();
+    this._icon = icon.appendTo(this, 0);
   }
 
   public disable(): this {
