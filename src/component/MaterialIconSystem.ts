@@ -3,7 +3,7 @@ import IconSystem from "./IconSystem.js";
 
 class MaterialIconSystem {
   public launch() {
-    IconSystem.baseIconTag = "span.material-icon.material-symbols-outlined";
+    IconSystem.baseIconTag = "span.icon.material-icon.material-symbols-outlined";
     IconSystem.createContent = (iconName: IconName) => {
       if (iconName === "x") return "close";
       if (iconName === "error") return "error";
@@ -14,6 +14,7 @@ class MaterialIconSystem {
       if (iconName === "comment") return "comment";
       if (iconName === "repeat") return "repeat";
       if (iconName === "like") return "favorite_border";
+      if (iconName === "activity") return "browse_activity";
       return iconName;
     };
   }
