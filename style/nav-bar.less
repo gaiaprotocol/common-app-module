@@ -2,6 +2,7 @@
     position: fixed;
     left    : calc(50% - @safe-width / 2);
     top     : 0;
+    z-index : 999990;
 
     width : 90px;
     height: 100%;
@@ -15,14 +16,13 @@
     gap           : 32px;
 
     @container (width < @safe-width) {
-        left   : 0;
-        top    : auto;
-        bottom : 0;
-        z-index: 999990;
+        left  : 0;
+        top   : auto;
+        bottom: 0;
 
         width         : 100%;
         height        : calc(90px + env(safe-area-inset-bottom));
-        padding-bottom: env(safe-area-inset-bottom);
+        padding-bottom: calc(6px + env(safe-area-inset-bottom));
 
         border-top  : 1px solid var(--line-color);
         border-right: none;
