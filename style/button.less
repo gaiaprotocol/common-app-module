@@ -1,0 +1,19 @@
+button.component {
+    cursor         : pointer;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    padding        : 8px 16px;
+    color          : var(--accent-color);
+    line-height    : 1em;
+
+    &.disabled {
+        cursor: not-allowed;
+    }
+
+    &.contained {
+        border          : 1px solid var(--accent-color);
+        border-radius   : 6px;
+        background-color: var(--button-bg-color);
+    }
+}
