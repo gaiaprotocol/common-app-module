@@ -34,10 +34,21 @@ export default class Tabs extends Component {
   }
 
   public select(id: string) {
+    let found = false;
     for (const tab of this.children) {
-      tab.active = tab._id === id;
+      if (tab._id === id) {
+        tab.active = true;
+        found = true;
+      }
     }
-    this.store.set("selected", id, true);
-    this.fireEvent("select", id);
+    if (found) {
+      this.store.set("selected", id, true);
+      this.fireEvent("select", id);
+    } else {
+      const firstId = this.children[0]?._id;
+      if (firstId) {
+        this.select(firstId);
+      }
+    }
   }
 }

@@ -29,8 +29,7 @@ export default class Button extends Component<HTMLAnchorElement> {
       );
     }
     if (options.href !== undefined) {
-      this.domElement.href = options.href;
-      this.domElement.target = "_blank";
+      this.onDom("click", () => window.open(options.href));
     }
     if (options.disabled === true) {
       this.disable();
