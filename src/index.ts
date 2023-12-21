@@ -15,7 +15,6 @@ export { default as LottieAnimation } from "./component/LottieAnimation.js";
 export { default as MaterialIcon } from "./component/MaterialIcon.js";
 export { default as MaterialIconSystem } from "./component/MaterialIconSystem.js";
 export { default as NavBar } from "./component/NavBar.js";
-export { default as PageFooter } from "./component/PageFooter.js";
 export { default as Popup } from "./component/Popup.js";
 export { default as Snackbar } from "./component/Snackbar.js";
 export { default as SplashScreen } from "./component/SplashScreen.js";
@@ -53,3 +52,4 @@ export { default as JSONUtil } from "./util/JSONUtil.js";
 export { default as StringUtil } from "./util/StringUtil.js";
 export { default as Router } from "./view/Router.js";
 export { default as View, ViewParams } from "./view/View.js";
+
