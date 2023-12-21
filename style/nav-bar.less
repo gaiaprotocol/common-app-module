@@ -15,6 +15,9 @@
     align-items   : center;
     gap           : 32px;
 
+    padding-bottom: 32px;
+    overflow-y    : auto;
+
     @container (width < @safe-width) {
         left  : 0;
         top   : auto;
@@ -31,6 +34,9 @@
         justify-content: space-between;
         gap            : 0;
 
+        padding-bottom: 0;
+        overflow-y    : visible;
+
         &::before,
         &::after {
             content: '';
@@ -46,7 +52,8 @@
 
         >a {
             >img {
-                width: 55px;
+                max-width : 55px;
+                max-height: 55px;
             }
         }
     }

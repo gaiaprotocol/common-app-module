@@ -35,12 +35,16 @@ export default class Tabs extends Component {
 
   public select(id: string) {
     let found = false;
+
     for (const tab of this.children) {
       if (tab._id === id) {
         tab.active = true;
         found = true;
+      } else if (tab.active) {
+        tab.active = false;
       }
     }
+
     if (found) {
       this.store.set("selected", id, true);
       this.fireEvent("select", id);

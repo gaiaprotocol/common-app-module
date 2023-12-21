@@ -10,4 +10,8 @@ export default class Tab extends Component {
   public set active(b: boolean) {
     b ? this.addClass("active") : this.deleteClass("active");
   }
+
+  public get active() {
+    return this.hasClass("active");
+  }
 }
