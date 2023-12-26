@@ -1,0 +1,48 @@
+.select.component {
+    position        : relative;
+    border          : 1px solid var(--line-color);
+    border-radius   : 6px;
+    background-color: var(--content-bg-color);
+    cursor          : pointer;
+
+    >.value {
+        display       : flex;
+        align-items   : center;
+        padding       : 8px 12px;
+        line-height   : 1em;
+        text-transform: capitalize;
+
+        &:empty::before {
+            content: attr(data-empty-message);
+        }
+    }
+
+    >.option-container {
+        display         : none;
+        position        : absolute;
+        top             : 100%;
+        left            : -1px;
+        z-index         : 1;
+        border          : 1px solid var(--accent-color);
+        border-radius   : 6px;
+        background-color: var(--content-bg-color);
+        min-width       : 120px;
+
+        >.option {
+            padding       : 8px 12px;
+            text-transform: capitalize;
+
+            &:hover {
+                background-color: var(--accent-color);
+            }
+        }
+    }
+
+    &.open {
+        border: 1px solid var(--accent-color);
+
+        >.option-container {
+            display: block;
+        }
+    }
+}

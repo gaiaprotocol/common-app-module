@@ -20,6 +20,7 @@ export default class Input extends Component {
         (options.required === true ? ".required" : "") +
         (options.tag ?? ""),
     );
+
     this.append(
       el("legend", options.label),
       this.input = el(options.multiline === true ? "textarea" : "input", {
@@ -35,6 +36,7 @@ export default class Input extends Component {
         },
       }) as any,
     );
+
     if (options.value !== undefined) {
       this.value = options.value;
     }
@@ -45,10 +47,9 @@ export default class Input extends Component {
   }
 
   public set value(value: string) {
-    if (this.input.domElement.value !== value) {
-      this.input.domElement.value = value;
-      this.fireEvent("change");
-    }
+    if (this.input.domElement.value === value) return;
+    this.input.domElement.value = value;
+    this.fireEvent("change");
   }
 
   private active() {

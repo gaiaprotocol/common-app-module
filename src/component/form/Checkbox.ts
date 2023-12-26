@@ -1,6 +1,6 @@
-import DomNode from "../dom/DomNode.js";
-import el from "../dom/el.js";
-import Component from "./Component.js";
+import DomNode from "../../dom/DomNode.js";
+import el from "../../dom/el.js";
+import Component from "../Component.js";
 
 export default class Checkbox extends Component {
   private input: DomNode<HTMLInputElement>;
