@@ -86,8 +86,8 @@ export function generateJazziconDataURL(
 }
 
 export default class Jazzicon extends Component<HTMLImageElement> {
-  constructor(address: string) {
-    super("img.jazzicon");
+  constructor(tag: string, address: string) {
+    super("img.jazzicon" + tag);
     this.domElement.src = generateJazziconDataURL(address);
   }
 }

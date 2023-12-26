@@ -3,14 +3,14 @@
 @safe-width: 1280px;
 
 :root {
-    --wrapper-bg-color: #0A0A0A;
-    --content-bg-color: #131313;
+    --wrapper-bg-color: #121212;
+    --content-bg-color: #141414;
     --text-color      : #fff;
-    --line-color      : #242424;
-    --accent-color    : #9B4CFF;
+    --line-color      : #252527;
+    --accent-color    : #C1A87D;
     --popup-bg-color  : rgba(0, 0, 0, 0.5);
-    --button-bg-color : rgba(155, 76, 255, 0.12);
-    --hover-color     : rgba(155, 76, 255, 0.12);
+    --button-bg-color : rgba(193, 168, 125, 0.12);
+    --hover-color     : rgba(193, 168, 125, 0.12);
 
     width : 100%;
     height: 100%;
@@ -25,15 +25,24 @@
 body {
     width         : 100%;
     height        : 100%;
+    overflow      : hidden;
     container-type: inline-size;
 }
 
-.profile-image {
+button {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    cursor         : pointer;
+}
+
+.avatar {
     flex-shrink     : 0;
     width           : 50px;
     height          : 50px;
     border-radius   : 50%;
-    background-color: #252525;
+    background-color: #252527;
+    background-size : cover;
 }
 
 .material-symbols-outlined {

@@ -10,11 +10,7 @@ export type IconName =
   | "section-menu"
   | "comment"
   | "repeat"
-  | "like"
-  | "post"
-  | "chat"
-  | "activity"
-  | "explore";
+  | "like";
 
 export default class Icon extends Component {
   constructor(iconName: IconName) {
