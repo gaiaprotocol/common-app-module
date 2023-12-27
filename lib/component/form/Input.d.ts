@@ -4,7 +4,7 @@ export default class Input extends Component {
     private previousValue;
     constructor(options: {
         tag?: string;
-        label: string;
+        label?: string;
         placeholder?: string;
         disabled?: boolean;
         required?: boolean;
@@ -13,7 +13,5 @@ export default class Input extends Component {
     });
     get value(): string;
     set value(value: string);
-    private active;
-    private inactive;
 }
 //# sourceMappingURL=Input.d.ts.map

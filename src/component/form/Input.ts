@@ -8,7 +8,7 @@ export default class Input extends Component {
 
   constructor(options: {
     tag?: string;
-    label: string;
+    label?: string;
     placeholder?: string;
     disabled?: boolean;
     required?: boolean;
@@ -20,14 +20,13 @@ export default class Input extends Component {
         (options.required === true ? ".required" : "") +
         (options.tag ?? ""),
     );
+    this.addAllowedEvents("change");
 
     this.append(
-      el("legend", options.label),
+      options.label ? el("legend", options.label) : undefined,
       this.input = el(options.multiline === true ? "textarea" : "input", {
         placeholder: options.placeholder,
         disabled: options.disabled === true ? "disabled" : undefined,
-        focus: () => this.active(),
-        blur: () => this.inactive(),
         keyup: () => {
           if (this.value !== this.previousValue) {
             this.fireEvent("change");
@@ -50,13 +49,5 @@ export default class Input extends Component {
     if (this.input.domElement.value === value) return;
     this.input.domElement.value = value;
     this.fireEvent("change");
-  }
-
-  private active() {
-    this.addClass("active");
-  }
-
-  private inactive() {
-    this.deleteClass("active");
   }
 }
