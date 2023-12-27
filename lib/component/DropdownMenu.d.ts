@@ -6,6 +6,7 @@ export default class DropdownMenu extends Component {
         left: number;
         top: number;
         items: {
+            icon?: DomNode;
             title: string;
             click: () => void;
         }[];

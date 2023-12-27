@@ -1,4 +1,6 @@
-export default class JSONUtil {
-    static parseWithUndefined(data: any): any;
+declare class JsonUtil {
+    parseWithUndefined(data: any): any;
 }
-//# sourceMappingURL=JSONUtil.d.ts.map
+declare const _default: JsonUtil;
+export default _default;
+//# sourceMappingURL=JsonUtil.d.ts.map

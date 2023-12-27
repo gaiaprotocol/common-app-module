@@ -1,4 +1,4 @@
-import JSONUtil from "../util/JSONUtil.js";
+import JsonUtil from "../util/JsonUtil.js";
 
 export default class Store {
   constructor(private name: string) {}
@@ -40,7 +40,7 @@ export default class Store {
     if (value === null) {
       return defaultValue;
     }
-    return JSONUtil.parseWithUndefined(value);
+    return JsonUtil.parseWithUndefined(value);
   }
 
   public getAll<T>(): { [key: string]: T } {
@@ -48,14 +48,14 @@ export default class Store {
     for (let i = 0; i < sessionStorage.length; i++) {
       const key = sessionStorage.key(i);
       if (key && key.startsWith(this.name)) {
-        result[key.substring(this.name.length + 1)] = JSONUtil
+        result[key.substring(this.name.length + 1)] = JsonUtil
           .parseWithUndefined(sessionStorage.getItem(key));
       }
     }
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       if (key && key.startsWith(this.name)) {
-        result[key.substring(this.name.length + 1)] = JSONUtil
+        result[key.substring(this.name.length + 1)] = JsonUtil
           .parseWithUndefined(localStorage.getItem(key));
       }
     }

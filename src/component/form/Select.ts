@@ -47,12 +47,16 @@ export default class Select<VT = string> extends Component {
 
   public set value(value: VT | undefined) {
     if (this._value === value) return;
-    this._value = value;
+
     this.valueDisplay.empty();
     const optionDom = this._options.find((option) => option.value === value)
       ?.dom.clone();
     if (optionDom) this.valueDisplay.append(optionDom);
-    this.fireEvent("change", value);
+
+    if (optionDom || value === undefined) {
+      this._value = value;
+      this.fireEvent("change", value);
+    }
   }
 
   public get options() {
@@ -70,6 +74,6 @@ export default class Select<VT = string> extends Component {
       );
     }
 
-    this.value = this.o.defaultValue;
+    this.value = this._value;
   }
 }

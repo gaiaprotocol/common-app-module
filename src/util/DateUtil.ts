@@ -1,8 +1,8 @@
 import Constants from "../Constants.js";
 import BrowserInfo from "../browser/BrowserInfo.js";
 
-export default class DateUtil {
-  public static format(date: string | number | Date) {
+class DateUtil {
+  public format(date: string | number | Date) {
     if (date === Constants.NEGATIVE_INFINITY) return "";
 
     const inputDate = date instanceof Date ? date : new Date(date);
@@ -16,7 +16,7 @@ export default class DateUtil {
     return rtf.format(inputDate);
   }
 
-  public static fromNow(date: string | number | Date) {
+  public fromNow(date: string | number | Date) {
     const inputDate = date instanceof Date ? date : new Date(date);
     const now = new Date();
 
@@ -51,3 +51,5 @@ export default class DateUtil {
     }
   }
 }
+
+export default new DateUtil();

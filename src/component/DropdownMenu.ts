@@ -10,6 +10,7 @@ export default class DropdownMenu extends Component {
     left: number;
     top: number;
     items: {
+      icon?: DomNode;
       title: string;
       click: () => void;
     }[];
@@ -25,7 +26,7 @@ export default class DropdownMenu extends Component {
     for (const item of options.items) {
       this.ul.append(el(
         "li",
-        el("button", item.title, {
+        el("button", item.icon, item.title, {
           click: (event) => {
             event.stopPropagation();
             item.click();

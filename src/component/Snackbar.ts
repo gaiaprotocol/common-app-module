@@ -32,7 +32,10 @@ export default class Snackbar extends Component {
             },
           })
           : undefined,
-        el("button.close", new Icon("x"), {
+        new Button({
+          tag: ".close",
+          type: ButtonType.Text,
+          icon: new Icon("x"),
           click: () => this.delete(),
         }),
       ),

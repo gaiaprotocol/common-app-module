@@ -1,10 +1,10 @@
-export default class StringUtil {
-  public static shortenEthereumAddress(address: string) {
+class StringUtil {
+  public shortenEthereumAddress(address: string) {
     if (address.length !== 42 || !address.startsWith("0x")) return address;
     return `${address.substring(0, 6)}...${address.substring(38)}`;
   }
 
-  public static numberWithCommas(x: string, fixed?: number) {
+  public numberWithCommas(x: string, fixed?: number) {
     if (fixed === undefined || +(+x) > Number.MAX_SAFE_INTEGER) {
       const parts = x.split(".");
       parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -15,3 +15,5 @@ export default class StringUtil {
     return parts.join(".");
   }
 }
+
+export default new StringUtil();

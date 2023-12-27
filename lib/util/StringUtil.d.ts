@@ -1,5 +1,7 @@
-export default class StringUtil {
-    static shortenEthereumAddress(address: string): string;
-    static numberWithCommas(x: string, fixed?: number): string;
+declare class StringUtil {
+    shortenEthereumAddress(address: string): string;
+    numberWithCommas(x: string, fixed?: number): string;
 }
+declare const _default: StringUtil;
+export default _default;
 //# sourceMappingURL=StringUtil.d.ts.map
