@@ -1,5 +1,5 @@
 declare class ObjectUtil {
-    checkEqual(a: any, b: any): boolean;
+    checkEqual(obj1: any, obj2: any): boolean;
 }
 declare const _default: ObjectUtil;
 export default _default;

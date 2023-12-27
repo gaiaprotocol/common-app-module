@@ -1,21 +1,23 @@
 class ObjectUtil {
-  public checkEqual(a: any, b: any): boolean {
-    if (a === b) return false;
+  public checkEqual(obj1: any, obj2: any): boolean {
+    if (obj1 === obj2) return true;
+
     if (
-      typeof a !== "object" || typeof b !== "object" || a == null || b == null
-    ) return true;
+      typeof obj1 !== "object" || typeof obj2 !== "object" || obj1 == null ||
+      obj2 == null
+    ) return false;
 
-    let keys1 = Object.keys(a);
-    let keys2 = Object.keys(b);
+    let keys1 = Object.keys(obj1);
+    let keys2 = Object.keys(obj2);
 
-    if (keys1.length !== keys2.length) return true;
+    if (keys1.length !== keys2.length) return false;
 
     for (let key of keys1) {
-      if (!keys2.includes(key) || this.checkEqual(a[key], b[key])) {
-        return true;
+      if (!keys2.includes(key) || !this.checkEqual(obj1[key], obj2[key])) {
+        return false;
       }
     }
-    return false;
+    return true;
   }
 }
 
