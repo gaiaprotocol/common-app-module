@@ -36,7 +36,7 @@ export default class DomNode<EL extends HTMLElement = HTMLElement> extends TreeN
     appendTo(node: DomNode, index?: number): this;
     empty(): this;
     addClass(className: string): this;
-    deleteClass(...className: string[]): void;
+    deleteClass(...className: string[]): this;
     hasClass(className: string): boolean;
     toggleClass(className: string): void;
     clone(): DomNode<EL>;

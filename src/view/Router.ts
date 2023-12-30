@@ -1,7 +1,7 @@
 import BodyNode from "../dom/BodyNode.js";
 import EventContainer from "../event/EventContainer.js";
 import ArrayUtil from "../util/ArrayUtil.js";
-import URIParser from "./URIParser.js";
+import UriParser from "./UriParser.js";
 import View, { ViewParams } from "./View.js";
 
 export type ViewType = new (...args: any[]) => View;
@@ -19,8 +19,8 @@ const matchPattern = (
   excludes: string[],
   params: ViewParams,
 ) =>
-  pattern.some((pat) => URIParser.match(uriParts, pat.split("/"), params)) &&
-  !excludes.some((exclude) => URIParser.match(uriParts, exclude.split("/")));
+  pattern.some((pat) => UriParser.match(uriParts, pat.split("/"), params)) &&
+  !excludes.some((exclude) => UriParser.match(uriParts, exclude.split("/")));
 
 class Router extends EventContainer {
   private routes: {

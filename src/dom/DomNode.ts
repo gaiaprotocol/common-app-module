@@ -303,8 +303,9 @@ export default class DomNode<EL extends HTMLElement = HTMLElement>
     this.domElement.classList.add(className);
     return this;
   }
-  public deleteClass(...className: string[]): void {
+  public deleteClass(...className: string[]): this {
     this.domElement.classList.remove(...className);
+    return this;
   }
   public hasClass(className: string): boolean {
     return this.domElement.classList.contains(className);

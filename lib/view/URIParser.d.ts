@@ -1,9 +1,9 @@
 import { ViewParams } from "./View.js";
-declare class URIParser {
+declare class UriParser {
     private paramRegex;
     match(uriParts: string[], patternParts: string[], params?: ViewParams): boolean;
     parse(uri: string, pattern: string, params: ViewParams): boolean;
 }
-declare const _default: URIParser;
+declare const _default: UriParser;
 export default _default;
-//# sourceMappingURL=URIParser.d.ts.map
+//# sourceMappingURL=UriParser.d.ts.map

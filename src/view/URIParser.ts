@@ -1,6 +1,6 @@
 import { ViewParams } from "./View.js";
 
-class URIParser {
+class UriParser {
   private paramRegex = /{(.+)}/;
 
   public match(
@@ -50,4 +50,4 @@ class URIParser {
   }
 }
 
-export default new URIParser();
+export default new UriParser();

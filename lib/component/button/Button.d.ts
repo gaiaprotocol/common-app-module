@@ -8,7 +8,7 @@ export default class Button extends Component<HTMLAnchorElement> {
         tag?: string;
         type?: ButtonType;
         icon?: DomNode;
-        title?: string;
+        title?: DomChild;
         href?: string;
         disabled?: boolean;
         click?: (event: Event, node: Button) => void;
