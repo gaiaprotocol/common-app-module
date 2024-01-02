@@ -1,5 +1,5 @@
 {
-    "name": "app-module",
+    "name": "@common-module/app",
     "author": "yj.gaia",
     "homepage": "https://yj.dev",
     "version": "0.0.1",
