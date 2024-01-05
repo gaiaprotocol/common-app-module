@@ -9,13 +9,11 @@ export default class Select<VT = string> extends Component {
   private valueDisplay: DomNode;
   private optionContainer: DomNode;
 
-  constructor(
-    private o: {
-      placeholder?: string;
-      options: { dom: DomNode; value: VT }[];
-      defaultValue?: VT;
-    },
-  ) {
+  constructor(o: {
+    placeholder?: string;
+    options: { dom: DomNode; value: VT }[];
+    defaultValue?: VT;
+  }) {
     super(".select");
     this.addAllowedEvents("change");
 

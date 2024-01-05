@@ -1,7 +1,6 @@
 import DomNode from "../../dom/DomNode.js";
 import Component from "../Component.js";
 export default class Select<VT = string> extends Component {
-    private o;
     private _value;
     private _options;
     private valueDisplay;
