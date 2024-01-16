@@ -38,6 +38,18 @@ export default class SupabaseService<T> extends EventContainer {
     return data?.[0];
   }
 
+  protected async safeExists(
+    build: (
+      builder: PostgrestFilterBuilder<any, any, any, unknown>,
+    ) => PostgrestFilterBuilder<any, any, any, unknown> | PostgrestBuilder<any>,
+  ) {
+    const { data, error } = await build(
+      Supabase.client.from(this.tableName).select("*").limit(1),
+    );
+    if (error) throw error;
+    return data.length > 0;
+  }
+
   protected async safeInsert(data: Partial<T>) {
     const { error } = await Supabase.client.from(this.tableName).insert(data);
     if (error) throw error;

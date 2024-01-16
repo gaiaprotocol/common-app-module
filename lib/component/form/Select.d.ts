@@ -6,6 +6,7 @@ export default class Select<VT = string> extends Component {
     private valueDisplay;
     private optionContainer;
     constructor(o: {
+        label?: string;
         placeholder?: string;
         options: {
             dom: DomNode;

@@ -10,6 +10,7 @@ export default class Select<VT = string> extends Component {
   private optionContainer: DomNode;
 
   constructor(o: {
+    label?: string;
     placeholder?: string;
     options: { dom: DomNode; value: VT }[];
     defaultValue?: VT;
@@ -18,6 +19,9 @@ export default class Select<VT = string> extends Component {
     this.addAllowedEvents("change");
 
     this.append(
+      el("label", o.label, {
+        click: () => this.valueDisplay.fireDomEvent("mousedown"),
+      }),
       this.valueDisplay = el(".value"),
       this.optionContainer = el(".option-container"),
     );
@@ -29,7 +33,7 @@ export default class Select<VT = string> extends Component {
       );
     }
 
-    this.onDom("mousedown", (event) => {
+    this.valueDisplay.onDom("mousedown", (event) => {
       event.stopPropagation();
       this.toggleClass("open");
     });

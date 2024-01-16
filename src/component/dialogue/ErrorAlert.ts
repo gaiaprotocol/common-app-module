@@ -18,7 +18,7 @@ export default class ErrorAlert extends Popup {
     this.append(
       this.content = new Component(
         ".popup.error-alert",
-        el("header", new Icon("error"), el("h1", options.title)),
+        el("header", el("h1", new Icon("error"), options.title)),
         el("main", el("p", options.message)),
         el(
           "footer",

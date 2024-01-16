@@ -16,14 +16,14 @@ export default class Input extends Component {
     value?: string;
   }) {
     super(
-      "fieldset.input" + (options.disabled === true ? ".disabled" : "") +
+      "label.input" + (options.disabled === true ? ".disabled" : "") +
         (options.required === true ? ".required" : "") +
         (options.tag ?? ""),
     );
     this.addAllowedEvents("change");
 
     this.append(
-      options.label ? el("legend", options.label) : undefined,
+      options.label,
       this.input = el(options.multiline === true ? "textarea" : "input", {
         placeholder: options.placeholder,
         disabled: options.disabled === true ? "disabled" : undefined,
