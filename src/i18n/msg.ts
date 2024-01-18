@@ -38,7 +38,7 @@ function getMessage(
     ? data[keyOrMessages]
     : keyOrMessages;
   if (messages === undefined) {
-    console.error(`${keyOrMessages} not exists.`);
+    console.error(`message "${keyOrMessages}" not exists.`);
   } else {
     let str = (messages as any)[BrowserInfo.language];
     if (str === undefined) {
@@ -153,7 +153,7 @@ msg.getLangMessages = (
     ? data[keyOrMessages]
     : keyOrMessages;
   if (messages === undefined) {
-    console.error(`${keyOrMessages} not exists.`);
+    console.error(`message "${keyOrMessages}" not exists.`);
   } else {
     let str = (messages as any)[BrowserInfo.language];
     if (str === undefined) {
