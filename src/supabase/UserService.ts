@@ -9,14 +9,6 @@ export default class UserService<T extends UserPublic>
     return await this.safeSelectSingle((b) => b.eq("user_id", userId));
   }
 
-  public async fetchByWalletAddress(
-    walletAddress: string,
-  ): Promise<T | undefined> {
-    return await this.safeSelectSingle((b) =>
-      b.eq("wallet_address", walletAddress)
-    );
-  }
-
   public async fetchNewUsers(lastCreatedAt: string | undefined): Promise<T[]> {
     return await this.safeSelect((b) =>
       b.order("created_at", { ascending: false }).gt(
