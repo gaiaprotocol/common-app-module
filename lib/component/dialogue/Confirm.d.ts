@@ -1,4 +1,4 @@
-import DomNode from "../../dom/DomNode.js";
+import DomNode, { DomChild } from "../../dom/DomNode.js";
 import Popup from "../Popup.js";
 export default class Confirm extends Popup {
     content: DomNode;
@@ -9,7 +9,7 @@ export default class Confirm extends Popup {
         message: string;
         cancelTitle?: string;
         confirmTitle?: string;
-        loadingTitle?: string;
+        loadingTitle?: DomChild;
     }, callback: () => Promise<void> | void, cancelCallback?: () => Promise<void> | void);
     wait(): Promise<void>;
 }

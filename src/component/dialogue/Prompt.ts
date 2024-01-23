@@ -5,30 +5,48 @@ import Component from "../Component.js";
 import Popup from "../Popup.js";
 import Button from "../button/Button.js";
 import ButtonType from "../button/ButtonType.js";
+import Input from "../form/Input.js";
+import WarningMessageBox from "../messagebox/WarningMessageBox.js";
 
-export default class Confirm extends Popup {
+export default class Prompt extends Popup {
   public content: DomNode;
+  private input: Input;
 
-  private resolve: (() => void) | undefined;
+  private resolve: ((value: string) => void) | undefined;
   private reject: (() => void) | undefined;
 
   constructor(
     options: {
       title: string;
       message: string;
+      placeholder?: string;
+      value?: string;
+      info?: string;
       cancelTitle?: string;
       confirmTitle?: string;
       loadingTitle?: DomChild;
     },
-    callback: () => Promise<void> | void,
+    callback: (value: string) => Promise<void> | void,
     cancelCallback?: () => Promise<void> | void,
   ) {
     super({ barrierDismissible: true });
     this.append(
       this.content = new Component(
-        ".popup.confirm",
+        ".popup.prompt",
         el("header", el("h1", options.title)),
-        el("main", el("p", options.message)),
+        el(
+          "main",
+          el("p", options.message),
+          this.input = new Input({
+            placeholder: options.placeholder,
+            value: options.value,
+          }),
+          options.info
+            ? new WarningMessageBox({
+              message: options.info,
+            })
+            : undefined,
+        ),
         el(
           "footer",
           new Button({
@@ -52,8 +70,8 @@ export default class Confirm extends Popup {
               }
 
               try {
-                await callback();
-                this.resolve?.();
+                await callback(this.input.value);
+                this.resolve?.(this.input.value);
                 this.reject = undefined;
                 this.delete();
               } catch (e) {
@@ -72,7 +90,11 @@ export default class Confirm extends Popup {
     this.on("delete", () => this.reject?.());
   }
 
-  public async wait(): Promise<void> {
+  public set value(value: string) {
+    this.input.value = value;
+  }
+
+  public async wait(): Promise<string> {
     return new Promise((resolve, reject) => {
       this.resolve = resolve;
       this.reject = reject;
