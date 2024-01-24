@@ -1,6 +1,10 @@
 import Rich from "../../database-interface/Rich.js";
 import el from "../../dom/el.js";
 import Component from "../Component.js";
+import LottieAnimation from "../LottieAnimation.js";
+import imageLoadingAnimationData from "./image-loading-animation.json" assert {
+  type: "json",
+};
 
 export default class RichDisplay extends Component {
   public static NOT_FOUND_IMAGE = "/images/image-not-found.png";
@@ -14,20 +18,29 @@ export default class RichDisplay extends Component {
         if (file.fileType.startsWith("image/")) {
           let imageNotFound = false;
 
-          const image = el<HTMLImageElement>("img", {
+          const loading = new LottieAnimation(
+            ".image-loading-animation",
+            imageLoadingAnimationData,
+          );
+
+          const image = el<HTMLImageElement>("img.hidden", {
             src: file.url,
             alt: file.fileName,
-            load: (event, image: any) => {
+            load: () => {
               if (!this.deleted) {
+                image.deleteClass("hidden");
                 this.fireEvent("imageLoaded", image.domElement.height);
+                loading.delete();
               }
             },
           });
 
           image.domElement.onerror = () => {
+            image.deleteClass("hidden");
             image.domElement.onerror = null;
             image.domElement.src = RichDisplay.NOT_FOUND_IMAGE;
             imageNotFound = true;
+            loading.delete();
           };
 
           this.append(el(
@@ -35,6 +48,7 @@ export default class RichDisplay extends Component {
             el(
               "a",
               image,
+              loading,
               {
                 click: (event) => {
                   event.stopPropagation();

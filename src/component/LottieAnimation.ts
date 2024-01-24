@@ -4,8 +4,8 @@ import Component from "./Component.js";
 export default class LottieAnimation extends Component {
   private animation: AnimationItem;
 
-  constructor(animationData: any) {
-    super(".lottie-animation");
+  constructor(tag: string, animationData: any) {
+    super(tag + ".lottie-animation");
     this.animation = Lottie.loadAnimation({
       container: this.domElement,
       renderer: "svg",
