@@ -1,7 +1,8 @@
-import DomNode, { DomChild } from "../../dom/DomNode.js";
+import DomNode from "../../dom/DomNode.js";
 import el from "../../dom/el.js";
 import msg from "../../i18n/msg.js";
 import Component from "../Component.js";
+import LoadingSpinner from "../LoadingSpinner.js";
 import Popup from "../Popup.js";
 import Button from "../button/Button.js";
 import ButtonType from "../button/ButtonType.js";
@@ -24,7 +25,6 @@ export default class Prompt extends Popup {
       info?: string;
       cancelTitle?: string;
       confirmTitle?: string;
-      loadingTitle?: DomChild;
     },
     callback: (value: string) => Promise<void> | void,
     cancelCallback?: () => Promise<void> | void,
@@ -65,9 +65,7 @@ export default class Prompt extends Popup {
             tag: ".confirm-button",
             click: async (event, button) => {
               button.domElement.setAttribute("disabled", "disabled");
-              if (options.loadingTitle) {
-                button.empty().append(options.loadingTitle);
-              }
+              button.empty().append(new LoadingSpinner());
 
               try {
                 await callback(this.input.value);
