@@ -50,6 +50,8 @@ export { default as UploadManager } from "./supabase/UploadManager.js";
 export { default as UserService } from "./supabase/UserService.js";
 export { default as TestLoginView } from "./test/TestLoginView.js";
 export { default as ArrayUtil } from "./util/ArrayUtil.js";
+export { default as AuthUtil } from "./util/AuthUtil.js";
+export { default as AvatarUtil } from "./util/AvatarUtil.js";
 export { default as DateUtil } from "./util/DateUtil.js";
 export { default as Debouncer } from "./util/Debouncer.js";
 export { default as JsonUtil } from "./util/JsonUtil.js";

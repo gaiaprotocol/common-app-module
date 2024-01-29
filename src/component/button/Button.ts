@@ -1,21 +1,24 @@
 import DomNode, { DomChild } from "../../dom/DomNode.js";
 import el from "../../dom/el.js";
 import Component from "../Component.js";
+import LoadingSpinner from "../LoadingSpinner.js";
 import ButtonType from "./ButtonType.js";
 
 export default class Button extends Component<HTMLAnchorElement> {
   private _icon: DomNode | undefined;
   private titleContainer: DomNode | undefined;
 
-  constructor(options: {
-    tag?: string;
-    type?: ButtonType;
-    icon?: DomNode;
-    title?: DomChild;
-    href?: string;
-    disabled?: boolean;
-    click?: (event: Event, node: Button) => void;
-  }) {
+  constructor(
+    private options: {
+      tag?: string;
+      type?: ButtonType;
+      icon?: DomNode;
+      title?: DomChild;
+      href?: string;
+      disabled?: boolean;
+      click?: (event: Event, node: Button) => void;
+    },
+  ) {
     super(
       "button" +
         (options.type !== undefined ? "." + options.type : ".contained") +
@@ -70,5 +73,15 @@ export default class Button extends Component<HTMLAnchorElement> {
   public enable(): this {
     this.deleteClass("disabled");
     return this;
+  }
+
+  public set loading(loading: boolean) {
+    if (loading) {
+      this.addClass("loading");
+      this.title = new LoadingSpinner();
+    } else {
+      this.deleteClass("loading");
+      this.title = this.options.title ?? "";
+    }
   }
 }

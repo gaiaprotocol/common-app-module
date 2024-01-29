@@ -8,6 +8,7 @@ export default interface UserPublic {
     stored_avatar?: string;
     stored_avatar_thumb?: string;
     metadata?: UserPublicMetadata;
+    points: number;
     blocked: boolean;
     created_at: string;
     updated_at?: string;
