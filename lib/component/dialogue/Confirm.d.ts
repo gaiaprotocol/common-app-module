@@ -5,6 +5,7 @@ export default class Confirm extends Popup {
     private resolve;
     private reject;
     constructor(options: {
+        icon?: DomNode;
         title: string;
         message: string;
         cancelTitle?: string;

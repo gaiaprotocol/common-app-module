@@ -50,4 +50,8 @@ export default class Input extends Component {
     this.input.domElement.value = value;
     this.fireEvent("change");
   }
+
+  public select() {
+    this.input.domElement.select();
+  }
 }

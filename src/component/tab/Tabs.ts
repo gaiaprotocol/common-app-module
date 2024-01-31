@@ -22,8 +22,10 @@ export default class Tabs extends Component {
     }
   }
 
-  public init() {
-    if (this.store.get("selected")) {
+  public init(id?: string) {
+    if (id) {
+      this.select(id);
+    } else if (this.store.get("selected")) {
       this.select(this.store.get("selected")!);
     } else {
       const firstId = this.children[0]?._id;
@@ -31,6 +33,7 @@ export default class Tabs extends Component {
         this.select(firstId);
       }
     }
+    return this;
   }
 
   public select(id: string) {

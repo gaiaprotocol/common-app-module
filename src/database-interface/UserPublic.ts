@@ -1,4 +1,6 @@
-interface UserPublicMetadata {}
+interface UserPublicMetadata {
+  bio?: string;
+}
 
 export default interface UserPublic {
   user_id: string;

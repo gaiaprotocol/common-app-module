@@ -2,7 +2,6 @@ import DomNode from "../../dom/DomNode.js";
 import el from "../../dom/el.js";
 import msg from "../../i18n/msg.js";
 import Component from "../Component.js";
-import LoadingSpinner from "../LoadingSpinner.js";
 import Popup from "../Popup.js";
 import Button from "../button/Button.js";
 import ButtonType from "../button/ButtonType.js";
@@ -15,6 +14,7 @@ export default class Confirm extends Popup {
 
   constructor(
     options: {
+      icon?: DomNode;
       title: string;
       message: string;
       cancelTitle?: string;
@@ -27,7 +27,7 @@ export default class Confirm extends Popup {
     this.append(
       this.content = new Component(
         ".popup.confirm",
-        el("header", el("h1", options.title)),
+        el("header", el("h1", options.icon, options.title)),
         el("main", el("p", options.message)),
         el(
           "footer",
@@ -46,8 +46,7 @@ export default class Confirm extends Popup {
             type: ButtonType.Contained,
             tag: ".confirm-button",
             click: async (event, button) => {
-              button.domElement.setAttribute("disabled", "disabled");
-              button.empty().append(new LoadingSpinner());
+              button.loading = true;
 
               try {
                 await callback();
@@ -56,8 +55,7 @@ export default class Confirm extends Popup {
                 this.delete();
               } catch (e) {
                 console.error(e);
-                button.domElement.removeAttribute("disabled");
-                button.text = options.confirmTitle ?? msg("confirm-button");
+                button.loading = false;
                 this.reject?.();
               }
             },

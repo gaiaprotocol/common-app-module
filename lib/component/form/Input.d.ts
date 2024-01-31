@@ -13,5 +13,6 @@ export default class Input extends Component {
     });
     get value(): string;
     set value(value: string);
+    select(): void;
 }
 //# sourceMappingURL=Input.d.ts.map

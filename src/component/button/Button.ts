@@ -66,20 +66,24 @@ export default class Button extends Component<HTMLAnchorElement> {
   }
 
   public disable(): this {
+    this.domElement.setAttribute("disabled", "disabled");
     this.addClass("disabled");
     return this;
   }
 
   public enable(): this {
+    this.domElement.removeAttribute("disabled");
     this.deleteClass("disabled");
     return this;
   }
 
   public set loading(loading: boolean) {
     if (loading) {
+      this.disable();
       this.addClass("loading");
       this.title = new LoadingSpinner();
     } else {
+      this.enable();
       this.deleteClass("loading");
       this.title = this.options.title ?? "";
     }

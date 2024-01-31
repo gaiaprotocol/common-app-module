@@ -8,7 +8,7 @@ export default class Tabs extends Component {
         id: string;
         label: DomChild | DomChild[];
     }[]);
-    init(): void;
+    init(id?: string): this;
     select(id: string): void;
 }
 //# sourceMappingURL=Tabs.d.ts.map
