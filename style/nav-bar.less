@@ -24,8 +24,8 @@
         bottom: 0;
 
         width         : 100%;
-        height        : calc(90px + env(safe-area-inset-bottom));
-        padding-bottom: calc(6px + env(safe-area-inset-bottom));
+        height        : calc(80px + env(safe-area-inset-bottom));
+        padding-bottom: calc(4px + env(safe-area-inset-bottom));
 
         border-top  : 1px solid var(--line-color);
         border-right: none;
@@ -34,12 +34,12 @@
         justify-content: space-between;
         gap            : 0;
 
-        padding-bottom: 0;
-        overflow-y    : visible;
+        overflow-y: visible;
 
         &::before,
         &::after {
             content: '';
+            margin : 0 -1%;
         }
     }
 
@@ -64,9 +64,14 @@
         gap           : 4px;
         align-items   : center;
         font-size     : 12px;
+        color         : var(--secondary-color);
 
         >.icon {
             font-size: 42px;
+
+            @container (width < @safe-width) {
+                font-size: 36px;
+            }
         }
 
         &.active {

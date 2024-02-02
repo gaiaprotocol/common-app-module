@@ -15,6 +15,7 @@ export default class Button extends Component<HTMLAnchorElement> {
       icon?: DomNode;
       title?: DomChild;
       href?: string;
+      target?: string;
       disabled?: boolean;
       click?: (event: Event, node: Button) => void;
     },
@@ -33,7 +34,13 @@ export default class Button extends Component<HTMLAnchorElement> {
       );
     }
     if (options.href !== undefined) {
-      this.onDom("click", () => window.open(options.href));
+      this.onDom("click", () => {
+        if (options.target === "_blank") {
+          window.open(options.href!);
+        } else {
+          window.location.href = options.href!;
+        }
+      });
     }
     if (options.disabled === true) {
       this.disable();

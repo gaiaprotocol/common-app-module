@@ -12,7 +12,7 @@ export default class Alert extends Popup {
     title: string;
     message: string;
     confirmTitle?: string;
-  }) {
+  }, callback?: () => Promise<void> | void) {
     super({ barrierDismissible: true });
     this.append(
       this.content = new Component(
@@ -25,7 +25,10 @@ export default class Alert extends Popup {
             type: ButtonType.Text,
             tag: ".confirm-button",
             title: options.confirmTitle ?? "OK",
-            click: () => this.delete(),
+            click: async () => {
+              if (callback) await callback();
+              this.delete();
+            },
           }),
         ),
       ),
