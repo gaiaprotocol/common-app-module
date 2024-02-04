@@ -7,6 +7,12 @@
     max-width    : 100%;
     overflow-x   : auto;
 
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
     >.tab {
         cursor       : pointer;
         min-height   : 48px;
@@ -14,6 +20,7 @@
         align-items  : center;
         border-bottom: 3px solid transparent;
         padding      : 0 10px;
+        white-space  : nowrap;
 
         &:hover {
             color: var(--primary-color);

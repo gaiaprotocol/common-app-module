@@ -3,6 +3,7 @@ export { default as Constants } from "./Constants.js";
 export { default as SingletonTempCacher } from "./SingletonTempCacher.js";
 export { default as SplashLoader } from "./SplashLoader.js";
 export { default as BrowserInfo } from "./browser/BrowserInfo.js";
+export { default as AdaptiveModal } from "./component/AdaptiveModal.js";
 export { default as Component } from "./component/Component.js";
 export { default as Details } from "./component/Details.js";
 export { default as DropdownMenu } from "./component/DropdownMenu.js";

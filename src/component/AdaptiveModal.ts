@@ -3,7 +3,7 @@ import DomNode from "../dom/DomNode.js";
 
 export default abstract class AdaptiveModal extends DomNode {
   constructor(options: { barrierDismissible: boolean }) {
-    super(".popup-background");
+    super(".adaptive-modal-background");
     if (options.barrierDismissible === true) {
       this.onDom("click", (event: MouseEvent) => {
         if (event.target === this.domElement) {
