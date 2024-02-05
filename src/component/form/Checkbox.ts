@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import DomNode from "../../dom/DomNode.js";
 import el from "../../dom/el.js";
 import Component from "../Component.js";
@@ -5,13 +6,18 @@ import Component from "../Component.js";
 export default class Checkbox extends Component {
   private input: DomNode<HTMLInputElement>;
 
-  constructor() {
+  constructor(options: { label?: string } = {}) {
     super(".checkbox");
     this.addAllowedEvents("check", "uncheck");
 
+    const id = uuidv4();
     this.append(
-      this.input = el("input", { type: "checkbox" }),
-      el(".checkmark"),
+      el(
+        ".checkmark-container",
+        this.input = el("input", { id, type: "checkbox" }),
+        el(".checkmark"),
+      ),
+      options.label ? el("label", options.label, { for: id }) : undefined,
     );
 
     this.onDom(
