@@ -22,7 +22,7 @@ export default class Button extends Component<HTMLAnchorElement> {
   ) {
     super(
       "button" +
-        (options.type !== undefined ? "." + options.type : ".contained") +
+        (options.type !== undefined ? "." + options.type : ".text") +
         (options.tag ?? ""),
     );
     if (options.icon !== undefined) {

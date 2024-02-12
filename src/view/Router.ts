@@ -42,7 +42,7 @@ class Router extends EventContainer {
         this.forwarding = false;
       } else {
         const openedPopup = (BodyNode.children as any).findLast((child: any) =>
-          child.hasClass("popup-background")
+          child.hasClass("exitable-fragment")
         );
         if (openedPopup) {
           this.forwarding = true;
@@ -62,7 +62,7 @@ class Router extends EventContainer {
 
   public closeAllPopup() {
     for (const child of BodyNode.children) {
-      if (child.hasClass("popup-background")) {
+      if (child.hasClass("exitable-fragment")) {
         child.delete();
       }
     }

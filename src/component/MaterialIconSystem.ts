@@ -15,6 +15,7 @@ class MaterialIconSystem {
       if (iconName === "comment") return "comment";
       if (iconName === "repeat") return "repeat";
       if (iconName === "like") return "favorite_border";
+      if (iconName === "back") return "arrow_back";
       return iconName;
     };
   }
