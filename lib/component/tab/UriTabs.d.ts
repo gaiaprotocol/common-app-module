@@ -6,6 +6,7 @@ export default class UriTabs extends Component {
     constructor(tabs: {
         uri: string;
         label: DomChild | DomChild[];
+        active?: boolean;
     }[]);
     active(uri: string): void;
 }

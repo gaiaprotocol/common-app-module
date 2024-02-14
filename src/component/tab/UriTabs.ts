@@ -6,11 +6,14 @@ import Tab from "./Tab.js";
 export default class UriTabs extends Component {
   public children: Tab[] = [];
 
-  constructor(tabs: { uri: string; label: DomChild | DomChild[] }[]) {
+  constructor(
+    tabs: { uri: string; label: DomChild | DomChild[]; active?: boolean }[],
+  ) {
     super("ul.tabs");
     for (const t of tabs) {
       const tab = new Tab(t.uri, t.label);
       tab.onDom("click", () => Router.go(`/${t.uri}`));
+      if (t.active) tab.active = true;
       this.append(tab);
     }
   }
