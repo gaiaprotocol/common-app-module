@@ -3,7 +3,7 @@ import UserPublic from "../database-interface/UserPublic.js";
 import Supabase from "./Supabase.js";
 import SupabaseService from "./SupabaseService.js";
 
-export default class UserService<T extends UserPublic>
+export default abstract class UserService<T extends UserPublic>
   extends SupabaseService<T> {
   public async fetchUser(userId: string): Promise<T | undefined> {
     return await this.safeSelectSingle((b) => b.eq("user_id", userId));
