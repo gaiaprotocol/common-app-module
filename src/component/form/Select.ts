@@ -41,6 +41,7 @@ export default class Select<VT = string> extends Component {
     this.onWindow("mousedown", () => this.deleteClass("open"));
 
     this.options = o.options;
+    if (o.defaultValue) this.value = o.defaultValue;
   }
 
   public get value() {
