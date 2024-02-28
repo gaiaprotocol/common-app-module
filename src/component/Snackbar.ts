@@ -24,7 +24,6 @@ export default class Snackbar extends Component {
         options.action
           ? new Button({
             tag: ".action",
-            type: ButtonType.Text,
             title: options.action.title,
             click: () => {
               options.action?.click();
@@ -34,7 +33,6 @@ export default class Snackbar extends Component {
           : undefined,
         new Button({
           tag: ".close",
-          type: ButtonType.Text,
           icon: new Icon("x"),
           click: () => this.delete(),
         }),

@@ -8,6 +8,7 @@ button.component {
     border-radius  : 6px;
     line-height    : 1em;
     gap            : 8px;
+    text-transform : capitalize;
 
     &.disabled {
         cursor: not-allowed;
@@ -15,12 +16,12 @@ button.component {
     }
 
     &.contained {
-        border          : 1px solid var(--primary-color);
-        background-color: var(--button-bg-color);
+        background-color: var(--primary-color);
     }
 
-    >.title {
-        text-transform: capitalize;
+    &.outlined {
+        border          : 1px solid var(--primary-color);
+        background-color: var(--button-bg-color);
     }
 
     &:hover {

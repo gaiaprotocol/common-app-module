@@ -23,7 +23,6 @@ export default class ErrorAlert extends Popup {
         el(
           "footer",
           new Button({
-            type: ButtonType.Text,
             tag: ".confirm-button",
             title: options.confirmTitle ?? "OK",
             click: () => this.delete(),

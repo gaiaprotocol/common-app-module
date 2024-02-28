@@ -12,6 +12,7 @@ export default interface UserPublic {
   metadata?: UserPublicMetadata;
   points: number;
   blocked: boolean;
+  deleted: boolean;
   created_at: string;
   updated_at?: string;
 }

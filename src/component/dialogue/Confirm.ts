@@ -32,7 +32,6 @@ export default class Confirm extends Popup {
         el(
           "footer",
           new Button({
-            type: ButtonType.Text,
             tag: ".cancel-button",
             click: () => {
               if (cancelCallback) {

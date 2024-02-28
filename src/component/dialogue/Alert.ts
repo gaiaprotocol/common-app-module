@@ -22,7 +22,6 @@ export default class Alert extends Popup {
         el(
           "footer",
           new Button({
-            type: ButtonType.Text,
             tag: ".confirm-button",
             title: options.confirmTitle ?? "OK",
             click: async () => {

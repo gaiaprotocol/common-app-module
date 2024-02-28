@@ -1,1 +1,1 @@
-{"version":3,"file":"ButtonType.d.ts","sourceRoot":"","sources":["../../../src/component/button/ButtonType.ts"],"names":[],"mappings":"AAAA,aAAK,UAAU;IACb,SAAS,cAAc;IACvB,IAAI,SAAS;CACd;AAED,eAAe,UAAU,CAAC"}
+{"version":3,"file":"ButtonType.d.ts","sourceRoot":"","sources":["../../../src/component/button/ButtonType.ts"],"names":[],"mappings":"AAAA,aAAK,UAAU;IAEb,SAAS,cAAc;IACvB,QAAQ,aAAa;CACtB;AAED,eAAe,UAAU,CAAC"}

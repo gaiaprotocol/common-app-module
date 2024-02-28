@@ -214,7 +214,7 @@ export default class DomNode<EL extends HTMLElement = HTMLElement>
           this.appendText(child);
         } else if (child instanceof DomNode) {
           child.appendTo(this);
-        } else {
+        } else { // attributes
           for (const [name, value] of Object.entries<any>(child)) {
             if (typeof value === "function") {
               this.onDom(name, value);
