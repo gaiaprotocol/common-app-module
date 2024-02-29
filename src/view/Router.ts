@@ -42,13 +42,13 @@ class Router extends EventContainer {
       if (this.forwarding === true) {
         this.forwarding = false;
       } else {
-        const openedPopup = (BodyNode.children as any).findLast((child: any) =>
+        const exitable = (BodyNode.children as any).findLast((child: any) =>
           child instanceof Exitable
         );
-        if (openedPopup) {
+        if (exitable) {
           this.forwarding = true;
           window.history.forward();
-          openedPopup.delete();
+          exitable.delete();
         } else {
           this.check(event.state ?? undefined);
         }
@@ -61,7 +61,7 @@ class Router extends EventContainer {
     });
   }
 
-  public closeAllPopup() {
+  public deleteAllExitable() {
     for (const child of BodyNode.children) {
       if (child instanceof Exitable) {
         child.delete();
