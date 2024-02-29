@@ -1,3 +1,4 @@
+import DomNode from "../../dom/DomNode.js";
 import el from "../../dom/el.js";
 import msg from "../../i18n/msg.js";
 import Button from "../button/Button.js";
@@ -14,6 +15,7 @@ export default class Prompt extends Popup {
 
   constructor(
     options: {
+      icon?: DomNode;
       title: string;
       message: string;
       placeholder?: string;
@@ -25,8 +27,8 @@ export default class Prompt extends Popup {
     callback: (value: string) => Promise<void> | void,
     cancelCallback?: () => Promise<void> | void,
   ) {
-    super(".prompt", { barrierDismissible: true });
-    this.header.append(el("h1", options.title));
+    super(".prompt", { barrierDismissible: true, hasHidingAnimation: true });
+    this.header.append(el("h1", options.icon, options.title));
     this.main.append(
       el("p", options.message),
       this.input = new Input({
@@ -40,6 +42,14 @@ export default class Prompt extends Popup {
         : undefined,
     );
     this.footer.append(
+      new Button({
+        tag: ".cancel-button",
+        click: () => {
+          if (cancelCallback) cancelCallback();
+          this.delete();
+        },
+        title: options.cancelTitle ?? msg("cancel-button"),
+      }),
       new Button({
         type: ButtonType.Contained,
         tag: ".confirm-button",

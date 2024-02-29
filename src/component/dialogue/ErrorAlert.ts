@@ -9,7 +9,10 @@ export default class ErrorAlert extends Popup {
     message: string;
     confirmTitle?: string;
   }) {
-    super(".error-alert", { barrierDismissible: true });
+    super(".error-alert", {
+      barrierDismissible: true,
+      hasHidingAnimation: true,
+    });
     this.header.append(el("h1", new Icon("error"), options.title));
     this.main.append(el("p", options.message));
     this.footer.append(

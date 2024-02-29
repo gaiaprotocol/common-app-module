@@ -20,16 +20,14 @@ export default class Confirm extends Popup {
     callback: () => Promise<void> | void,
     cancelCallback?: () => Promise<void> | void,
   ) {
-    super(".confirm", { barrierDismissible: true });
+    super(".confirm", { barrierDismissible: true, hasHidingAnimation: true });
     this.header.append(el("h1", options.icon, options.title));
     this.main.append(el("p", options.message));
     this.footer.append(
       new Button({
         tag: ".cancel-button",
         click: () => {
-          if (cancelCallback) {
-            cancelCallback();
-          }
+          if (cancelCallback) cancelCallback();
           this.delete();
         },
         title: options.cancelTitle ?? msg("cancel-button"),

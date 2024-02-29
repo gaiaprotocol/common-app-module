@@ -1,5 +1,7 @@
 import Button from "../component/button/Button.js";
 import ButtonType from "../component/button/ButtonType.js";
+import Alert from "../component/dialogue/Alert.js";
+import ErrorAlert from "../component/dialogue/ErrorAlert.js";
 import FileDropArea from "../component/rich/FileDropArea.js";
 import BodyNode from "../dom/BodyNode.js";
 import DomNode from "../dom/DomNode.js";
@@ -34,6 +36,30 @@ export default class ComponentTestView extends View {
             new Button({
               type: ButtonType.Outlined,
               title: "Outlined",
+            }),
+          ),
+        ),
+        el(
+          "section.dialogues",
+          el("h2", "Dialogues"),
+          el("p", "This is a test of the dialogue components."),
+          el(
+            ".button-container",
+            new Button({
+              title: "Alert",
+              click: () =>
+                new Alert({
+                  title: "Alert",
+                  message: "This is a test of the alert dialogue.",
+                }),
+            }),
+            new Button({
+              title: "Error Alert",
+              click: () =>
+                new ErrorAlert({
+                  title: "Error Alert",
+                  message: "This is a test of the error alert dialogue.",
+                }),
             }),
           ),
         ),
