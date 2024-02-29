@@ -3,6 +3,7 @@ import ButtonType from "../component/button/ButtonType.js";
 import BodyNode from "../dom/BodyNode.js";
 import el from "../dom/el.js";
 import View, { ViewParams } from "../view/View.js";
+import TestDrawer from "./TestDrawer.js";
 
 export default class ComponentTestView extends View {
   constructor(params: ViewParams) {
@@ -29,6 +30,15 @@ export default class ComponentTestView extends View {
               title: "Outlined",
             }),
           ),
+        ),
+        el(
+          "section.drawer",
+          el("h2", "Drawer"),
+          el("p", "This is a test of the drawer component."),
+          new Button({
+            title: "Open Drawer",
+            click: () => new TestDrawer(),
+          }),
         ),
       ),
     );

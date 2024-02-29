@@ -1,3 +1,4 @@
+import Exitable from "../component/exitable/Exitable.js";
 import BodyNode from "../dom/BodyNode.js";
 import EventContainer from "../event/EventContainer.js";
 import ArrayUtil from "../util/ArrayUtil.js";
@@ -42,7 +43,7 @@ class Router extends EventContainer {
         this.forwarding = false;
       } else {
         const openedPopup = (BodyNode.children as any).findLast((child: any) =>
-          child.hasClass("exitable-fragment")
+          child instanceof Exitable
         );
         if (openedPopup) {
           this.forwarding = true;
@@ -62,7 +63,7 @@ class Router extends EventContainer {
 
   public closeAllPopup() {
     for (const child of BodyNode.children) {
-      if (child.hasClass("exitable-fragment")) {
+      if (child instanceof Exitable) {
         child.delete();
       }
     }

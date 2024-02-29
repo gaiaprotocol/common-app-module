@@ -1,0 +1,1 @@
+{"version":3,"file":"AdaptiveModal.d.ts","sourceRoot":"","sources":["../../../src/component/exitable/AdaptiveModal.ts"],"names":[],"mappings":"AAAA,OAAO,SAAS,MAAM,iBAAiB,CAAC;AACxC,OAAO,QAAQ,EAAE,EAAE,eAAe,EAAE,MAAM,eAAe,CAAC;AAE1D,MAAM,CAAC,OAAO,CAAC,QAAQ,OAAO,aAAc,SAAQ,QAAQ;IAC1D,SAAS,CAAC,SAAS,EAAE,SAAS,CAAC;gBAEnB,GAAG,EAAE,MAAM,EAAE,OAAO,EAAE,eAAe;CAIlD"}

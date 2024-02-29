@@ -1,7 +1,6 @@
 import DomNode from "../../dom/DomNode.js";
-import Popup from "../Popup.js";
+import Popup from "../exitable/Popup.js";
 export default class Confirm extends Popup {
-    content: DomNode;
     private resolve;
     private reject;
     constructor(options: {
