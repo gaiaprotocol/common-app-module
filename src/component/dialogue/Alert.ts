@@ -9,20 +9,17 @@ export default class Alert extends Popup {
     confirmTitle?: string;
   }, callback?: () => Promise<void> | void) {
     super(".alert", { barrierDismissible: true });
-    this.container.append(
-      el("header", el("h1", options.title)),
-      el("main", el("p", options.message)),
-      el(
-        "footer",
-        new Button({
-          tag: ".confirm-button",
-          title: options.confirmTitle ?? "OK",
-          click: async () => {
-            if (callback) await callback();
-            this.delete();
-          },
-        }),
-      ),
+    this.header.append(el("h1", options.title));
+    this.main.append(el("p", options.message));
+    this.footer.append(
+      new Button({
+        tag: ".confirm-button",
+        title: options.confirmTitle ?? "OK",
+        click: async () => {
+          if (callback) await callback();
+          this.delete();
+        },
+      }),
     );
   }
 }

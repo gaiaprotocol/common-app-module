@@ -5,7 +5,7 @@ export default abstract class Drawer extends Exitable {
   protected container: Component;
 
   constructor(tag: string, options: { hasHidingAnimation?: boolean }) {
-    super({
+    super(".drawer-overlay", {
       barrierDismissible: true,
       ...options,
     });

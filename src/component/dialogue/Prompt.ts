@@ -26,53 +26,39 @@ export default class Prompt extends Popup {
     cancelCallback?: () => Promise<void> | void,
   ) {
     super(".prompt", { barrierDismissible: true });
-    this.container.append(
-      el("header", el("h1", options.title)),
-      el(
-        "main",
-        el("p", options.message),
-        this.input = new Input({
-          placeholder: options.placeholder,
-          value: options.value,
-        }),
-        options.info
-          ? new WarningMessageBox({
-            message: options.info,
-          })
-          : undefined,
-      ),
-      el(
-        "footer",
-        new Button({
-          tag: ".cancel-button",
-          click: () => {
-            if (cancelCallback) {
-              cancelCallback();
-            }
-            this.delete();
-          },
-          title: options.cancelTitle ?? msg("cancel-button"),
-        }),
-        new Button({
-          type: ButtonType.Contained,
-          tag: ".confirm-button",
-          click: async (event, button) => {
-            button.loading = true;
+    this.header.append(el("h1", options.title));
+    this.main.append(
+      el("p", options.message),
+      this.input = new Input({
+        placeholder: options.placeholder,
+        value: options.value,
+      }),
+      options.info
+        ? new WarningMessageBox({
+          message: options.info,
+        })
+        : undefined,
+    );
+    this.footer.append(
+      new Button({
+        type: ButtonType.Contained,
+        tag: ".confirm-button",
+        click: async (event, button) => {
+          button.loading = true;
 
-            try {
-              await callback(this.input.value);
-              this.resolve?.(this.input.value);
-              this.reject = undefined;
-              this.delete();
-            } catch (e) {
-              console.error(e);
-              button.loading = false;
-              this.reject?.();
-            }
-          },
-          title: options.confirmTitle ?? msg("confirm-button"),
-        }),
-      ),
+          try {
+            await callback(this.input.value);
+            this.resolve?.(this.input.value);
+            this.reject = undefined;
+            this.delete();
+          } catch (e) {
+            console.error(e);
+            button.loading = false;
+            this.reject?.();
+          }
+        },
+        title: options.confirmTitle ?? msg("confirm-button"),
+      }),
     );
     this.on("delete", () => this.reject?.());
   }

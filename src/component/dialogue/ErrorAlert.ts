@@ -10,17 +10,14 @@ export default class ErrorAlert extends Popup {
     confirmTitle?: string;
   }) {
     super(".error-alert", { barrierDismissible: true });
-    this.container.append(
-      el("header", el("h1", new Icon("error"), options.title)),
-      el("main", el("p", options.message)),
-      el(
-        "footer",
-        new Button({
-          tag: ".confirm-button",
-          title: options.confirmTitle ?? "OK",
-          click: () => this.delete(),
-        }),
-      ),
+    this.header.append(el("h1", new Icon("error"), options.title));
+    this.main.append(el("p", options.message));
+    this.footer.append(
+      new Button({
+        tag: ".confirm-button",
+        title: options.confirmTitle ?? "OK",
+        click: () => this.delete(),
+      }),
     );
   }
 }

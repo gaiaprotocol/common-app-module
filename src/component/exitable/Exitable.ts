@@ -10,8 +10,8 @@ export interface ExitableOptions {
 export default abstract class Exitable extends DomNode {
   protected abstract container: Component;
 
-  constructor(private options: ExitableOptions) {
-    super(".exitable");
+  constructor(overlayTag: string, private options: ExitableOptions) {
+    super(".exitable" + overlayTag);
     if (options.barrierDismissible === true) {
       this.onDom("click", (event: MouseEvent) => {
         if (event.target === this.domElement) {

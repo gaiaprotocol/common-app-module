@@ -5,6 +5,7 @@ import BodyNode from "../dom/BodyNode.js";
 import DomNode from "../dom/DomNode.js";
 import el from "../dom/el.js";
 import View, { ViewParams } from "../view/View.js";
+import TestAdaptiveModal from "./TestAdaptiveModal.js";
 import TestDrawer from "./TestDrawer.js";
 
 export default class ComponentTestView extends View {
@@ -43,6 +44,15 @@ export default class ComponentTestView extends View {
           new Button({
             title: "Open Drawer",
             click: () => new TestDrawer(),
+          }),
+        ),
+        el(
+          "section.adaptive-modal",
+          el("h2", "Adaptive Modal"),
+          el("p", "This is a test of the adaptive modal component."),
+          new Button({
+            title: "Open Adaptive Modal",
+            click: () => new TestAdaptiveModal(),
           }),
         ),
         el(

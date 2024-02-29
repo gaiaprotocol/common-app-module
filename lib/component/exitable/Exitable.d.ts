@@ -7,7 +7,7 @@ export interface ExitableOptions {
 export default abstract class Exitable extends DomNode {
     private options;
     protected abstract container: Component;
-    constructor(options: ExitableOptions);
+    constructor(overlayTag: string, options: ExitableOptions);
     delete(): void;
 }
 //# sourceMappingURL=Exitable.d.ts.map
