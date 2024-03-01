@@ -4,6 +4,7 @@ import msg from "../../i18n/msg.js";
 import Component from "../Component.js";
 import Icon from "../Icon.js";
 import Button from "../button/Button.js";
+import ButtonType from "../button/ButtonType.js";
 import Exitable, { ExitableOptions } from "./Exitable.js";
 
 export default abstract class AdaptiveModal extends Exitable {
@@ -20,12 +21,14 @@ export default abstract class AdaptiveModal extends Exitable {
         "header",
         new Button({
           tag: ".back",
+          type: ButtonType.Circle,
           icon: new Icon("back"),
           click: () => this.delete(),
         }),
         this.titleDisplay = el("h1.title"),
         new Button({
           tag: ".close",
+          type: ButtonType.Circle,
           icon: new Icon("x"),
           click: () => this.delete(),
         }),

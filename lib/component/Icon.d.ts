@@ -1,5 +1,5 @@
 import Component from "./Component.js";
-export type IconName = "x" | "error" | "warning" | "attachment" | "image" | "section-menu" | "comment" | "repeat" | "like" | "back";
+export type IconName = "x" | "error" | "warning" | "attachment" | "image" | "section-menu" | "comment" | "repeat" | "like" | "back" | "prev" | "next";
 export default class Icon extends Component {
     constructor(iconName: IconName);
 }

@@ -26,7 +26,7 @@ button.component {
     color          : var(--button-text-color);
     transition     : background-color 0.3s ease, border-color 0.3s ease;
 
-    &:hover {
+    &:hover:not(.disabled) {
         background-color: var(--button-hover-color);
     }
 
@@ -48,6 +48,11 @@ button.component {
             background-color: var(--outlined-button-hover-bg-color);
             border-color    : var(--outlined-button-hover-line-color);
         }
+    }
+
+    &.circle {
+        padding      : 8px;
+        border-radius: 50%;
     }
 
     &.disabled {

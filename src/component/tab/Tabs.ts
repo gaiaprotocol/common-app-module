@@ -1,24 +1,67 @@
-import { DomChild } from "../../dom/DomNode.js";
+import DomNode, { DomChild } from "../../dom/DomNode.js";
+import el from "../../dom/el.js";
 import Store from "../../store/Store.js";
 import Component from "../Component.js";
+import Icon from "../Icon.js";
+import Button from "../button/Button.js";
+import ButtonType from "../button/ButtonType.js";
 import Tab from "./Tab.js";
 
 export default class Tabs extends Component {
-  public children: Tab[] = [];
   private store: Store;
+  private ul: DomNode;
+  private prevButton: Button;
+  private nextButton: Button;
 
   constructor(
     id: string,
     tabs: { id: string; label: DomChild | DomChild[] }[],
   ) {
-    super("ul.tabs");
+    super(".tabs");
     this.addAllowedEvents("select");
     this.store = new Store(`tabs-${id}`);
 
+    this.prevButton = new Button({
+      tag: ".prev",
+      type: ButtonType.Circle,
+      icon: new Icon("prev"),
+      click: () =>
+        this.ul.domElement.scrollBy(-this.ul.domElement.clientWidth, 0),
+    }).appendTo(this);
+
+    this.ul = el("ul").appendTo(this);
     for (const t of tabs) {
       const tab = new Tab(t.id, t.label);
       tab.onDom("click", () => this.select(t.id));
-      this.append(tab);
+      this.ul.append(tab);
+    }
+
+    this.nextButton = new Button({
+      tag: ".next",
+      type: ButtonType.Circle,
+      icon: new Icon("next"),
+      click: () =>
+        this.ul.domElement.scrollBy(this.ul.domElement.clientWidth, 0),
+    }).appendTo(this);
+
+    this.on("visible", () => this.checkScroll());
+    this.ul.onDom("scroll", () => this.checkScroll());
+    this.onWindow("resize", () => this.checkScroll());
+  }
+
+  private checkScroll() {
+    const dom = this.ul.domElement;
+    const hasHorizontalScroll = dom.scrollWidth > dom.clientWidth;
+    if (hasHorizontalScroll) {
+      this.addClass("scrollable");
+      dom.scrollLeft === 0
+        ? this.prevButton.disable()
+        : this.prevButton.enable();
+      dom.scrollWidth - dom.clientWidth <= dom.scrollLeft
+        ? this.nextButton.disable()
+        : this.nextButton.enable();
+    } else {
+      this.deleteClass("scrollable");
     }
   }
 
@@ -28,7 +71,7 @@ export default class Tabs extends Component {
     } else if (this.store.get("selected")) {
       this.select(this.store.get("selected")!);
     } else {
-      const firstId = this.children[0]?._id;
+      const firstId = (this.ul.children[0] as Tab)?._id;
       if (firstId) {
         this.select(firstId);
       }
@@ -39,7 +82,7 @@ export default class Tabs extends Component {
   public select(id: string) {
     let found = false;
 
-    for (const tab of this.children) {
+    for (const tab of this.ul.children as Tab[]) {
       if (tab._id === id) {
         tab.active = true;
         found = true;
@@ -52,7 +95,7 @@ export default class Tabs extends Component {
       this.store.set("selected", id, true);
       this.fireEvent("select", id);
     } else {
-      const firstId = this.children[0]?._id;
+      const firstId = (this.ul.children[0] as Tab)?._id;
       if (firstId) {
         this.select(firstId);
       }

@@ -3,6 +3,7 @@ import ButtonType from "../component/button/ButtonType.js";
 import Alert from "../component/dialogue/Alert.js";
 import ErrorAlert from "../component/dialogue/ErrorAlert.js";
 import FileDropArea from "../component/rich/FileDropArea.js";
+import Tabs from "../component/tab/Tabs.js";
 import BodyNode from "../dom/BodyNode.js";
 import DomNode from "../dom/DomNode.js";
 import el from "../dom/el.js";
@@ -21,22 +22,18 @@ export default class ComponentTestView extends View {
         ".component-test-view.test-view",
         el("h1", "Component Test View"),
         el(
-          "section.buttons",
-          el("h2", "Buttons"),
-          el("p", "This is a test of the button component."),
+          "section.tabs",
+          el("h2", "Tabs"),
+          el("p", "This is a test of the tab component."),
           el(
-            ".button-container",
-            new Button({
-              title: "Text",
-            }),
-            new Button({
-              type: ButtonType.Contained,
-              title: "Contained",
-            }),
-            new Button({
-              type: ButtonType.Outlined,
-              title: "Outlined",
-            }),
+            ".component-container",
+            new Tabs(
+              "test",
+              Array.from({ length: 9 }, (_, index) => ({
+                id: `tab${index + 1}`,
+                label: `Tab ${index + 1}`,
+              })),
+            ).init(),
           ),
         ),
         el(
@@ -44,7 +41,7 @@ export default class ComponentTestView extends View {
           el("h2", "Dialogues"),
           el("p", "This is a test of the dialogue components."),
           el(
-            ".button-container",
+            ".component-container",
             new Button({
               title: "Alert",
               click: () =>
@@ -100,6 +97,25 @@ export default class ComponentTestView extends View {
               title: "Send",
             }),
             { submit: (event) => this.submit(event) },
+          ),
+        ),
+        el(
+          "section.buttons",
+          el("h2", "Buttons"),
+          el("p", "This is a test of the button component."),
+          el(
+            ".component-container",
+            new Button({
+              title: "Text",
+            }),
+            new Button({
+              type: ButtonType.Contained,
+              title: "Contained",
+            }),
+            new Button({
+              type: ButtonType.Outlined,
+              title: "Outlined",
+            }),
           ),
         ),
       ),

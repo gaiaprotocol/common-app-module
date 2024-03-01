@@ -11,7 +11,9 @@ export type IconName =
   | "comment"
   | "repeat"
   | "like"
-  | "back";
+  | "back"
+  | "prev"
+  | "next";
 
 export default class Icon extends Component {
   constructor(iconName: IconName) {
