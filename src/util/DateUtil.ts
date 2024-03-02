@@ -1,5 +1,5 @@
+import BrowserInfo from "../BrowserInfo.js";
 import Constants from "../Constants.js";
-import BrowserInfo from "../browser/BrowserInfo.js";
 
 class DateUtil {
   public format(date: string | number | Date) {

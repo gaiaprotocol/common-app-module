@@ -1,5 +1,5 @@
-import Store from "../store/Store.js";
-import Router from "../view/Router.js";
+import Store from "./store/Store.js";
+import Router from "./view/Router.js";
 
 class BrowserInfo {
   private store = new Store("__BROWSER_INFO_STORE");

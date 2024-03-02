@@ -1,5 +1,6 @@
 import DomNode from "../../dom/DomNode.js";
 import el from "../../dom/el.js";
+import ImageCompressor from "../../util/ImageCompressor.js";
 import Component from "../Component.js";
 import Icon from "../Icon.js";
 
@@ -25,10 +26,11 @@ export default abstract class UploadForm extends Component {
     this.uploadInput.domElement.click();
   }
 
-  protected appendFiles(files: File[]) {
-    this.toUploadFiles.push(...files);
+  protected async appendFiles(files: File[]) {
     for (const file of files) {
-      this.appendPreview(file);
+      const compressed = await ImageCompressor.compress(file, 1024, 1024);
+      this.toUploadFiles.push(compressed);
+      this.appendPreview(compressed);
     }
   }
 

@@ -6,7 +6,7 @@ export default abstract class UploadForm extends Component {
     constructor(tag: string);
     private uploadInput;
     protected openFileSelector(): void;
-    protected appendFiles(files: File[]): void;
+    protected appendFiles(files: File[]): Promise<void>;
     private appendPreview;
     protected clearUploads(): void;
 }

@@ -10,7 +10,7 @@ import messages_ru from "../../locales/ru.yml";
 import messages_zh from "../../locales/zh.yml";
 import messages_zh_HK from "../../locales/zh_HK.yml";
 import messages_zh_TW from "../../locales/zh_TW.yml";
-import BrowserInfo from "../browser/BrowserInfo.js";
+import BrowserInfo from "../BrowserInfo.js";
 import { DomChild } from "../dom/DomNode.js";
 import I18NText from "./I18NText.js";
 
