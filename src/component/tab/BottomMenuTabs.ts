@@ -12,7 +12,7 @@ export default class BottomMenuTabs extends Component {
     id: string,
     tabs: { id: string; icon: DomChild; title?: string }[],
   ) {
-    super(".bottom-menu-tabs");
+    super("ul.bottom-menu-tabs");
     this.addAllowedEvents("select");
     this.store = new Store(`bottom-menu-tabs-${id}`);
 

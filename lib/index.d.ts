@@ -1,3 +1,4 @@
+export { default as Activatable } from "./Activatable.js";
 export { default as AppInitializer } from "./AppInitializer.js";
 export { default as BrowserInfo } from "./BrowserInfo.js";
 export { default as Constants } from "./Constants.js";
