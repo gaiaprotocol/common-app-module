@@ -1,9 +1,9 @@
-export { default as Activatable } from "./Activatable.js";
 export { default as AppInitializer } from "./AppInitializer.js";
 export { default as BrowserInfo } from "./BrowserInfo.js";
 export { default as Constants } from "./Constants.js";
 export { default as SingletonTempCacher } from "./SingletonTempCacher.js";
 export { default as SplashLoader } from "./SplashLoader.js";
+export { default as Activatable } from "./component/Activatable.js";
 export { default as Component } from "./component/Component.js";
 export { default as Details } from "./component/Details.js";
 export { default as DropdownMenu } from "./component/DropdownMenu.js";

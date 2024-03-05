@@ -4,7 +4,7 @@ import BottomMenuTab from "./BottomMenuTab.js";
 export default class BottomMenuTabs extends Component {
     private store;
     children: BottomMenuTab[];
-    constructor(id: string, tabs: {
+    constructor(id: string | undefined, tabs: {
         id: string;
         icon: DomChild;
         title?: string;
