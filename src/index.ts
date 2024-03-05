@@ -35,6 +35,7 @@ export { default as WarningMessageBox } from "./component/messagebox/WarningMess
 export { default as FileDropArea } from "./component/rich/FileDropArea.js";
 export { default as RichDisplay } from "./component/rich/RichDisplay.js";
 export { default as UploadForm } from "./component/rich/UploadForm.js";
+export { default as BottomMenuTabs } from "./component/tab/BottomMenuTabs.js";
 export { default as Tab } from "./component/tab/Tab.js";
 export { default as Tabs } from "./component/tab/Tabs.js";
 export { default as UriTabs } from "./component/tab/UriTabs.js";

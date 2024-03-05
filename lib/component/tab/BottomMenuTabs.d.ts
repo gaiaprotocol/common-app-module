@@ -1,0 +1,15 @@
+import { DomChild } from "../../dom/DomNode.js";
+import Component from "../Component.js";
+import BottomMenuTab from "./BottomMenuTab.js";
+export default class BottomMenuTabs extends Component {
+    private store;
+    children: BottomMenuTab[];
+    constructor(id: string, tabs: {
+        id: string;
+        icon: DomChild;
+        title?: string;
+    }[]);
+    init(id?: string): this;
+    select(id: string): void;
+}
+//# sourceMappingURL=BottomMenuTabs.d.ts.map
