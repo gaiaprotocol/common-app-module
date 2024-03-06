@@ -21,7 +21,13 @@
             gap            : 8px;
             width          : 100%;
 
-            &:hover {
+            @media (pointer: fine) {
+                &:hover {
+                    background-color: var(--primary-color);
+                }
+            }
+
+            &:active {
                 background-color: var(--primary-color);
             }
         }

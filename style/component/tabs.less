@@ -47,7 +47,13 @@
             padding      : 0 10px;
             white-space  : nowrap;
 
-            &:hover {
+            @media (pointer: fine) {
+                &:hover {
+                    color: var(--primary-color);
+                }
+            }
+
+            &:active {
                 color: var(--primary-color);
             }
 
