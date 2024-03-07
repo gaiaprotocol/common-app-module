@@ -10,7 +10,6 @@ export { default as DropdownMenu } from "./component/DropdownMenu.js";
 export { default as Icon } from "./component/Icon.js";
 export { default as IconSystem } from "./component/IconSystem.js";
 export { default as Jazzicon } from "./component/Jazzicon.js";
-export { default as ListLoadingBar } from "./component/ListLoadingBar.js";
 export { default as LoadingSpinner } from "./component/LoadingSpinner.js";
 export { default as LottieAnimation } from "./component/LottieAnimation.js";
 export { default as MaterialIcon } from "./component/MaterialIcon.js";

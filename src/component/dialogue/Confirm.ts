@@ -26,15 +26,16 @@ export default class Confirm extends Popup {
     this.footer.append(
       new Button({
         tag: ".cancel-button",
+        title: options.cancelTitle ?? msg("cancel-button"),
         click: () => {
           if (cancelCallback) cancelCallback();
           this.delete();
         },
-        title: options.cancelTitle ?? msg("cancel-button"),
       }),
       new Button({
         type: ButtonType.Contained,
         tag: ".confirm-button",
+        title: options.confirmTitle ?? msg("confirm-button"),
         click: async (event, button) => {
           button.loading = true;
 
@@ -49,7 +50,6 @@ export default class Confirm extends Popup {
             this.reject?.();
           }
         },
-        title: options.confirmTitle ?? msg("confirm-button"),
       }),
     );
     this.on("delete", () => this.reject?.());
