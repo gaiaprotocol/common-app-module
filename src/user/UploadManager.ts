@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import Supabase from "./Supabase.js";
+import Supabase from "../supabase/Supabase.js";
 
 class UploadManager {
   private async _uploadFile(

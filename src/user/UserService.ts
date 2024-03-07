@@ -1,7 +1,7 @@
 import Constants from "../Constants.js";
 import UserPublic from "../database-interface/UserPublic.js";
-import Supabase from "./Supabase.js";
-import SupabaseService from "./SupabaseService.js";
+import Supabase from "../supabase/Supabase.js";
+import SupabaseService from "../supabase/SupabaseService.js";
 
 export default abstract class UserService<T extends UserPublic>
   extends SupabaseService<T> {
