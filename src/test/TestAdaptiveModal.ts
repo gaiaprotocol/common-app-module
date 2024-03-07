@@ -3,10 +3,7 @@ import el from "../dom/el.js";
 
 export default class TestAdaptiveModal extends AdaptiveModal {
   constructor() {
-    super(".test-adaptive-modal", {
-      barrierDismissible: true,
-      hasHidingAnimation: true,
-    });
+    super(".test-adaptive-modal", { barrierDismissible: true });
     this.title = "Test Adaptive Modal";
     for (let i = 0; i < 1000; i++) {
       this.main.append(

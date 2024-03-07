@@ -10,7 +10,7 @@ export default class Alert extends Popup {
     message: string;
     confirmTitle?: string;
   }, callback?: () => Promise<void> | void) {
-    super(".alert", { barrierDismissible: true, hasHidingAnimation: true });
+    super(".alert", { barrierDismissible: true });
     this.header.append(el("h1", options.icon, options.title));
     this.main.append(el("p", options.message));
     this.footer.append(

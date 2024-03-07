@@ -4,7 +4,6 @@ import Component from "../Component.js";
 
 export interface ExitableOptions {
   barrierDismissible: boolean;
-  hasHidingAnimation?: boolean;
 }
 
 export default abstract class Exitable extends DomNode {
@@ -23,11 +22,7 @@ export default abstract class Exitable extends DomNode {
   }
 
   public delete(): void {
-    if (this.options.hasHidingAnimation) {
-      this.container.addClass("hide");
-      setTimeout(() => super.delete(), 300);
-    } else {
-      super.delete();
-    }
+    this.container.addClass("hide");
+    setTimeout(() => super.delete(), 300);
   }
 }

@@ -27,7 +27,7 @@ export default class Prompt extends Popup {
     callback: (value: string) => Promise<void> | void,
     cancelCallback?: () => Promise<void> | void,
   ) {
-    super(".prompt", { barrierDismissible: true, hasHidingAnimation: true });
+    super(".prompt", { barrierDismissible: true });
     this.header.append(el("h1", options.icon, options.title));
     this.main.append(
       el("p", options.message),

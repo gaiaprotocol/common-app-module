@@ -13,7 +13,8 @@ export type IconName =
   | "like"
   | "back"
   | "prev"
-  | "next";
+  | "next"
+  | "send";
 
 export default class Icon extends Component {
   constructor(iconName: IconName) {
