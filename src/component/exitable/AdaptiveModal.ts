@@ -2,7 +2,7 @@ import DomNode, { DomChild } from "../../dom/DomNode.js";
 import el from "../../dom/el.js";
 import msg from "../../i18n/msg.js";
 import Component from "../Component.js";
-import Icon from "../Icon.js";
+import MaterialIcon from "../MaterialIcon.js";
 import Button from "../button/Button.js";
 import ButtonType from "../button/ButtonType.js";
 import Exitable, { ExitableOptions } from "./Exitable.js";
@@ -22,14 +22,14 @@ export default abstract class AdaptiveModal extends Exitable {
         new Button({
           tag: ".back",
           type: ButtonType.Circle,
-          icon: new Icon("back"),
+          icon: new MaterialIcon("arrow_back"),
           click: () => this.delete(),
         }),
         this.titleDisplay = el("h1.title"),
         new Button({
           tag: ".close",
           type: ButtonType.Circle,
-          icon: new Icon("x"),
+          icon: new MaterialIcon("close"),
           click: () => this.delete(),
         }),
       ),

@@ -1,4 +1,4 @@
-import Icon from "../component/Icon.js";
+import MaterialIcon from "../component/MaterialIcon.js";
 import Button from "../component/button/Button.js";
 import FileDropArea from "../component/rich/FileDropArea.js";
 import UploadForm from "../component/rich/UploadForm.js";
@@ -25,7 +25,7 @@ class TestUploadForm extends UploadForm {
         "footer",
         el(
           "section.rich",
-          el("button", new Icon("image"), {
+          el("button", new MaterialIcon("image"), {
             click: () => this.openFileSelector(),
           }),
         ),
@@ -34,7 +34,11 @@ class TestUploadForm extends UploadForm {
           click: async () => {
             const file = this.toUploadFiles[0];
             if (file) {
-              const compressed = await ImageCompressor.compress(file, 1024, 1024);
+              const compressed = await ImageCompressor.compress(
+                file,
+                1024,
+                1024,
+              );
               this.append(el("img", { src: URL.createObjectURL(compressed) }));
             }
           },

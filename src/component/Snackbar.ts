@@ -1,9 +1,8 @@
 import BodyNode from "../dom/BodyNode.js";
 import el from "../dom/el.js";
 import Component from "./Component.js";
-import Icon from "./Icon.js";
+import MaterialIcon from "./MaterialIcon.js";
 import Button from "./button/Button.js";
-import ButtonType from "./button/ButtonType.js";
 
 export default class Snackbar extends Component {
   private timeoutId: number;
@@ -33,7 +32,7 @@ export default class Snackbar extends Component {
           : undefined,
         new Button({
           tag: ".close",
-          icon: new Icon("x"),
+          icon: new MaterialIcon("close"),
           click: () => this.delete(),
         }),
       ),

@@ -5,6 +5,9 @@ declare class BrowserInfo {
     set language(language: string);
     changeLanguage(language: string): void;
     get isPhoneSize(): boolean;
+    get installed(): any;
+    get isAndroid(): boolean;
+    get isIOS(): boolean;
 }
 declare const _default: BrowserInfo;
 export default _default;

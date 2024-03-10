@@ -2,7 +2,7 @@ import DomNode, { DomChild } from "../../dom/DomNode.js";
 import el from "../../dom/el.js";
 import Store from "../../store/Store.js";
 import Component from "../Component.js";
-import Icon from "../Icon.js";
+import MaterialIcon from "../MaterialIcon.js";
 import Button from "../button/Button.js";
 import ButtonType from "../button/ButtonType.js";
 import Tab from "./Tab.js";
@@ -24,7 +24,7 @@ export default class Tabs extends Component {
     this.prevButton = new Button({
       tag: ".prev",
       type: ButtonType.Circle,
-      icon: new Icon("prev"),
+      icon: new MaterialIcon("arrow_back_ios_new"),
       click: () =>
         this.ul.domElement.scrollBy(-this.ul.domElement.clientWidth, 0),
     }).appendTo(this);
@@ -39,7 +39,7 @@ export default class Tabs extends Component {
     this.nextButton = new Button({
       tag: ".next",
       type: ButtonType.Circle,
-      icon: new Icon("next"),
+      icon: new MaterialIcon("arrow_forward_ios"),
       click: () =>
         this.ul.domElement.scrollBy(this.ul.domElement.clientWidth, 0),
     }).appendTo(this);

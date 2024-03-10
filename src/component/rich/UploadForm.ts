@@ -2,7 +2,7 @@ import DomNode from "../../dom/DomNode.js";
 import el from "../../dom/el.js";
 import ImageCompressor from "../../util/ImageCompressor.js";
 import Component from "../Component.js";
-import Icon from "../Icon.js";
+import MaterialIcon from "../MaterialIcon.js";
 
 export default abstract class UploadForm extends Component {
   protected toUploadFiles: File[] = [];
@@ -38,7 +38,7 @@ export default abstract class UploadForm extends Component {
     if (this.uploadPreviewArea) {
       const preview = el(
         "a.preview",
-        el("button.x", new Icon("x"), {
+        el("button.x", new MaterialIcon("close"), {
           click: (event) => {
             event.preventDefault();
             this.toUploadFiles = this.toUploadFiles.filter(
