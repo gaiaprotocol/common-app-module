@@ -7,12 +7,12 @@ interface Attributes<DT extends DomNode> {
     [name: string]: Style | string | number | boolean | undefined | DomEventHandler<any, DT>;
 }
 export type DomChild<DT extends DomNode = DomNode> = Attributes<DT> | DT | string | undefined;
-export default class DomNode<EL extends HTMLElement = HTMLElement> extends TreeNode {
+export default class DomNode<EL extends HTMLElement = HTMLElement, CT extends DomNode = DomNode<HTMLElement, any>> extends TreeNode {
     private static readonly NUMBER_STYLE_KEY;
     private static keyframesCount;
     static createElement<EL extends HTMLElement>(tag: string): EL;
     parent: DomNode | undefined;
-    children: DomNode[];
+    children: CT[];
     private domEventMap;
     private windowEventMap;
     domElement: EL;
@@ -39,7 +39,7 @@ export default class DomNode<EL extends HTMLElement = HTMLElement> extends TreeN
     deleteClass(...className: string[]): this;
     hasClass(className: string): boolean;
     toggleClass(className: string): void;
-    clone(): DomNode<EL>;
+    clone(): DomNode<EL, DomNode<HTMLElement, any>>;
     delete(): void;
     animate({ keyframes, duration, timingFunction, delay, iterationCount, direction, onEnd, }: {
         keyframes: {

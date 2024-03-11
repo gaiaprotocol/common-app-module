@@ -32,8 +32,10 @@ type Events = {
   }[];
 };
 
-export default class DomNode<EL extends HTMLElement = HTMLElement>
-  extends TreeNode {
+export default class DomNode<
+  EL extends HTMLElement = HTMLElement,
+  CT extends DomNode = DomNode<HTMLElement, any>,
+> extends TreeNode {
   private static readonly NUMBER_STYLE_KEY = [
     "zIndex",
     "opacity",
@@ -82,7 +84,7 @@ export default class DomNode<EL extends HTMLElement = HTMLElement>
   }
 
   declare public parent: DomNode | undefined;
-  public children: DomNode[] = [];
+  public children: CT[] = [];
 
   private domEventMap: Events = {};
   private windowEventMap: Events = {};
