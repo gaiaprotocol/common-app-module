@@ -8,13 +8,10 @@ export default class AutoSorterList<CT extends AutoSorterListItem>
   extends Component<HTMLElement, CT> {
   public sortItems(ascending: boolean = true) {
     const parent = this.domElement;
-    console.log(this.children.map((c) => c.sortValue));
 
     const sortedChildren = [...this.children].sort((a, b) =>
       ascending ? a.sortValue - b.sortValue : b.sortValue - a.sortValue
     );
-
-    console.log(sortedChildren.map((c) => c.sortValue));
 
     let lastPlacedNode: ChildNode | null = null;
     for (const item of sortedChildren) {

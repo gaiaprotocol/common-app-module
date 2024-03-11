@@ -11,6 +11,7 @@ export default class SupabaseService<T> extends EventContainer {
     protected safeInsert(data: Partial<T>): Promise<void>;
     protected safeInsertAndSelect(data: Partial<T>): Promise<NonNullable<Awaited<T>>>;
     protected safeUpdate(build: (builder: PostgrestFilterBuilder<any, any, any, unknown>) => PostgrestFilterBuilder<any, any, any, unknown> | PostgrestBuilder<any>, data: Partial<T>): Promise<void>;
+    protected safeUpsert(build: (builder: PostgrestFilterBuilder<any, any, any, unknown>) => PostgrestFilterBuilder<any, any, any, unknown> | PostgrestBuilder<any>, data: Partial<T>): Promise<void>;
     protected safeDelete(build: (builder: PostgrestFilterBuilder<any, any, any, unknown>) => PostgrestFilterBuilder<any, any, any, unknown> | PostgrestBuilder<any>): Promise<void>;
 }
 //# sourceMappingURL=SupabaseService.d.ts.map

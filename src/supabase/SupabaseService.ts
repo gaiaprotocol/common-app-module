@@ -75,6 +75,18 @@ export default class SupabaseService<T> extends EventContainer {
     if (error) throw error;
   }
 
+  protected async safeUpsert(
+    build: (
+      builder: PostgrestFilterBuilder<any, any, any, unknown>,
+    ) => PostgrestFilterBuilder<any, any, any, unknown> | PostgrestBuilder<any>,
+    data: Partial<T>,
+  ) {
+    const { error } = await build(
+      Supabase.client.from(this.tableName).upsert(data),
+    );
+    if (error) throw error;
+  }
+
   protected async safeDelete(
     build: (
       builder: PostgrestFilterBuilder<any, any, any, unknown>,
