@@ -17,7 +17,7 @@ export default class Confirm extends Popup {
       cancelTitle?: string;
       confirmTitle?: string;
     },
-    callback: () => Promise<void> | void,
+    callback?: () => Promise<void> | void,
     cancelCallback?: () => Promise<void> | void,
   ) {
     super(".confirm", { barrierDismissible: true });
@@ -40,7 +40,7 @@ export default class Confirm extends Popup {
           button.loading = true;
 
           try {
-            await callback();
+            if (callback) await callback();
             this.resolve?.();
             this.reject = undefined;
             this.delete();

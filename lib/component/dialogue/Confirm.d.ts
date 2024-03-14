@@ -9,7 +9,7 @@ export default class Confirm extends Popup {
         message: string;
         cancelTitle?: string;
         confirmTitle?: string;
-    }, callback: () => Promise<void> | void, cancelCallback?: () => Promise<void> | void);
+    }, callback?: () => Promise<void> | void, cancelCallback?: () => Promise<void> | void);
     wait(): Promise<void>;
 }
 //# sourceMappingURL=Confirm.d.ts.map

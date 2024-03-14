@@ -13,6 +13,7 @@ export default class Input extends Component {
     disabled?: boolean;
     required?: boolean;
     multiline?: boolean;
+    readonly?: boolean;
     value?: string;
   }) {
     super(
@@ -27,6 +28,8 @@ export default class Input extends Component {
       this.input = el(options.multiline === true ? "textarea" : "input", {
         placeholder: options.placeholder,
         disabled: options.disabled === true ? "disabled" : undefined,
+        required: options.required === true ? "required" : undefined,
+        readonly: options.readonly === true ? "readonly" : undefined,
         keyup: () => {
           if (this.value !== this.previousValue) {
             this.fireEvent("change");

@@ -9,6 +9,7 @@ export default class Input extends Component {
         disabled?: boolean;
         required?: boolean;
         multiline?: boolean;
+        readonly?: boolean;
         value?: string;
     });
     get value(): string;
