@@ -49,6 +49,10 @@ class BrowserInfo {
   public get isIOS() {
     return /iPhone|iPad|iPod/i.test(navigator.userAgent);
   }
+
+  public get isDarkMode() {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
 }
 
 export default new BrowserInfo();
