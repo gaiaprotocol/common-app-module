@@ -8,6 +8,10 @@
     }
 }
 
+:root {
+    --loading-spinner-color: var(--primary-color)
+}
+
 .loading-spinner.component {
     &:after {
         content      : " ";
@@ -15,8 +19,8 @@
         width        : 24px;
         height       : 24px;
         border-radius: 50%;
-        border       : 2px solid var(--text-color);
-        border-color : var(--text-color) transparent var(--text-color) transparent;
+        border       : 2px solid var(--loading-spinner-color);
+        border-color : var(--loading-spinner-color) transparent var(--loading-spinner-color) transparent;
         animation    : loading-spinner-animation 1.2s linear infinite;
     }
 }

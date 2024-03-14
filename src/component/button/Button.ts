@@ -26,7 +26,7 @@ export default class Button extends Component<HTMLAnchorElement> {
         (options.tag ?? ""),
     );
     if (options.icon !== undefined) {
-      this.append(this._icon = options.icon);
+      this.append(this._icon = options.icon.clone());
     }
     if (options.title !== undefined) {
       this.append(
@@ -88,11 +88,13 @@ export default class Button extends Component<HTMLAnchorElement> {
     if (loading) {
       this.disable();
       this.addClass("loading");
-      this.title = new LoadingSpinner();
+      if (this.options.icon) this.icon = new LoadingSpinner();
+      else this.title = new LoadingSpinner();
     } else {
       this.enable();
       this.deleteClass("loading");
-      this.title = this.options.title ?? "";
+      if (this.options.icon) this.icon = this.options.icon.clone();
+      else this.title = this.options.title ?? "";
     }
   }
 }
