@@ -7,6 +7,7 @@ export default class DropdownMenu extends Component {
   private ul: DomNode;
 
   constructor(options: {
+    tag?: string;
     left: number;
     top: number;
     items: {
@@ -16,7 +17,7 @@ export default class DropdownMenu extends Component {
     }[];
     footer?: DomNode;
   }) {
-    super(".dropdown-menu");
+    super(".dropdown-menu" + (options.tag ?? ""));
 
     this.append(
       this.ul = el("ul"),

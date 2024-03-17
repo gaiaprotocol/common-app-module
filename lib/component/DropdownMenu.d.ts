@@ -3,6 +3,7 @@ import Component from "./Component.js";
 export default class DropdownMenu extends Component {
     private ul;
     constructor(options: {
+        tag?: string;
         left: number;
         top: number;
         items: {
