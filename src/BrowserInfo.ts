@@ -50,6 +50,10 @@ class BrowserInfo {
     return /iPhone|iPad|iPod/i.test(navigator.userAgent);
   }
 
+  public get isMobileDevice() {
+    return this.isAndroid || this.isIOS;
+  }
+
   public get isDarkMode() {
     return window.matchMedia("(prefers-color-scheme: dark)").matches;
   }

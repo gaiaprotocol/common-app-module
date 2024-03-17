@@ -8,6 +8,7 @@ declare class BrowserInfo {
     get installed(): any;
     get isAndroid(): boolean;
     get isIOS(): boolean;
+    get isMobileDevice(): boolean;
     get isDarkMode(): boolean;
 }
 declare const _default: BrowserInfo;
