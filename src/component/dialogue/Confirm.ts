@@ -25,7 +25,7 @@ export default class Confirm extends Popup {
     this.main.append(el("p", options.message));
     this.footer.append(
       new Button({
-        tag: ".cancel-button",
+        tag: ".cancel",
         title: options.cancelTitle ?? msg("cancel-button"),
         click: () => {
           if (cancelCallback) cancelCallback();
@@ -34,7 +34,7 @@ export default class Confirm extends Popup {
       }),
       new Button({
         type: ButtonType.Contained,
-        tag: ".confirm-button",
+        tag: ".confirm",
         title: options.confirmTitle ?? msg("confirm-button"),
         click: async (event, button) => {
           button.loading = true;

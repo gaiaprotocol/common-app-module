@@ -14,7 +14,7 @@ export default class ErrorAlert extends Popup {
     this.main.append(el("p", options.message));
     this.footer.append(
       new Button({
-        tag: ".confirm-button",
+        tag: ".confirm",
         title: options.confirmTitle ?? "OK",
         click: () => this.delete(),
       }),
