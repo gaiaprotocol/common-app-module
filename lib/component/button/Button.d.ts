@@ -10,6 +10,7 @@ export default class Button extends Component<HTMLAnchorElement> {
         type?: ButtonType;
         icon?: DomNode;
         title?: DomChild;
+        decapitalize?: boolean;
         href?: string;
         target?: string;
         disabled?: boolean;

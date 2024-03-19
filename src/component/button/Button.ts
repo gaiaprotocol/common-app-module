@@ -14,6 +14,7 @@ export default class Button extends Component<HTMLAnchorElement> {
       type?: ButtonType;
       icon?: DomNode;
       title?: DomChild;
+      decapitalize?: boolean;
       href?: string;
       target?: string;
       disabled?: boolean;
@@ -32,6 +33,9 @@ export default class Button extends Component<HTMLAnchorElement> {
       this.append(
         this.titleContainer = el("span.title", options.title),
       );
+    }
+    if (options.decapitalize) {
+      this.style({ textTransform: "none" });
     }
     if (options.href !== undefined) {
       this.onDom("click", () => {
