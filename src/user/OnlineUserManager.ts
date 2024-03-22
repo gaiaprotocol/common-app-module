@@ -45,6 +45,6 @@ export default abstract class OnlineUserManager extends EventContainer {
   protected abstract track(): Promise<void>;
 
   public checkOnline(userId: string): boolean {
-    return !this.onlineUsers[userId];
+    return this.onlineUsers[userId] !== undefined;
   }
 }

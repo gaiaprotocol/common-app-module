@@ -15,4 +15,5 @@ export default interface UserPublic {
   deleted: boolean;
   created_at: string;
   updated_at?: string;
+  last_sign_in_at?: string;
 }
