@@ -18,10 +18,16 @@ export default class SupabaseService<T> extends EventContainer {
     build: (
       builder: PostgrestFilterBuilder<any, any, any, unknown>,
     ) => PostgrestFilterBuilder<any, any, any, unknown> | PostgrestBuilder<any>,
+    fetchLimit: number = this.fetchLimit,
   ) {
     const data = await Supabase.safeFetch<T[]>(
       this.tableName,
-      (b) => build(b.select(this.selectQuery).limit(this.fetchLimit)),
+      (b) =>
+        build(
+          fetchLimit === -1
+            ? b.select(this.selectQuery)
+            : b.select(this.selectQuery).limit(fetchLimit),
+        ),
     );
     return data ?? [];
   }
