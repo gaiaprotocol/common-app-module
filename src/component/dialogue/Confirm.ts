@@ -7,7 +7,7 @@ import Popup from "../exitable/Popup.js";
 
 export default class Confirm extends Popup {
   private resolve: (() => void) | undefined;
-  private reject: (() => void) | undefined;
+  private reject: ((reason: string) => void) | undefined;
 
   constructor(
     options: {
@@ -47,12 +47,11 @@ export default class Confirm extends Popup {
           } catch (e) {
             console.error(e);
             button.loading = false;
-            this.reject?.();
           }
         },
       }),
     );
-    this.on("delete", () => this.reject?.());
+    this.on("delete", () => this.reject?.("Canceled by user"));
   }
 
   public async wait(): Promise<void> {
