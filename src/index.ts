@@ -5,13 +5,13 @@ export { default as SingletonTempCacher } from "./SingletonTempCacher.js";
 export { default as SplashLoader } from "./SplashLoader.js";
 export { default as Activatable } from "./component/Activatable.js";
 export {
-  AutoSorterListItem,
-  default as AutoSorterList,
+  default as AutoSorterList, AutoSorterListItem
 } from "./component/AutoSorterList.js";
 export { default as Component } from "./component/Component.js";
 export { default as Details } from "./component/Details.js";
 export { default as DropdownMenu } from "./component/DropdownMenu.js";
 export { default as Jazzicon } from "./component/Jazzicon.js";
+export { default as LazyLoadingComponent } from "./component/LazyLoadingComponent.js";
 export { default as LoadingContent } from "./component/LoadingContent.js";
 export { default as LoadingSpinner } from "./component/LoadingSpinner.js";
 export { default as LottieAnimation } from "./component/LottieAnimation.js";
@@ -44,7 +44,7 @@ export { default as UriTabs } from "./component/tab/UriTabs.js";
 export { default as Rich, UploadedFile } from "./database-interface/Rich.js";
 export { default as UserPublic } from "./database-interface/UserPublic.js";
 export { default as BodyNode } from "./dom/BodyNode.js";
-export { default as DomNode, DomChild } from "./dom/DomNode.js";
+export { DomChild, default as DomNode } from "./dom/DomNode.js";
 export { default as ResponsiveImage } from "./dom/ResponsiveImage.js";
 export { default as el } from "./dom/el.js";
 export { default as EventContainer } from "./event/EventContainer.js";
@@ -70,3 +70,4 @@ export { default as ObjectUtil } from "./util/ObjectUtil.js";
 export { default as StringUtil } from "./util/StringUtil.js";
 export { default as Router } from "./view/Router.js";
 export { default as View, ViewParams } from "./view/View.js";
+
