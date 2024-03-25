@@ -1,4 +1,4 @@
-import Component from "./Component.js";
+import Component from "../Component.js";
 
 export default class LoadingSpinner extends Component {
   constructor() {

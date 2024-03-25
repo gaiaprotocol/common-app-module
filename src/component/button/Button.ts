@@ -1,7 +1,7 @@
 import DomNode, { DomChild } from "../../dom/DomNode.js";
 import el from "../../dom/el.js";
 import Component from "../Component.js";
-import LoadingSpinner from "../LoadingSpinner.js";
+import LoadingSpinner from "../loading/LoadingSpinner.js";
 import ButtonType from "./ButtonType.js";
 
 export default class Button extends Component<HTMLAnchorElement> {
