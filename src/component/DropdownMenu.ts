@@ -49,17 +49,15 @@ export default class DropdownMenu extends Component {
     });
 
     BodyNode.append(this);
-    window.addEventListener("click", this.windowClickHandler);
-  }
 
-  private windowClickHandler = (event: MouseEvent) => {
-    if (!this.domElement.contains(event.target as Node)) {
-      this.delete();
-    }
-  };
+    this.onWindow("click", (event: MouseEvent) => {
+      if (!this.domElement.contains(event.target as Node)) {
+        this.delete();
+      }
+    });
 
-  public delete() {
-    window.removeEventListener("click", this.windowClickHandler);
-    super.delete();
+    this.onWindow("keydown", (event: KeyboardEvent) => {
+      if (event.key === "Escape") this.delete();
+    });
   }
 }

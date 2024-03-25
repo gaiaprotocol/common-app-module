@@ -59,6 +59,15 @@ class Router extends EventContainer {
         }
       }
     });
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        const exitable = (BodyNode.children as any).findLast((child: any) =>
+          child instanceof Exitable
+        );
+        exitable?.delete();
+      }
+    });
   }
 
   public deleteAllExitable() {

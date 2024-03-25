@@ -13,7 +13,5 @@ export default class DropdownMenu extends Component {
         }[];
         footer?: DomNode;
     });
-    private windowClickHandler;
-    delete(): void;
 }
 //# sourceMappingURL=DropdownMenu.d.ts.map
