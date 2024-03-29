@@ -42,6 +42,10 @@ class BrowserInfo {
       window.matchMedia("(display-mode: standalone)").matches;
   }
 
+  public get isWindows() {
+    return navigator.platform ? navigator.platform.indexOf("Win") > -1 : false;
+  }
+
   public get isAndroid() {
     return /Android/i.test(navigator.userAgent);
   }

@@ -6,6 +6,7 @@ declare class BrowserInfo {
     changeLanguage(language: string): void;
     get isPhoneSize(): boolean;
     get installed(): any;
+    get isWindows(): boolean;
     get isAndroid(): boolean;
     get isIOS(): boolean;
     get isMobileDevice(): boolean;
