@@ -2,6 +2,7 @@ import Rich from "../../database-interface/Rich.js";
 import el from "../../dom/el.js";
 import Component from "../Component.js";
 import LottieAnimation from "../LottieAnimation.js";
+import LoadingSpinner from "../loading/LoadingSpinner.js";
 import imageLoadingAnimationData from "./image-loading-animation.json" assert {
   type: "json",
 };
@@ -9,7 +10,9 @@ import imageLoadingAnimationData from "./image-loading-animation.json" assert {
 export default class RichDisplay extends Component {
   public static NOT_FOUND_IMAGE = "/images/image-not-found.png";
 
-  constructor(rich: Rich) {
+  private loadingSpinners: LoadingSpinner[] = [];
+
+  constructor(rich: Rich, wait: boolean) {
     super(".rich-display");
     this.addAllowedEvents("imageLoaded");
 
@@ -43,6 +46,8 @@ export default class RichDisplay extends Component {
             loading.delete();
           };
 
+          let loadingSpinner: LoadingSpinner | undefined;
+
           this.append(el(
             ".image-container",
             el(
@@ -56,7 +61,10 @@ export default class RichDisplay extends Component {
                 },
               },
             ),
+            wait ? loadingSpinner = new LoadingSpinner() : undefined,
           ));
+
+          if (loadingSpinner) this.loadingSpinners.push(loadingSpinner);
         }
       }
     }
@@ -65,5 +73,11 @@ export default class RichDisplay extends Component {
   private openImage(file: { url: string; fileName: string }) {
     window.open(file.url, "_blank");
     //TODO:
+  }
+
+  public done() {
+    for (const loadingSpinner of this.loadingSpinners) {
+      loadingSpinner.delete();
+    }
   }
 }
