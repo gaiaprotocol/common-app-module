@@ -25,6 +25,7 @@ export default class DomNode<EL extends HTMLElement = HTMLElement, CT extends Do
     };
     onDom<ET extends Event>(eventName: string, eventHandler: DomEventHandler<ET, this>): void;
     onWindow<ET extends Event>(eventName: string, eventHandler: DomEventHandler<ET, this>): void;
+    offWindow<ET extends Event>(eventName: string, eventHandler: DomEventHandler<ET, this>): void;
     offDom<ET extends Event>(eventName: string, eventHandler: DomEventHandler<ET, this>): void;
     fireDomEvent(eventName: string): void;
     appendText(text: string): this;

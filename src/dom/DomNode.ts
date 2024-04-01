@@ -164,6 +164,25 @@ export default class DomNode<
     window.addEventListener(eventName, domEventHandler as any);
   }
 
+  public offWindow<ET extends Event>(
+    eventName: string,
+    eventHandler: DomEventHandler<ET, this>,
+  ): void {
+    const windowEvents = this.windowEventMap[eventName];
+    if (windowEvents !== undefined) {
+      const windowEvent = windowEvents.find((we) =>
+        we.eventHandler === eventHandler
+      );
+      if (windowEvent !== undefined) {
+        window.removeEventListener(eventName, windowEvent.domEventHandler);
+        ArrayUtil.pull(windowEvents, windowEvent);
+        if (windowEvents.length === 0) {
+          delete this.windowEventMap[eventName];
+        }
+      }
+    }
+  }
+
   public offDom<ET extends Event>(
     eventName: string,
     eventHandler: DomEventHandler<ET, this>,
