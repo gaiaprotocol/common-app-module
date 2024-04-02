@@ -11,6 +11,7 @@ export default class Prompt extends Popup {
         message: string;
         placeholder?: string;
         value?: string;
+        multiline?: boolean;
         info?: string;
         cancelTitle?: string;
         confirmTitle?: string;

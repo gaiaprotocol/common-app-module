@@ -21,6 +21,7 @@ export default class Prompt extends Popup {
       message: string;
       placeholder?: string;
       value?: string;
+      multiline?: boolean;
       info?: string;
       cancelTitle?: string;
       confirmTitle?: string;
@@ -35,6 +36,7 @@ export default class Prompt extends Popup {
       this.input = new Input({
         placeholder: options.placeholder,
         value: options.value,
+        multiline: options.multiline,
       }),
       options.info
         ? new WarningMessageBox({
