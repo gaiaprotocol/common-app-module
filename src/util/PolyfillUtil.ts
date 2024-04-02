@@ -22,6 +22,24 @@ class PolyfillUtil {
       dom.onDom("contextmenu", (e: MouseEvent) => listener(e));
     }
   }
+
+  public fixMSWindowsEmojiDisplay() {
+    if (BrowserInfo.isWindows) {
+      const originalBodyFontFamily = window.getComputedStyle(document.body)
+        .getPropertyValue("font-family");
+      const style = document.createElement("style");
+      style.textContent = `
+@import url("https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Noto+Emoji:wght@300..700&display=swap");
+body {
+    font-family: ${originalBodyFontFamily}, 'Noto Color Emoji';
+}
+emoji-picker {
+  --emoji-font-family: 'Noto Color Emoji';
+}
+`;
+      document.head.appendChild(style);
+    }
+  }
 }
 
 export default new PolyfillUtil();
