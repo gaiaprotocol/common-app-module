@@ -48,9 +48,20 @@ export default class DropdownMenu extends Component {
       }
     });
 
+    window.getSelection()?.empty();
+    for (const node of BodyNode.children) {
+      if (node instanceof DropdownMenu) node.delete();
+    }
+
     BodyNode.append(this);
 
     this.onWindow("click", (event: MouseEvent) => {
+      if (!this.domElement.contains(event.target as Node)) {
+        this.delete();
+      }
+    });
+
+    this.onWindow("touchstart", (event: MouseEvent) => {
       if (!this.domElement.contains(event.target as Node)) {
         this.delete();
       }

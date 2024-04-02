@@ -9,6 +9,7 @@ import WarningMessageBox from "../messagebox/WarningMessageBox.js";
 
 export default class Prompt extends Popup {
   private input: Input;
+  private confirmButton: Button;
 
   private resolve: ((value: string) => void) | undefined;
   private reject: (() => void) | undefined;
@@ -50,7 +51,7 @@ export default class Prompt extends Popup {
           this.delete();
         },
       }),
-      new Button({
+      this.confirmButton = new Button({
         type: ButtonType.Contained,
         tag: ".confirm",
         title: options.confirmTitle ?? msg("confirm-button"),
@@ -71,6 +72,9 @@ export default class Prompt extends Popup {
       }),
     );
     this.on("delete", () => this.reject?.());
+
+    this.input.select();
+    this.input.on("enter", () => this.confirmButton.fireDomEvent("click"));
   }
 
   public set value(value: string) {

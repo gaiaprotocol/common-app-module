@@ -21,7 +21,7 @@ export default class Input extends Component {
         (options.required === true ? ".required" : "") +
         (options.tag ?? ""),
     );
-    this.addAllowedEvents("change");
+    this.addAllowedEvents("change", "enter");
 
     this.append(
       options.label,
@@ -30,6 +30,11 @@ export default class Input extends Component {
         disabled: options.disabled === true ? "disabled" : undefined,
         required: options.required === true ? "required" : undefined,
         readonly: options.readonly === true ? "readonly" : undefined,
+        keydown: (event) => {
+          if (event.key === "Enter") {
+            this.fireEvent("enter");
+          }
+        },
         keyup: () => {
           if (this.value !== this.previousValue) {
             this.fireEvent("change");

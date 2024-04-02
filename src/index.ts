@@ -72,6 +72,7 @@ export { default as DateUtil } from "./util/DateUtil.js";
 export { default as Debouncer } from "./util/Debouncer.js";
 export { default as JsonUtil } from "./util/JsonUtil.js";
 export { default as ObjectUtil } from "./util/ObjectUtil.js";
+export { default as PolyfillUtil } from "./util/PolyfillUtil.js";
 export { default as StringUtil } from "./util/StringUtil.js";
 export { default as Router } from "./view/Router.js";
 export { default as View, ViewParams } from "./view/View.js";
