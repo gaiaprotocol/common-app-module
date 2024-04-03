@@ -58,13 +58,13 @@ button.component {
         color           : var(--outlined-button-text-color);
 
         @media (pointer: fine) {
-            &:hover {
+            &:hover:not(.disabled) {
                 background-color: var(--outlined-button-hover-bg-color);
                 border-color    : var(--outlined-button-hover-line-color);
             }
         }
 
-        &:active {
+        &:active:not(.disabled) {
             background-color: var(--outlined-button-hover-bg-color);
             border-color    : var(--outlined-button-hover-line-color);
         }
