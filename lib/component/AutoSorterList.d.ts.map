@@ -1,0 +1,1 @@
+{"version":3,"file":"AutoSorterList.d.ts","sourceRoot":"","sources":["../../src/component/AutoSorterList.ts"],"names":[],"mappings":"AAAA,OAAO,SAAS,MAAM,gBAAgB,CAAC;AAEvC,8BAAsB,kBAAmB,SAAQ,SAAS;IACxD,aAAoB,SAAS,IAAI,MAAM,CAAC;CACzC;AAED,MAAM,CAAC,OAAO,OAAO,cAAc,CAAC,EAAE,SAAS,kBAAkB,CAC/D,SAAQ,SAAS,CAAC,WAAW,EAAE,EAAE,CAAC;IAC3B,SAAS,CAAC,SAAS,GAAE,OAAc;CAoB3C"}

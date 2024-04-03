@@ -1,0 +1,1 @@
+{"version":3,"file":"PolyfillUtil.d.ts","sourceRoot":"","sources":["../../src/util/PolyfillUtil.ts"],"names":[],"mappings":"AACA,OAAO,OAAO,MAAM,mBAAmB,CAAC;AAIxC,cAAM,YAAY;IACT,sBAAsB,CAC3B,GAAG,EAAE,OAAO,EACZ,QAAQ,EAAE,CAAC,CAAC,EAAE,UAAU,KAAK,IAAI;IAiB5B,wBAAwB;CAiBhC;;AAED,wBAAkC"}

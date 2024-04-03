@@ -1,4 +1,4 @@
-export interface UploadedFile {
+interface UploadedFile {
   url: string;
   fileName: string;
   fileType: string;

@@ -1,4 +1,5 @@
 import ErrorAlert from "../component/dialogue/ErrorAlert.js";
+import XAccountEmailRequiredPopup from "../help/XAccountEmailRequiredPopup.js";
 import msg from "../i18n/msg.js";
 
 export default class AuthUtil {
@@ -7,12 +8,13 @@ export default class AuthUtil {
     let message = params.get("error_description")!;
     if (message) {
       if (message === "Error getting user email from external provider") {
-        message = msg("getting-email-from-x-error-message");
+        new XAccountEmailRequiredPopup
+      } else {
+        new ErrorAlert({
+          title: msg("error-alert-title"),
+          message,
+        });
       }
-      new ErrorAlert({
-        title: msg("error-alert-title"),
-        message,
-      });
     }
   }
 }

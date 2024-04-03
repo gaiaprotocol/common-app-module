@@ -1,0 +1,1 @@
+{"version":3,"file":"LottieAnimation.d.ts","sourceRoot":"","sources":["../../src/component/LottieAnimation.ts"],"names":[],"mappings":"AACA,OAAO,SAAS,MAAM,gBAAgB,CAAC;AAEvC,MAAM,CAAC,OAAO,OAAO,eAAgB,SAAQ,SAAS;IACpD,OAAO,CAAC,SAAS,CAAgB;gBAErB,GAAG,EAAE,MAAM,EAAE,aAAa,EAAE,GAAG;IAWpC,MAAM,IAAI,IAAI;CAItB"}

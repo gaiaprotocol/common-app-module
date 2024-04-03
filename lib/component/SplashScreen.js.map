@@ -1,0 +1,1 @@
+{"version":3,"file":"SplashScreen.js","sourceRoot":"","sources":["../../src/component/SplashScreen.ts"],"names":[],"mappings":"AAAA,OAAO,QAAQ,MAAM,oBAAoB,CAAC;AAE1C,OAAO,SAAS,MAAM,gBAAgB,CAAC;AAEvC,MAAM,CAAC,OAAO,OAAO,YAAa,SAAQ,SAAS;IACjD,YAAY,IAAc;QACxB,KAAK,CAAC,gBAAgB,CAAC,CAAC;QACxB,IAAI,CAAC,MAAM,CAAC,IAAI,CAAC,CAAC,QAAQ,CAAC,QAAQ,CAAC,CAAC;IACvC,CAAC;CACF"}
