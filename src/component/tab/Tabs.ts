@@ -8,18 +8,18 @@ import ButtonType from "../button/ButtonType.js";
 import Tab from "./Tab.js";
 
 export default class Tabs extends Component {
-  private store: Store;
+  private store: Store | undefined;
   private ul: DomNode<HTMLElement, Tab>;
   private prevButton: Button;
   private nextButton: Button;
 
   constructor(
-    id: string,
+    id: string | undefined,
     tabs: { id: string; label: DomChild | DomChild[] }[],
   ) {
     super(".tabs");
     this.addAllowedEvents("select");
-    this.store = new Store(`tabs-${id}`);
+    if (id) this.store = new Store(`tabs-${id}`);
 
     this.prevButton = new Button({
       tag: ".prev",
@@ -68,7 +68,7 @@ export default class Tabs extends Component {
   public init(id?: string) {
     if (id) {
       this.select(id);
-    } else if (this.store.get("selected")) {
+    } else if (this.store?.get("selected")) {
       this.select(this.store.get("selected")!);
     } else {
       const firstId = this.ul.children[0]?._id;
@@ -90,7 +90,7 @@ export default class Tabs extends Component {
     }
 
     if (found) {
-      this.store.set("selected", id, true);
+      this.store?.set("selected", id, true);
       this.fireEvent("select", id);
     } else {
       const firstId = this.ul.children[0]?._id;

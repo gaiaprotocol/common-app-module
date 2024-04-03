@@ -5,7 +5,7 @@ export default class Tabs extends Component {
     private ul;
     private prevButton;
     private nextButton;
-    constructor(id: string, tabs: {
+    constructor(id: string | undefined, tabs: {
         id: string;
         label: DomChild | DomChild[];
     }[]);
