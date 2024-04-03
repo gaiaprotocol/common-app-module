@@ -1,1 +1,0 @@
-{"version":3,"file":"MaterialIcon.js","sourceRoot":"","sources":["../../src/component/MaterialIcon.ts"],"names":[],"mappings":"AAAA,OAAO,SAAS,MAAM,gBAAgB,CAAC;AAEvC,MAAM,CAAC,OAAO,OAAO,YAAa,SAAQ,SAAS;IACjD,YAAY,QAAgB;QAC1B,KAAK,CACH,gEAAgE;YAC9D,QAAQ,CACX,CAAC;QACF,IAAI,CAAC,IAAI,GAAG,QAAQ,CAAC;IACvB,CAAC;CACF"}

@@ -1,1 +1,0 @@
-{"version":3,"file":"LazyLoadingComponent.d.ts","sourceRoot":"","sources":["../../src/component/LazyLoadingComponent.ts"],"names":[],"mappings":"AAAA,OAAO,SAAS,MAAM,gBAAgB,CAAC;AAEvC,MAAM,CAAC,OAAO,CAAC,QAAQ,OAAO,oBAAqB,SAAQ,SAAS;IAClE,OAAO,CAAC,MAAM,CAAS;gBAEX,GAAG,EAAE,MAAM;IAKvB,SAAS,CAAC,QAAQ,CAAC,IAAI,IAAI,IAAI;IAExB,IAAI;IAQJ,IAAI;CAGZ"}
