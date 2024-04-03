@@ -8,7 +8,7 @@ export default class AuthUtil {
     let message = params.get("error_description")!;
     if (message) {
       if (message === "Error getting user email from external provider") {
-        new XAccountEmailRequiredPopup
+        new XAccountEmailRequiredPopup();
       } else {
         new ErrorAlert({
           title: msg("error-alert-title"),
