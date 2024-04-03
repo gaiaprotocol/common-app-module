@@ -24,6 +24,7 @@ export { default as Checkbox } from "./component/form/Checkbox.js";
 export { default as ListLoadingBar } from "./component/loading/ListLoadingBar.js";
 export { default as LoadingContent } from "./component/loading/LoadingContent.js";
 export { default as LoadingSpinner } from "./component/loading/LoadingSpinner.js";
+export { default as WarningMessageBox } from "./component/messagebox/WarningMessageBox.js";
 export { default as FileDropArea } from "./component/rich/FileDropArea.js";
 export { default as RichDisplay } from "./component/rich/RichDisplay.js";
 export { default as UploadForm } from "./component/rich/UploadForm.js";
