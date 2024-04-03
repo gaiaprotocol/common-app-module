@@ -25,8 +25,16 @@ export default class Tabs extends Component {
       tag: ".prev",
       type: ButtonType.Circle,
       icon: new MaterialIcon("arrow_back_ios_new"),
-      click: () =>
-        this.ul.domElement.scrollBy(-this.ul.domElement.clientWidth, 0),
+      click: () => {
+        const maxScrollLeft = 0;
+        const currentScrollPosition = this.ul.domElement.scrollLeft;
+        const scrollAmount = -this.ul.domElement.clientWidth;
+        if (currentScrollPosition + scrollAmount < maxScrollLeft) {
+          this.ul.domElement.scrollBy(maxScrollLeft - currentScrollPosition, 0);
+        } else {
+          this.ul.domElement.scrollBy(scrollAmount, 0);
+        }
+      },
     }).appendTo(this);
 
     this.ul = el<HTMLElement, Tab>("ul").appendTo(this);
@@ -40,8 +48,20 @@ export default class Tabs extends Component {
       tag: ".next",
       type: ButtonType.Circle,
       icon: new MaterialIcon("arrow_forward_ios"),
-      click: () =>
-        this.ul.domElement.scrollBy(this.ul.domElement.clientWidth, 0),
+      click: () => {
+        const currentScrollPosition = this.ul.domElement.scrollLeft;
+        const scrollAmount = this.ul.domElement.clientWidth;
+        const maxScrollPosition = this.ul.domElement.scrollWidth -
+          this.ul.domElement.clientWidth;
+        if (currentScrollPosition + scrollAmount > maxScrollPosition) {
+          this.ul.domElement.scrollBy(
+            maxScrollPosition - currentScrollPosition,
+            0,
+          );
+        } else {
+          this.ul.domElement.scrollBy(scrollAmount, 0);
+        }
+      },
     }).appendTo(this);
 
     this.on("visible", () => this.checkScroll());
@@ -49,7 +69,7 @@ export default class Tabs extends Component {
     this.onWindow("resize", () => this.checkScroll());
   }
 
-  private checkScroll() {
+  public checkScroll() {
     const dom = this.ul.domElement;
     const hasHorizontalScroll = dom.scrollWidth > dom.clientWidth;
     if (hasHorizontalScroll) {

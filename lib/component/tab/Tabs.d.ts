@@ -9,7 +9,7 @@ export default class Tabs extends Component {
         id: string;
         label: DomChild | DomChild[];
     }[]);
-    private checkScroll;
+    checkScroll(): void;
     init(id?: string): this;
     select(id: string): void;
 }
