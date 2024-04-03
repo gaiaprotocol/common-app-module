@@ -1,0 +1,45 @@
+.rich-display.component {
+    &:empty {
+        display: none;
+    }
+
+    >.image-container {
+        position: relative;
+
+        >a {
+            cursor: pointer;
+
+            >img {
+                border-radius: 12px;
+                max-height   : 320px;
+                object-fit   : cover;
+
+                &.hidden {
+                    display: none;
+                }
+            }
+
+            >.image-loading-animation {
+                border-radius: 12px;
+                overflow     : hidden;
+                max-height   : 320px;
+            }
+        }
+
+        >.loading-spinner {
+            position        : absolute;
+            left            : 0;
+            top             : 0;
+            width           : 100%;
+            height          : 100%;
+            background-color: var(--overlay-color);
+            border-radius   : 12px;
+
+            &:after {
+                position: absolute;
+                top     : calc(50% - 12px);
+                left    : calc(50% - 12px);
+            }
+        }
+    }
+}

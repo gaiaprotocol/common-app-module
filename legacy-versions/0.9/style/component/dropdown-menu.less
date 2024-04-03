@@ -1,0 +1,41 @@
+:root {
+    --dropdown-menu-color       : var(--page-bg-color);
+    --dropdown-menu-border-color: var(--line-color);
+}
+
+.dropdown-menu.component {
+    position        : fixed;
+    z-index         : 999998;
+    background-color: var(--dropdown-menu-color);
+    border          : 1px solid var(--dropdown-menu-border-color);
+    border-radius   : 6px;
+    min-width       : 160px;
+    overflow        : hidden;
+
+    >ul {
+        display       : flex;
+        flex-direction: column;
+
+        >li>button {
+            padding        : 8px 12px;
+            cursor         : pointer;
+            text-transform : capitalize;
+            display        : flex;
+            align-items    : center;
+            justify-content: flex-start;
+            gap            : 8px;
+            width          : 100%;
+            white-space    : nowrap;
+
+            @media (pointer: fine) {
+                &:hover {
+                    background-color: var(--button-hover-color);
+                }
+            }
+
+            &:active {
+                background-color: var(--button-hover-color);
+            }
+        }
+    }
+}

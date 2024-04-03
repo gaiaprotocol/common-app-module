@@ -1,0 +1,13 @@
+users_public
+	user_id - uuid, fk to auth.user - pk
+	display_name - text - nullable
+	avatar - text - nullable
+	avatar_thumbnail - text - nullable
+	avatar_stored - bool - false
+	stored_avatar - text - nullable
+	stored_avatar_thumbnail - text - nullable
+	metadata - jsonb - nullable
+	blocked - bool - false
+	deleted - bool - false
+	created_at - timestampz - now()
+	updated_at - timestampz - nullable

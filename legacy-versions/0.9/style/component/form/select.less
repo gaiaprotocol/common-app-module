@@ -1,0 +1,61 @@
+.select.component {
+    position      : relative;
+    display       : flex;
+    flex-direction: column;
+    gap           : 8px;
+
+    >.value {
+        border          : 1px solid var(--line-color);
+        border-radius   : 6px;
+        background-color: var(--content-bg-color);
+        cursor          : pointer;
+        display         : flex;
+        align-items     : center;
+        padding         : 8px 12px;
+        line-height     : 1em;
+        text-transform  : capitalize;
+
+        &:empty::before {
+            content: attr(data-empty-message);
+            color  : var(--disable-color);
+        }
+    }
+
+    >.option-container {
+        display         : none;
+        position        : absolute;
+        top             : 100%;
+        left            : -1px;
+        z-index         : 1;
+        border          : 1px solid var(--primary-color);
+        border-radius   : 6px;
+        background-color: var(--content-bg-color);
+        min-width       : 120px;
+
+        >.option {
+            padding       : 8px 12px;
+            text-transform: capitalize;
+            cursor        : pointer;
+
+            @media (pointer: fine) {
+                &:hover {
+                    background-color: var(--primary-color);
+                }
+            }
+
+            &:active {
+                background-color: var(--primary-color);
+            }
+        }
+    }
+
+    &.open {
+        >.value {
+            border: 1px solid var(--primary-color);
+        }
+
+        >.option-container {
+            display: block;
+        }
+    }
+}

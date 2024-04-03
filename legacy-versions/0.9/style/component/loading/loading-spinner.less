@@ -1,0 +1,26 @@
+@keyframes loading-spinner-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+:root {
+    --loading-spinner-color: var(--paragraph-text-color)
+}
+
+.loading-spinner.component {
+    &:after {
+        content      : " ";
+        display      : block;
+        width        : 24px;
+        height       : 24px;
+        border-radius: 50%;
+        border       : 2px solid var(--loading-spinner-color);
+        border-color : var(--loading-spinner-color) transparent var(--loading-spinner-color) transparent;
+        animation    : loading-spinner-animation 1.2s linear infinite;
+    }
+}

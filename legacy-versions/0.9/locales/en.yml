@@ -1,0 +1,7 @@
+cancel-button: Cancel
+confirm-button: Confirm
+error-alert-title: Error
+
+getting-email-from-x-error-message: >
+  Error getting user email from external provider.
+  Please add an email in your X account settings and allow email access.
