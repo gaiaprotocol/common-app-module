@@ -1,7 +1,6 @@
 import DomNode, { DomChild } from "../../dom/DomNode.js";
 import el from "../../dom/el.js";
 import Store from "../../store/Store.js";
-import Router from "../../view/Router.js";
 import Component from "../Component.js";
 import AppNavBarMenu from "./AppNavBarMenu.js";
 
@@ -56,20 +55,20 @@ export default class AppNavBar extends Component {
   }
 
   public select(id: string) {
-    let found = false;
+    let foundMenu;
 
     for (const tab of this.ul.children) {
       if (tab.options.id === id) {
         tab.active = true;
-        found = true;
+        foundMenu = tab;
       } else if (tab.active) {
         tab.active = false;
       }
     }
 
-    if (found) {
+    if (foundMenu) {
       this.store.set("selected", id, true);
-      this.fireEvent("select", id);
+      this.fireEvent("select", id, foundMenu.options.title);
     } else {
       const firstId = this.ul.children[0]?.options.id;
       if (firstId) this.select(firstId);
