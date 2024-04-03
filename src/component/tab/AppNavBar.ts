@@ -25,13 +25,14 @@ export default class AppNavBar extends Component {
 
     this.append(el(
       "h1.logo",
-      el("a", options.logo, {
-        href: "/",
+      options.logo,
+      {
         click: (event) => {
           event.preventDefault();
-          Router.go("/");
+          const firstId = this.ul.children[0]?.options.id;
+          if (firstId) this.select(firstId);
         },
-      }),
+      },
     ));
 
     this.ul = el<HTMLElement, AppNavBarMenu>("ul").appendTo(this);

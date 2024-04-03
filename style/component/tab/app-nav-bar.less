@@ -1,13 +1,90 @@
+:root {
+    --mobile-app-nav-bar-height: 62px;
+}
+
 .app-nav-bar.component {
+    position: fixed;
+    left    : 0;
+    top     : 0;
+    z-index : 999990;
+    width   : 90px;
+    height  : 100%;
+
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+    gap           : 32px;
+
+    border-right: 1px solid var(--line-color);
+
+    @container (width < @safe-width) {
+        top           : auto;
+        bottom        : 0;
+        width         : 100%;
+        height        : calc(60px + env(safe-area-inset-bottom));
+        padding-bottom: calc(2px + env(safe-area-inset-bottom));
+
+        flex-direction: row;
+        gap           : 0;
+
+        border-top  : 1px solid var(--line-color);
+        border-right: none;
+
+        >h1.logo {
+            display: none;
+        }
+    }
+
+    >h1.logo {
+        margin: 21px 0;
+        cursor: pointer;
+
+        >img {
+            max-width: 55px;
+        }
+    }
+
     >ul {
+        display       : flex;
+        flex-direction: column;
+        align-items   : center;
+        gap           : 32px;
+
+        @container (width < @safe-width) {
+            flex-grow      : 1;
+            flex-direction : row;
+            justify-content: space-between;
+            gap            : 0;
+
+            &::before,
+            &::after {
+                content: '';
+                margin : 0 -1%;
+            }
+        }
+
         >.app-nav-bar-menu {
+            display       : flex;
+            flex-direction: column;
+            align-items   : center;
+            font-size     : 12px;
+            gap           : 4px;
+            cursor        : pointer;
+
+            @container (width < @safe-width) {
+                gap: 2px;
+            }
+
             >img {
-                max-width : 30px;
-                max-height: 30px;
+                height: 30px;
             }
 
             >.icon {
                 font-size: 30px;
+            }
+
+            &.active {
+                color: var(--primary-color);
             }
         }
     }
