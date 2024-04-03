@@ -40,7 +40,13 @@ export default class Store {
     if (value === null) {
       return defaultValue;
     }
-    return JsonUtil.parseWithUndefined(value);
+    try {
+      return JsonUtil.parseWithUndefined(value);
+    } catch (e) {
+      console.error(`Failed to parse ${this.getKey(key)}: ${value}`);
+      console.error(e);
+      return defaultValue;
+    }
   }
 
   public getAll<T>(): { [key: string]: T } {
