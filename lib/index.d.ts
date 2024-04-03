@@ -24,6 +24,7 @@ export { default as LoadingSpinner } from "./component/loading/LoadingSpinner.js
 export { default as FileDropArea } from "./component/rich/FileDropArea.js";
 export { default as RichDisplay } from "./component/rich/RichDisplay.js";
 export { default as UploadForm } from "./component/rich/UploadForm.js";
+export { default as AppNavBar } from "./component/tab/AppNavBar.js";
 export { default as BottomMenuTabs } from "./component/tab/BottomMenuTabs.js";
 export { default as Tabs } from "./component/tab/Tabs.js";
 export { default as Rich } from "./database-interface/Rich.js";

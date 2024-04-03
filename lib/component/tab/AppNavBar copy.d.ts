@@ -1,7 +1,8 @@
-import { DomChild } from "../dom/DomNode.js";
-import Component from "./Component.js";
+import { DomChild } from "../../dom/DomNode.js";
+import Component from "../Component.js";
 export default class AppNavBar extends Component {
     private store;
+    private ul;
     constructor(options: {
         id: string;
         logo: DomChild;
@@ -12,5 +13,6 @@ export default class AppNavBar extends Component {
         }[];
     });
     init(id?: string): this;
+    select(id: string): void;
 }
-//# sourceMappingURL=AppNavBar.d.ts.map
+//# sourceMappingURL=AppNavBar%20copy.d.ts.map

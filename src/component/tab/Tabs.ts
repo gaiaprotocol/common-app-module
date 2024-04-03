@@ -9,7 +9,7 @@ import Tab from "./Tab.js";
 
 export default class Tabs extends Component {
   private store: Store;
-  private ul: DomNode;
+  private ul: DomNode<HTMLElement, Tab>;
   private prevButton: Button;
   private nextButton: Button;
 
@@ -29,7 +29,7 @@ export default class Tabs extends Component {
         this.ul.domElement.scrollBy(-this.ul.domElement.clientWidth, 0),
     }).appendTo(this);
 
-    this.ul = el("ul").appendTo(this);
+    this.ul = el<HTMLElement, Tab>("ul").appendTo(this);
     for (const t of tabs) {
       const tab = new Tab(t.id, t.label);
       tab.onDom("click", () => this.select(t.id));
@@ -71,10 +71,8 @@ export default class Tabs extends Component {
     } else if (this.store.get("selected")) {
       this.select(this.store.get("selected")!);
     } else {
-      const firstId = (this.ul.children[0] as Tab)?._id;
-      if (firstId) {
-        this.select(firstId);
-      }
+      const firstId = this.ul.children[0]?._id;
+      if (firstId) this.select(firstId);
     }
     return this;
   }
@@ -82,7 +80,7 @@ export default class Tabs extends Component {
   public select(id: string) {
     let found = false;
 
-    for (const tab of this.ul.children as Tab[]) {
+    for (const tab of this.ul.children) {
       if (tab._id === id) {
         tab.active = true;
         found = true;
@@ -95,10 +93,8 @@ export default class Tabs extends Component {
       this.store.set("selected", id, true);
       this.fireEvent("select", id);
     } else {
-      const firstId = (this.ul.children[0] as Tab)?._id;
-      if (firstId) {
-        this.select(firstId);
-      }
+      const firstId = this.ul.children[0]?._id;
+      if (firstId) this.select(firstId);
     }
   }
 }
