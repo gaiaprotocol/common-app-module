@@ -5,7 +5,7 @@ export default class SupabaseService<T> extends EventContainer {
     protected selectQuery: string;
     protected fetchLimit: number;
     constructor(tableName: string, selectQuery: string, fetchLimit: number);
-    protected safeSelect(build: (builder: PostgrestFilterBuilder<any, any, any, unknown>) => PostgrestFilterBuilder<any, any, any, unknown> | PostgrestBuilder<any>, fetchLimit?: number): Promise<T[]>;
+    protected safeSelect<ST = T>(build: (builder: PostgrestFilterBuilder<any, any, any, unknown>) => PostgrestFilterBuilder<any, any, any, unknown> | PostgrestBuilder<any>, fetchLimit?: number, selectQuery?: string): Promise<ST[]>;
     protected safeSelectSingle(build: (builder: PostgrestFilterBuilder<any, any, any, unknown>) => PostgrestFilterBuilder<any, any, any, unknown> | PostgrestBuilder<any>): Promise<T | undefined>;
     protected safeExists(build: (builder: PostgrestFilterBuilder<any, any, any, unknown>) => PostgrestFilterBuilder<any, any, any, unknown> | PostgrestBuilder<any>): Promise<boolean>;
     protected safeInsert(data: Partial<T>): Promise<void>;

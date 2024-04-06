@@ -2,7 +2,7 @@ import Component from "./Component.js";
 
 export default abstract class Activatable extends Component {
   constructor(tag: string) {
-    super(".activatable" + tag);
+    super(tag + ".activatable");
   }
 
   public activate(): void {

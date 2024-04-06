@@ -1,0 +1,1 @@
+{"version":3,"file":"InfoMessageBox.d.ts","sourceRoot":"","sources":["../../../src/component/messagebox/InfoMessageBox.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,MAAM,sBAAsB,CAAC;AAEhD,OAAO,SAAS,MAAM,iBAAiB,CAAC;AAGxC,MAAM,CAAC,OAAO,OAAO,cAAe,SAAQ,SAAS;gBACvC,OAAO,EAAE;QAAE,GAAG,CAAC,EAAE,MAAM,CAAC;QAAC,OAAO,EAAE,QAAQ,GAAG,QAAQ,EAAE,CAAA;KAAE;CAYtE"}
