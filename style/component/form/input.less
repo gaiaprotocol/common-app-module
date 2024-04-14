@@ -9,6 +9,10 @@
     gap           : 8px;
     font-size     : 12px;
 
+    >.label {
+        text-transform: capitalize;
+    }
+
     >textarea,
     >input {
         font-size       : var(--page-font-size);
@@ -21,5 +25,9 @@
         &:focus {
             border: 1px solid var(--primary-color);
         }
+    }
+
+    >textarea {
+        height: 100px;
     }
 }

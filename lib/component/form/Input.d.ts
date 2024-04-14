@@ -4,6 +4,7 @@ export default class Input extends Component {
     private previousValue;
     constructor(options: {
         tag?: string;
+        type?: string;
         label?: string;
         placeholder?: string;
         disabled?: boolean;

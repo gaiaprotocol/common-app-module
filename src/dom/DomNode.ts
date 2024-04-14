@@ -224,8 +224,9 @@ export default class DomNode<
     return this;
   }
 
-  public set text(text: string) {
-    this.empty().appendText(text);
+  public set text(text: string | undefined) {
+    this.empty();
+    if (text) this.appendText(text);
   }
 
   public append(...children: any[]): this {

@@ -8,6 +8,7 @@ export default class Input extends Component {
 
   constructor(options: {
     tag?: string;
+    type?: string;
     label?: string;
     placeholder?: string;
     disabled?: boolean;
@@ -24,8 +25,9 @@ export default class Input extends Component {
     this.addAllowedEvents("change", "enter");
 
     this.append(
-      options.label,
+      el("span.label", options.label),
       this.input = el(options.multiline === true ? "textarea" : "input", {
+        type: options.type,
         placeholder: options.placeholder,
         disabled: options.disabled === true ? "disabled" : undefined,
         required: options.required === true ? "required" : undefined,
