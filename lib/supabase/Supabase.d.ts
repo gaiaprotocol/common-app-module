@@ -3,8 +3,11 @@ import { Provider, SupabaseClient } from "@supabase/supabase-js";
 import EventContainer from "../event/EventContainer.js";
 declare class Supabase extends EventContainer {
     client: SupabaseClient;
-    devMode: boolean;
-    connect(supabaseUrl: string, supabaseKey: string, devMode: boolean): void;
+    private devMode;
+    private supabaseUrl;
+    private supabaseKey;
+    connect(devMode: boolean, supabaseUrl: string, supabaseKey: string, authorizationToken?: string): void;
+    reconnect(authorizationToken?: string): void;
     signIn(provider: Provider): Promise<void>;
     signOut(): Promise<void>;
     private convertNullToUndefined;

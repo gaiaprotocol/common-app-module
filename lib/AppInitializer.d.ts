@@ -1,5 +1,5 @@
 declare class AppInitializer {
-    initialize(supabaseUrl: string, supabaseAnonKey: string, devMode: boolean): void;
+    initialize(devMode: boolean, supabaseUrl: string, supabaseAnonKey: string, authorizationToken?: string): void;
 }
 declare const _default: AppInitializer;
 export default _default;

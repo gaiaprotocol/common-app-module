@@ -3,16 +3,17 @@ import Router from "./view/Router.js";
 
 class AppInitializer {
   public initialize(
+    devMode: boolean,
     supabaseUrl: string,
     supabaseAnonKey: string,
-    devMode: boolean,
+    authorizationToken?: string,
   ): void {
     if (sessionStorage.__spa_path) {
       Router.goNoHistory(sessionStorage.__spa_path);
       sessionStorage.removeItem("__spa_path");
     }
 
-    Supabase.connect(supabaseUrl, supabaseAnonKey, devMode);
+    Supabase.connect(devMode, supabaseUrl, supabaseAnonKey, authorizationToken);
     Supabase.client.auth.onAuthStateChange((event) => {
       if (event === "SIGNED_IN") {
         Supabase.client.functions.invoke("store-user-avatar");

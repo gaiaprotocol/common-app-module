@@ -8,15 +8,37 @@ import EventContainer from "../event/EventContainer.js";
 
 class Supabase extends EventContainer {
   public client!: SupabaseClient;
-  public devMode: boolean = false;
 
-  public connect(supabaseUrl: string, supabaseKey: string, devMode: boolean) {
+  private devMode: boolean = false;
+  private supabaseUrl: string = "";
+  private supabaseKey: string = "";
+
+  public connect(
+    devMode: boolean,
+    supabaseUrl: string,
+    supabaseKey: string,
+    authorizationToken?: string,
+  ) {
     this.devMode = devMode;
-    this.client = createClient(supabaseUrl, supabaseKey, {
+    this.supabaseUrl = supabaseUrl;
+    this.supabaseKey = supabaseKey;
+    this.reconnect(authorizationToken);
+  }
+
+  public reconnect(authorizationToken?: string) {
+    this.client?.removeAllChannels();
+    this.client = createClient(this.supabaseUrl, this.supabaseKey, {
       auth: {
         autoRefreshToken: true,
         persistSession: true,
       },
+      ...(authorizationToken
+        ? {
+          global: {
+            headers: { Authorization: `Bearer ${authorizationToken}` },
+          },
+        }
+        : {}),
     });
   }
 
