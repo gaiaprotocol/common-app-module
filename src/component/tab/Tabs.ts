@@ -113,8 +113,8 @@ export default class Tabs extends Component {
 
     if (found) {
       this.store?.set("selected", id, true);
-      this.fireEvent("select", id);
       this.currentTab = id;
+      this.fireEvent("select", id);
     } else {
       const firstId = this.ul.children[0]?._id;
       if (firstId) this.select(firstId);

@@ -24,6 +24,8 @@ export default abstract class Exitable extends DomNode {
   public delete(): void {
     this.addClass("hide");
     this.container.addClass("hide");
-    setTimeout(() => super.delete(), 300);
+    setTimeout(() => {
+      if (!this.deleted) super.delete();
+    }, 300);
   }
 }

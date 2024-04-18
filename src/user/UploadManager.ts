@@ -42,7 +42,7 @@ class UploadManager {
     );
   }
 
-  public async uploadFile(
+  public async uploadPublicFile(
     bucketId: string,
     folderPath: string,
     file: File,
