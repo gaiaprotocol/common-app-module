@@ -6,6 +6,11 @@ import Theme from "./Theme.js";
 class ThemeManager extends EventContainer {
   private store = new Store("__THEME_MANAGER_STORE");
 
+  constructor() {
+    super();
+    this.addAllowedEvents("change");
+  }
+
   public init() {
     this.theme = this.theme;
   }

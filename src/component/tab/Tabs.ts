@@ -17,7 +17,8 @@ export default class Tabs extends Component {
 
   constructor(
     id: string | undefined,
-    tabs: { id: string; label: DomChild | DomChild[] }[],
+    private tabs: { id: string; label: DomChild | DomChild[]; data?: any }[],
+    private defaultTab?: string,
   ) {
     super(".tabs");
     this.addAllowedEvents("select");
@@ -92,6 +93,8 @@ export default class Tabs extends Component {
       this.select(id);
     } else if (this.store?.get("selected")) {
       this.select(this.store.get("selected")!);
+    } else if (this.defaultTab) {
+      this.select(this.defaultTab);
     } else {
       const firstId = this.ul.children[0]?._id;
       if (firstId) this.select(firstId);
@@ -119,5 +122,9 @@ export default class Tabs extends Component {
       const firstId = this.ul.children[0]?._id;
       if (firstId) this.select(firstId);
     }
+  }
+
+  public get data() {
+    return this.tabs.find((t) => t.id === this.currentTab)?.data;
   }
 }

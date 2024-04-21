@@ -49,6 +49,7 @@ export { default as msg, msgs } from "./i18n/msg.js";
 export { default as Store } from "./store/Store.js";
 export { default as Supabase } from "./supabase/Supabase.js";
 export { default as SupabaseService } from "./supabase/SupabaseService.js";
+export { default as Theme } from "./theme/Theme.js";
 export { default as ThemeManager } from "./theme/ThemeManager.js";
 export { default as OnlineUserManager } from "./user/OnlineUserManager.js";
 export { default as UploadManager } from "./user/UploadManager.js";
