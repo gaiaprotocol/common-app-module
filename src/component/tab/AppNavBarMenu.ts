@@ -1,4 +1,5 @@
-import DomNode, { DomChild } from "../../dom/DomNode.js";
+import DomNode from "../../dom/DomNode.js";
+import el from "../../dom/el.js";
 import Component from "../Component.js";
 
 export default class AppNavBarMenu extends Component {
@@ -11,7 +12,7 @@ export default class AppNavBarMenu extends Component {
     },
   ) {
     super("li.app-nav-bar-menu");
-    this.append(options.icon.clone(), options.title);
+    this.append(options.icon.clone(), el("span.title", options.title));
   }
 
   public set active(b: boolean) {
@@ -19,7 +20,7 @@ export default class AppNavBarMenu extends Component {
     if (this.options.activeIcon) {
       this.empty().append(
         b ? this.options.activeIcon.clone() : this.options.icon.clone(),
-        this.options.title,
+        el("span.title", this.options.title),
       );
     }
   }

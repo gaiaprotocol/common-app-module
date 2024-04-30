@@ -7,7 +7,6 @@ export default class BottomMenuTabs extends Component {
     constructor(id: string | undefined, tabs: {
         id: string;
         icon: DomChild;
-        title?: string;
     }[]);
     init(id?: string): this;
     select(id: string): void;

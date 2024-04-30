@@ -10,7 +10,7 @@ export default class BottomMenuTabs extends Component {
 
   constructor(
     id: string | undefined,
-    tabs: { id: string; icon: DomChild; title?: string }[],
+    tabs: { id: string; icon: DomChild }[],
   ) {
     super("ul.bottom-menu-tabs");
     this.addAllowedEvents("select");
@@ -18,7 +18,7 @@ export default class BottomMenuTabs extends Component {
     if (id) this.store = new Store(`bottom-menu-tabs-${id}`);
 
     for (const t of tabs) {
-      const tab = new BottomMenuTab(t.id, t.icon, t.title);
+      const tab = new BottomMenuTab(t.id, t.icon);
       tab.onDom("click", () => this.select(t.id));
       this.append(tab);
     }

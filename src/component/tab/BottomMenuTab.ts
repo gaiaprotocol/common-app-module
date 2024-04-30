@@ -2,9 +2,9 @@ import { DomChild } from "../../dom/DomNode.js";
 import Component from "../Component.js";
 
 export default class BottomMenuTab extends Component {
-  constructor(public _id: string, icon: DomChild, title?: string) {
+  constructor(public _id: string, icon: DomChild) {
     super("li.tab");
-    this.append(icon, title);
+    this.append(icon);
   }
 
   public set active(b: boolean) {

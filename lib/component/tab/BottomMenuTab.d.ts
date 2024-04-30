@@ -2,7 +2,7 @@ import { DomChild } from "../../dom/DomNode.js";
 import Component from "../Component.js";
 export default class BottomMenuTab extends Component {
     _id: string;
-    constructor(_id: string, icon: DomChild, title?: string);
+    constructor(_id: string, icon: DomChild);
     set active(b: boolean);
     get active(): boolean;
 }
