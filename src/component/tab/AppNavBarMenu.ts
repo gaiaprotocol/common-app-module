@@ -9,9 +9,10 @@ export default class AppNavBarMenu extends Component {
       icon: DomNode;
       activeIcon?: DomNode;
       title: string;
+      toFooter?: boolean;
     },
   ) {
-    super("li.app-nav-bar-menu");
+    super("li.app-nav-bar-menu" + (options.toFooter ? ".to-footer" : ""));
     this.append(options.icon.clone(), el("span.title", options.title));
   }
 

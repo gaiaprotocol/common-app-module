@@ -16,6 +16,7 @@ export default class AppNavBar extends Component {
       icon: DomNode;
       activeIcon?: DomNode;
       title: string;
+      toFooter?: boolean;
     }[];
   }) {
     super(".app-nav-bar");

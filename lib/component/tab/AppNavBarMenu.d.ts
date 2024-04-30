@@ -6,12 +6,14 @@ export default class AppNavBarMenu extends Component {
         icon: DomNode;
         activeIcon?: DomNode;
         title: string;
+        toFooter?: boolean;
     };
     constructor(options: {
         id: string;
         icon: DomNode;
         activeIcon?: DomNode;
         title: string;
+        toFooter?: boolean;
     });
     set active(b: boolean);
     get active(): boolean;
