@@ -10,7 +10,6 @@ export {
 export { default as DropdownMenu } from "./component/DropdownMenu.js";
 export { default as Jazzicon } from "./component/Jazzicon.js";
 export { default as LazyLoadingComponent } from "./component/LazyLoadingComponent.js";
-export { default as LottieAnimation } from "./component/LottieAnimation.js";
 export { default as MaterialIcon } from "./component/MaterialIcon.js";
 export { default as Button } from "./component/button/Button.js";
 export { default as ButtonType } from "./component/button/ButtonType.js";
