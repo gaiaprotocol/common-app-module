@@ -79,22 +79,32 @@
                 margin-top: auto;
             }
 
-            >.title {
-                font-size: 12px;
-            }
-
-            @container (width < @safe-width) {
-                >.title {
-                    display: none;
-                }
-            }
-
             >img {
                 height: 30px;
             }
 
             >.icon {
                 font-size: 30px;
+            }
+
+            >.title {
+                font-size: 12px;
+            }
+
+            @container (width < @safe-width) {
+                gap: 0;
+
+                >img {
+                    height: 28px;
+                }
+
+                >.icon {
+                    font-size: 28px;
+                }
+
+                >.title {
+                    font-size: 10px;
+                }
             }
 
             &.active {
