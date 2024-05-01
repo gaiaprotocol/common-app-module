@@ -6,9 +6,9 @@ import LoadingSpinner from "../loading/LoadingSpinner.js";
 export default class RichDisplay extends Component {
   public static NOT_FOUND_IMAGE = "/images/image-not-found.png";
 
-  private loadingSpinners: LoadingSpinner[] = [];
+  private uploadingSpinners: LoadingSpinner[] = [];
 
-  constructor(rich: Rich, wait: boolean) {
+  constructor(rich: Rich, uploading: boolean) {
     super(".rich-display");
     this.addAllowedEvents("imageLoaded");
 
@@ -17,7 +17,9 @@ export default class RichDisplay extends Component {
         if (file.fileType.startsWith("image/")) {
           let imageNotFound = false;
 
-          const imageContainer = el(".image-container.loading").appendTo(this);
+          const loadingSpinner = new LoadingSpinner();
+          const imageContainer = el(".image-container.loading", loadingSpinner)
+            .appendTo(this);
 
           const image = el<HTMLImageElement>("img.hidden", {
             src: file.url,
@@ -26,6 +28,7 @@ export default class RichDisplay extends Component {
               if (!this.deleted) {
                 image.deleteClass("hidden");
                 this.fireEvent("imageLoaded", image.domElement.height);
+                if (!loadingSpinner.deleted) loadingSpinner.delete();
                 imageContainer.deleteClass("loading");
               }
             },
@@ -36,19 +39,20 @@ export default class RichDisplay extends Component {
             image.domElement.onerror = null;
             image.domElement.src = RichDisplay.NOT_FOUND_IMAGE;
             imageNotFound = true;
+            if (!loadingSpinner.deleted) loadingSpinner.delete();
             imageContainer.deleteClass("loading");
           };
 
-          let loadingSpinner: LoadingSpinner | undefined;
+          let uploadingSpinner: LoadingSpinner | undefined;
 
           imageContainer.append(el("a", image, {
             click: (event) => {
               event.stopPropagation();
               if (!imageNotFound) this.openImage(file);
             },
-          }, wait ? loadingSpinner = new LoadingSpinner() : undefined));
+          }, uploading ? uploadingSpinner = new LoadingSpinner() : undefined));
 
-          if (loadingSpinner) this.loadingSpinners.push(loadingSpinner);
+          if (uploadingSpinner) this.uploadingSpinners.push(uploadingSpinner);
         }
       }
     }
@@ -59,9 +63,9 @@ export default class RichDisplay extends Component {
     //TODO:
   }
 
-  public done() {
-    for (const loadingSpinner of this.loadingSpinners) {
-      loadingSpinner.delete();
+  public uploadDone() {
+    for (const spinner of this.uploadingSpinners) {
+      spinner.delete();
     }
   }
 }
