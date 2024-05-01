@@ -61,10 +61,22 @@
             gap            : 0;
             padding-bottom : 0;
 
-            &::before,
-            &::after {
-                content: '';
-                margin : 0 -4%;
+            &:not(:has(> :nth-child(5))) {
+
+                &::before,
+                &::after {
+                    content: '';
+                    margin : 0 -4%;
+                }
+            }
+
+            &:has(> :nth-child(5)) {
+
+                &::before,
+                &::after {
+                    content: '';
+                    margin : 0 -2%;
+                }
             }
         }
 
