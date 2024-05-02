@@ -15,7 +15,7 @@ export default class AppNavBar extends Component {
       id: string;
       icon: DomNode;
       activeIcon?: DomNode;
-      title: string;
+      title?: string;
       toFooter?: boolean;
     }[];
   }) {
@@ -53,6 +53,12 @@ export default class AppNavBar extends Component {
       if (firstId) this.select(firstId);
     }
     return this;
+  }
+
+  public findMenu(id: string) {
+    for (const tab of this.ul.children) {
+      if (tab.options.id === id) return tab;
+    }
   }
 
   public select(id: string) {
