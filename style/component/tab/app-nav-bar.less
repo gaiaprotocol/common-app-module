@@ -3,12 +3,13 @@
 }
 
 .app-nav-bar.component {
-    position: fixed;
-    left    : 0;
-    top     : 0;
-    z-index : 999990;
-    width   : 72px;
-    height  : 100%;
+    position  : fixed;
+    left      : 0;
+    top       : 0;
+    z-index   : 999990;
+    width     : 72px;
+    height    : 100%;
+    overflow-y: auto;
 
     display       : flex;
     flex-direction: column;
@@ -89,6 +90,10 @@
 
             &.to-footer {
                 margin-top: auto;
+
+                @container (width < @safe-width) {
+                    margin-top: 0;
+                }
             }
 
             >img {
