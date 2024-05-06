@@ -70,14 +70,6 @@ class Router extends EventContainer {
     });
   }
 
-  public deleteAllExitable() {
-    for (const child of BodyNode.children) {
-      if (child instanceof Exitable) {
-        child.delete();
-      }
-    }
-  }
-
   public check(preParams?: ViewParams, data?: any) {
     const uri = normalizePathname(location.pathname);
     const uriParts = uri.split("/");

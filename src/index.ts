@@ -4,8 +4,7 @@ export { default as Constants } from "./Constants.js";
 export { default as SplashLoader } from "./SplashLoader.js";
 export { default as Activatable } from "./component/Activatable.js";
 export {
-  AutoSorterListItem,
-  default as AutoSorterList,
+  default as AutoSorterList, AutoSorterListItem
 } from "./component/AutoSorterList.js";
 export { default as DropdownMenu } from "./component/DropdownMenu.js";
 export { default as Jazzicon } from "./component/Jazzicon.js";
@@ -20,6 +19,7 @@ export { default as ErrorAlert } from "./component/dialogue/ErrorAlert.js";
 export { default as Prompt } from "./component/dialogue/Prompt.js";
 export { default as AdaptiveModal } from "./component/exitable/AdaptiveModal.js";
 export { default as Drawer } from "./component/exitable/Drawer.js";
+export { default as Exitable } from "./component/exitable/Exitable.js";
 export { default as Popup } from "./component/exitable/Popup.js";
 export { default as Checkbox } from "./component/form/Checkbox.js";
 export { default as Input } from "./component/form/Input.js";
@@ -38,11 +38,11 @@ export { default as Tabs } from "./component/tab/Tabs.js";
 export { default as Rich } from "./database-interface/Rich.js";
 export { default as UserPublic } from "./database-interface/UserPublic.js";
 export { default as BodyNode } from "./dom/BodyNode.js";
-export { default as DomNode, DomChild } from "./dom/DomNode.js";
+export { DomChild, default as DomNode } from "./dom/DomNode.js";
 export { default as el } from "./dom/el.js";
 export {
   default as EventContainer,
-  EventHandler,
+  EventHandler
 } from "./event/EventContainer.js";
 export { default as I18NText } from "./i18n/I18NText.js";
 export { default as msg, msgs } from "./i18n/msg.js";
@@ -64,3 +64,4 @@ export { default as PolyfillUtil } from "./util/PolyfillUtil.js";
 export { default as StringUtil } from "./util/StringUtil.js";
 export { default as Router } from "./view/Router.js";
 export { default as View, ViewParams } from "./view/View.js";
+

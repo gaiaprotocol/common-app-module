@@ -8,5 +8,6 @@ export default abstract class Exitable extends DomNode {
     protected abstract container: Component;
     constructor(overlayTag: string, options: ExitableOptions);
     delete(): void;
+    static deleteAll(): void;
 }
 //# sourceMappingURL=Exitable.d.ts.map

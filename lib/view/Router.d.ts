@@ -7,7 +7,6 @@ declare class Router extends EventContainer {
     private openingViews;
     private forwarding;
     constructor();
-    deleteAllExitable(): void;
     check(preParams?: ViewParams, data?: any): void;
     route(patterns: string | string[], viewType: ViewType, excludes?: string[]): void;
     redirect(patterns: string | string[], to: string, excludes?: string[]): void;

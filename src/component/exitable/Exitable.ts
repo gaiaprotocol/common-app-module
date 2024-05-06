@@ -28,4 +28,12 @@ export default abstract class Exitable extends DomNode {
       if (!this.deleted) super.delete();
     }, 300);
   }
+
+  public static deleteAll() {
+    for (const child of BodyNode.children) {
+      if (child instanceof Exitable) {
+        child.delete();
+      }
+    }
+  }
 }
