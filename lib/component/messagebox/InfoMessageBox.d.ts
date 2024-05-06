@@ -4,6 +4,7 @@ export default class InfoMessageBox extends Component {
     constructor(options: {
         tag?: string;
         message: DomChild | DomChild[];
+        footer?: DomChild | DomChild[];
     });
 }
 //# sourceMappingURL=InfoMessageBox.d.ts.map
