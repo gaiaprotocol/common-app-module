@@ -70,6 +70,13 @@ export default class Tabs extends Component {
     this.on("visible", () => this.checkScroll());
     this.ul.onDom("scroll", () => this.checkScroll());
     this.onWindow("resize", () => this.checkScroll());
+
+    this.ul.onDom("wheel", (e: WheelEvent) => {
+      if (!e.shiftKey) {
+        e.preventDefault();
+        this.ul.domElement.scrollLeft += e.deltaX + e.deltaY;
+      }
+    });
   }
 
   public checkScroll() {
