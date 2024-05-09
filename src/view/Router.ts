@@ -34,7 +34,9 @@ class Router extends EventContainer {
   private redirects: { patterns: string[]; excludes: string[]; to: string }[] =
     [];
   private openingViews: View[] = [];
+
   private forwarding = false;
+  private exitableDeleted = false;
 
   constructor() {
     super();
@@ -51,15 +53,18 @@ class Router extends EventContainer {
           this.forwarding = true;
           window.history.forward();
           exitable.delete();
+          this.exitableDeleted = true;
         } else {
           this.check(event.state ?? undefined);
 
           if (
             BrowserInfo.isAndroid && BrowserInfo.installed &&
-            window.location.pathname === "/" && window.location.hash === ""
+            window.location.pathname === "/" && window.location.hash === "" &&
+            this.exitableDeleted
           ) {
             new ExitAppPopup();
           }
+          this.exitableDeleted = false;
         }
       }
       for (const child of BodyNode.children) {
@@ -170,6 +175,8 @@ class Router extends EventContainer {
       history.pushState(undefined, "", uri);
       this.check(params, data);
       window.scrollTo(0, 0);
+
+      this.exitableDeleted = false;
     }
   }
 
