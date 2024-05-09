@@ -67,7 +67,11 @@ export default class Tabs extends Component {
       },
     }).appendTo(this);
 
-    this.on("visible", () => this.checkScroll());
+    this.on("visible", () => {
+      setTimeout(() => {
+        if (!this.deleted) this.checkScroll();
+      });
+    });
     this.ul.onDom("scroll", () => this.checkScroll());
     this.onWindow("resize", () => this.checkScroll());
 
