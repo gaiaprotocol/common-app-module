@@ -13,5 +13,5 @@ x-account-email-required-popup-step-6: Look out for a verification code sent to 
 x-account-email-required-popup-step-7: Finalize the process by clicking "Verify," securely linking your email to your X account.
 x-account-email-required-popup-message-2: Once you've completed these steps, your email should be added and verified on your X account.
 
-exit-app-popup-title: Exit App
-exit-app-popup-message: Press back again to exit the app.
+exit-android-app-popup-title: Exit App
+exit-android-app-popup-message: Press back again to exit the app.

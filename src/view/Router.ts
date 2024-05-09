@@ -3,7 +3,7 @@ import Exitable from "../component/exitable/Exitable.js";
 import BodyNode from "../dom/BodyNode.js";
 import EventContainer from "../event/EventContainer.js";
 import ArrayUtil from "../util/ArrayUtil.js";
-import ExitAppPopup from "./ExitAppPopup.js";
+import ExitAndroidAppPopup from "./ExitAndroidAppPopup.js";
 import UriParser from "./UriParser.js";
 import View, { ViewParams } from "./View.js";
 
@@ -34,9 +34,7 @@ class Router extends EventContainer {
   private redirects: { patterns: string[]; excludes: string[]; to: string }[] =
     [];
   private openingViews: View[] = [];
-
   private forwarding = false;
-  private exitableDeleted = false;
 
   constructor() {
     super();
@@ -53,18 +51,16 @@ class Router extends EventContainer {
           this.forwarding = true;
           window.history.forward();
           exitable.delete();
-          this.exitableDeleted = true;
         } else {
           this.check(event.state ?? undefined);
 
+          // for android back button
           if (
             BrowserInfo.isAndroid && BrowserInfo.installed &&
-            window.location.pathname === "/" && window.location.hash === "" &&
-            this.exitableDeleted
+            window.location.pathname === "/" && window.location.hash === ""
           ) {
-            new ExitAppPopup();
+            new ExitAndroidAppPopup();
           }
-          this.exitableDeleted = false;
         }
       }
       for (const child of BodyNode.children) {
@@ -172,12 +168,17 @@ class Router extends EventContainer {
 
   public go(uri: string, params?: ViewParams, data?: any) {
     if (location.pathname !== uri) {
+      // for android back button
+      if (
+        BrowserInfo.isAndroid && BrowserInfo.installed &&
+        window.location.pathname === "/" && window.location.hash === ""
+      ) {
+        window.location.hash = "#exitable";
+      }
+
       history.pushState(undefined, "", uri);
       this.check(params, data);
       window.scrollTo(0, 0);
-
-      this.exitableDeleted = false;
-      location.hash = "";
     }
   }
 

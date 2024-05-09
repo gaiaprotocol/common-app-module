@@ -21,7 +21,7 @@ export default abstract class Exitable extends DomNode {
       });
     }
 
-    // Android back button
+    // for android back button
     if (
       options.ignoreExitableHash !== true &&
       BrowserInfo.isAndroid && BrowserInfo.installed &&
