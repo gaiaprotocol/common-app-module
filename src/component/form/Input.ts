@@ -46,9 +46,7 @@ export default class Input extends Component {
       }) as any,
     );
 
-    if (options.value !== undefined) {
-      this.value = options.value;
-    }
+    if (options.value !== undefined) this.value = options.value;
   }
 
   public get value(): string {
