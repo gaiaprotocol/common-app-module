@@ -1,7 +1,9 @@
+import BrowserInfo from "../BrowserInfo.js";
 import Exitable from "../component/exitable/Exitable.js";
 import BodyNode from "../dom/BodyNode.js";
 import EventContainer from "../event/EventContainer.js";
 import ArrayUtil from "../util/ArrayUtil.js";
+import ExitAppPopup from "./ExitAppPopup.js";
 import UriParser from "./UriParser.js";
 import View, { ViewParams } from "./View.js";
 
@@ -57,6 +59,13 @@ class Router extends EventContainer {
         if (child.hasClass("dropdown-menu")) {
           child.delete();
         }
+      }
+
+      if (
+        BrowserInfo.isAndroid && BrowserInfo.installed &&
+        window.location.pathname === "/" && window.location.hash === ""
+      ) {
+        new ExitAppPopup();
       }
     });
 

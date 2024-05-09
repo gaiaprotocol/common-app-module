@@ -1,3 +1,4 @@
+import BrowserInfo from "../../BrowserInfo.js";
 import BodyNode from "../../dom/BodyNode.js";
 import DomNode from "../../dom/DomNode.js";
 import Component from "../Component.js";
@@ -18,6 +19,15 @@ export default abstract class Exitable extends DomNode {
         }
       });
     }
+
+    // Android back button
+    if (
+      BrowserInfo.isAndroid && BrowserInfo.installed &&
+      window.location.hash === ""
+    ) {
+      window.location.hash = "#exitable";
+    }
+
     BodyNode.append(this);
   }
 

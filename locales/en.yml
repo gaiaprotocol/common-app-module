@@ -12,3 +12,6 @@ x-account-email-required-popup-step-5: Select "Add email address" and enter your
 x-account-email-required-popup-step-6: Look out for a verification code sent to the provided email and enter it in the designated field.
 x-account-email-required-popup-step-7: Finalize the process by clicking "Verify," securely linking your email to your X account.
 x-account-email-required-popup-message-2: Once you've completed these steps, your email should be added and verified on your X account.
+
+exit-app-popup-title: Exit App
+exit-app-popup-message: Do you really want to exit?
