@@ -177,6 +177,7 @@ class Router extends EventContainer {
       window.scrollTo(0, 0);
 
       this.exitableDeleted = false;
+      location.hash = "";
     }
   }
 
