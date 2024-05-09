@@ -23,8 +23,9 @@ export default abstract class Exitable extends DomNode {
 
     // Android back button
     if (
-      options.ignoreExitableHash !== true && BrowserInfo.isAndroid &&
-      BrowserInfo.installed && window.location.hash === ""
+      options.ignoreExitableHash !== true &&
+      BrowserInfo.isAndroid && BrowserInfo.installed &&
+      window.location.pathname === "/" && window.location.hash === ""
     ) {
       window.location.hash = "#exitable";
     }
