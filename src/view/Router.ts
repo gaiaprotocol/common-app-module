@@ -53,19 +53,19 @@ class Router extends EventContainer {
           exitable.delete();
         } else {
           this.check(event.state ?? undefined);
+
+          if (
+            BrowserInfo.isAndroid && BrowserInfo.installed &&
+            window.location.pathname === "/" && window.location.hash === ""
+          ) {
+            new ExitAppPopup();
+          }
         }
       }
       for (const child of BodyNode.children) {
         if (child.hasClass("dropdown-menu")) {
           child.delete();
         }
-      }
-
-      if (
-        BrowserInfo.isAndroid && BrowserInfo.installed &&
-        window.location.pathname === "/" && window.location.hash === ""
-      ) {
-        new ExitAppPopup();
       }
     });
 

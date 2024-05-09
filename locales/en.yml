@@ -14,4 +14,4 @@ x-account-email-required-popup-step-7: Finalize the process by clicking "Verify,
 x-account-email-required-popup-message-2: Once you've completed these steps, your email should be added and verified on your X account.
 
 exit-app-popup-title: Exit App
-exit-app-popup-message: Do you really want to exit?
+exit-app-popup-message: Press back again to exit the app.

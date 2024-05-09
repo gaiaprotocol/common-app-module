@@ -5,12 +5,13 @@ import Component from "../Component.js";
 
 export interface ExitableOptions {
   barrierDismissible: boolean;
+  ignoreExitableHash?: boolean;
 }
 
 export default abstract class Exitable extends DomNode {
   protected abstract container: Component;
 
-  constructor(overlayTag: string, private options: ExitableOptions) {
+  constructor(overlayTag: string, options: ExitableOptions) {
     super(".exitable" + overlayTag);
     if (options.barrierDismissible === true) {
       this.onDom("click", (event: MouseEvent) => {
@@ -22,8 +23,8 @@ export default abstract class Exitable extends DomNode {
 
     // Android back button
     if (
-      BrowserInfo.isAndroid && BrowserInfo.installed &&
-      window.location.hash === ""
+      options.ignoreExitableHash !== true && BrowserInfo.isAndroid &&
+      BrowserInfo.installed && window.location.hash === ""
     ) {
       window.location.hash = "#exitable";
     }
