@@ -72,9 +72,11 @@ export default class Store {
     return localStorage.getItem(this.getKey(key)) !== null;
   }
 
-  public delete(key: string) {
-    sessionStorage.removeItem(this.getKey(key));
-    localStorage.removeItem(this.getKey(key));
+  public delete(...keys: string[]) {
+    for (const key of keys) {
+      sessionStorage.removeItem(this.getKey(key));
+      localStorage.removeItem(this.getKey(key));
+    }
   }
 
   public clear() {

@@ -9,7 +9,7 @@ export default class Store {
         [key: string]: T;
     };
     checkPermanently(key: string): boolean;
-    delete(key: string): void;
+    delete(...keys: string[]): void;
     clear(): void;
 }
 //# sourceMappingURL=Store.d.ts.map
