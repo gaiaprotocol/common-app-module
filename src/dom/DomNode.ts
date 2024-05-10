@@ -291,7 +291,7 @@ export default class DomNode<
   }
 
   private fireVisible() {
-    this.fireEvent("visible");
+    this.emit("visible");
     for (const child of this.children) {
       child.fireVisible();
     }

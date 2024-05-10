@@ -37,7 +37,7 @@ export default class QuantityInput extends Component {
           icon: new MaterialIcon("remove"),
           click: () => {
             this.value--;
-            this.fireEvent("change");
+            this.emit("change");
           },
         }),
         this.input = el("input", {
@@ -47,7 +47,7 @@ export default class QuantityInput extends Component {
           max: options.max,
           keyup: () => {
             if (this.value !== this.previousValue) {
-              this.fireEvent("change");
+              this.emit("change");
               this.previousValue = this.value;
             }
           },
@@ -57,7 +57,7 @@ export default class QuantityInput extends Component {
           icon: new MaterialIcon("add"),
           click: () => {
             this.value++;
-            this.fireEvent("change");
+            this.emit("change");
           },
         }),
       ),
@@ -73,7 +73,7 @@ export default class QuantityInput extends Component {
   public set value(value: number) {
     if (parseInt(this.input.domElement.value) === value) return;
     this.input.domElement.value = String(value);
-    this.fireEvent("change");
+    this.emit("change");
 
     if (value === this.options.min) this.minusButton.disable();
     else this.minusButton.enable();

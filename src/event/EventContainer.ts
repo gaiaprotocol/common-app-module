@@ -71,7 +71,7 @@ export default abstract class EventContainer {
     }
   }
 
-  public async fireEvent(eventName: string, ...params: any[]): Promise<any[]> {
+  public async emit(eventName: string, ...params: any[]): Promise<any[]> {
     if (!this.allowedEvents.includes(eventName)) {
       throw new Error(
         `EventContainer ${this.constructor.name} does not allow event ${eventName}`,
@@ -141,7 +141,7 @@ export default abstract class EventContainer {
     }
     (this.delegateEvents as unknown) = undefined;
 
-    this.fireEvent("delete");
+    this.emit("delete");
     (this.allowedEvents as unknown) = undefined;
     (this.eventMap as unknown) = undefined;
     this.deleted = true;

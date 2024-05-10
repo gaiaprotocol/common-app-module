@@ -27,7 +27,7 @@ export default class RichDisplay extends Component {
             load: () => {
               if (!this.deleted) {
                 image.deleteClass("hidden");
-                this.fireEvent("imageLoaded", image.domElement.height);
+                this.emit("imageLoaded", image.domElement.height);
                 if (!loadingSpinner.deleted) loadingSpinner.delete();
                 imageContainer.deleteClass("loading");
               }

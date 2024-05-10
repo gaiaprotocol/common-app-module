@@ -23,7 +23,7 @@ class ThemeManager extends EventContainer {
   public set theme(theme: Theme) {
     this.store.set("theme", theme);
     document.documentElement.setAttribute("data-theme", this.showingTheme);
-    this.fireEvent("change");
+    this.emit("change");
   }
 
   public get showingTheme() {

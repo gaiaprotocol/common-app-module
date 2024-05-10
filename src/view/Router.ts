@@ -122,7 +122,7 @@ class Router extends EventContainer {
     }
 
     if (viewCreated === true) {
-      this.fireEvent("go");
+      this.emit("go");
     }
   }
 

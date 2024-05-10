@@ -10,7 +10,7 @@ export default class Switch extends Component {
         type: "checkbox",
         checked: value ? "checked" : undefined,
         change: (event: Event) =>
-          this.fireEvent("change", (event.target as HTMLInputElement).checked),
+          this.emit("change", (event.target as HTMLInputElement).checked),
       }),
       el("span.slider"),
     );

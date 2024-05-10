@@ -34,12 +34,12 @@ export default class Input extends Component {
         readonly: options.readonly === true ? "readonly" : undefined,
         keydown: (event) => {
           if (event.key === "Enter") {
-            this.fireEvent("enter");
+            this.emit("enter");
           }
         },
         keyup: () => {
           if (this.value !== this.previousValue) {
-            this.fireEvent("change");
+            this.emit("change");
             this.previousValue = this.value;
           }
         },
@@ -56,7 +56,7 @@ export default class Input extends Component {
   public set value(value: string) {
     if (this.input.domElement.value === value) return;
     this.input.domElement.value = value;
-    this.fireEvent("change");
+    this.emit("change");
   }
 
   public select() {

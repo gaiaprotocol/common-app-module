@@ -36,13 +36,13 @@ export default class Checkbox extends Component {
   public check() {
     if (this.checked) return;
     this.input.domElement.checked = true;
-    this.fireEvent("check");
+    this.emit("check");
   }
 
   public uncheck() {
     if (!this.checked) return;
     this.input.domElement.checked = false;
-    this.fireEvent("uncheck");
+    this.emit("uncheck");
   }
 
   public toggle() {

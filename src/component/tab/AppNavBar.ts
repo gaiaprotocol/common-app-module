@@ -75,7 +75,7 @@ export default class AppNavBar extends Component {
 
     if (foundMenu) {
       this.store.set("selected", id, true);
-      this.fireEvent("select", id, foundMenu.options.title);
+      this.emit("select", id, foundMenu.options.title);
     } else {
       const firstId = this.ul.children[0]?.options.id;
       if (firstId) this.select(firstId);

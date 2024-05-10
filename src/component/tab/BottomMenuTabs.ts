@@ -52,7 +52,7 @@ export default class BottomMenuTabs extends Component {
 
     if (found) {
       this.store?.set("selected", id, true);
-      this.fireEvent("select", id);
+      this.emit("select", id);
     } else {
       const firstId = this.children[0]?._id;
       if (firstId) {

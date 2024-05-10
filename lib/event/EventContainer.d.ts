@@ -12,7 +12,7 @@ export default abstract class EventContainer {
     on(eventName: string | string[], eventHandler: EventHandler): this;
     once(eventName: string, eventHandler: EventHandler): void;
     off(eventName: string, eventHandler: EventHandler): void;
-    fireEvent(eventName: string, ...params: any[]): Promise<any[]>;
+    emit(eventName: string, ...params: any[]): Promise<any[]>;
     onDelegate(delegate: EventContainer, eventNames: string | string[], eventHandler: EventHandler): void;
     offDelegate(delegate: EventContainer): void;
     offAll(): void;

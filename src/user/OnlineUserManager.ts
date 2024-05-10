@@ -32,7 +32,7 @@ export default abstract class OnlineUserManager extends EventContainer {
           }
         }
 
-        this.fireEvent("onlineUsersChanged");
+        this.emit("onlineUsersChanged");
       },
     ).subscribe(async (status, error) => {
       if (status === "SUBSCRIBED") {
