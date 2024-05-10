@@ -25,7 +25,7 @@ export default abstract class Exitable extends DomNode {
     if (
       options.ignoreExitableHash !== true &&
       BrowserInfo.isAndroid && BrowserInfo.installed &&
-      window.location.pathname === "/" && window.location.hash === ""
+      window.location.pathname === "/" && !window.location.href.includes("#")
     ) {
       window.location.hash = "#exitable";
     }

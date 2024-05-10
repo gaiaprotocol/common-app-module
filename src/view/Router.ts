@@ -57,7 +57,8 @@ class Router extends EventContainer {
           // for android back button
           if (
             BrowserInfo.isAndroid && BrowserInfo.installed &&
-            window.location.pathname === "/" && window.location.hash === ""
+            window.location.pathname === "/" &&
+            !window.location.href.includes("#")
           ) {
             new ExitAndroidAppPopup();
           }
@@ -171,7 +172,7 @@ class Router extends EventContainer {
       // for android back button
       if (
         BrowserInfo.isAndroid && BrowserInfo.installed &&
-        window.location.pathname === "/" && window.location.hash === ""
+        window.location.pathname === "/" && !window.location.href.includes("#")
       ) {
         window.location.hash = "#exitable";
       }
