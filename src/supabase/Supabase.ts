@@ -52,8 +52,13 @@ class Supabase extends EventContainer {
   }
 
   public async signOut() {
-    const { error } = await this.client.auth.signOut();
-    if (error) throw error;
+    try {
+      const { error } = await this.client.auth.signOut();
+      if (error) throw error;
+    } catch (e) {
+      console.error(e);
+    }
+    await this.client.auth.refreshSession();
   }
 
   private convertNullToUndefined(obj: any) {
