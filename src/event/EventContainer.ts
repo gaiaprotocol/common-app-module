@@ -97,24 +97,27 @@ export default abstract class EventContainer {
   }
 
   public onDelegate(
-    delegate: EventContainer,
+    delegates: EventContainer | EventContainer[],
     eventNames: string | string[],
     eventHandler: EventHandler,
   ): void {
-    let delegateEvents = this.delegateEvents.find((de) =>
-      de.delegate === delegate
-    );
-    if (delegateEvents === undefined) {
-      delegateEvents = { delegate, events: {} };
-      this.delegateEvents.push(delegateEvents);
-    }
-    if (typeof eventNames === "string") eventNames = [eventNames];
-    for (const eventName of eventNames) {
-      if (delegateEvents.events[eventName] === undefined) {
-        delegateEvents.events[eventName] = [];
+    if (delegates instanceof EventContainer) delegates = [delegates];
+    for (const delegate of delegates) {
+      let delegateEvents = this.delegateEvents.find((de) =>
+        de.delegate === delegate
+      );
+      if (delegateEvents === undefined) {
+        delegateEvents = { delegate, events: {} };
+        this.delegateEvents.push(delegateEvents);
       }
-      delegateEvents.events[eventName].push(eventHandler);
-      delegate.on(eventName, eventHandler);
+      if (typeof eventNames === "string") eventNames = [eventNames];
+      for (const eventName of eventNames) {
+        if (delegateEvents.events[eventName] === undefined) {
+          delegateEvents.events[eventName] = [];
+        }
+        delegateEvents.events[eventName].push(eventHandler);
+        delegate.on(eventName, eventHandler);
+      }
     }
   }
 
