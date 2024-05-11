@@ -77,7 +77,7 @@ export default class Prompt extends Popup {
 
     this.input.select();
     if (!options.multiline) {
-      this.input.on("enter", () => this.confirmButton.fireDomEvent("click"));
+      this.input.on("enter", () => this.confirmButton.emitDomEvent("click"));
     }
   }
 

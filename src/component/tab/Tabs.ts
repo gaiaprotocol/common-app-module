@@ -91,7 +91,7 @@ export default class Tabs extends Component {
       dom.scrollLeft === 0
         ? this.prevButton.disable()
         : this.prevButton.enable();
-      dom.scrollWidth - dom.clientWidth <= dom.scrollLeft
+      dom.scrollWidth - dom.clientWidth <= dom.scrollLeft + 1
         ? this.nextButton.disable()
         : this.nextButton.enable();
     } else {

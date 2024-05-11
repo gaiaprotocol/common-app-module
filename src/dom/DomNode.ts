@@ -203,7 +203,7 @@ export default class DomNode<
     }
   }
 
-  public fireDomEvent(eventName: string): void {
+  public emitDomEvent(eventName: string): void {
     this.domElement.dispatchEvent(new Event(eventName));
   }
 

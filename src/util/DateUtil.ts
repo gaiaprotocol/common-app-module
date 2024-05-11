@@ -32,6 +32,7 @@ class DateUtil {
 
     const rtf = new Intl.RelativeTimeFormat(BrowserInfo.language, {
       numeric: "auto",
+      style: "narrow",
     });
 
     if (Math.abs(years) > 0) {
