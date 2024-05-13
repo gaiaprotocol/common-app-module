@@ -12,7 +12,7 @@ export default class Prompt extends Popup {
   private confirmButton: Button;
 
   private resolve: ((value: string) => void) | undefined;
-  private reject: (() => void) | undefined;
+  private reject: ((reason: Error) => void) | undefined;
 
   constructor(
     options: {
@@ -65,15 +65,14 @@ export default class Prompt extends Popup {
             this.resolve?.(this.input.value);
             this.reject = undefined;
             this.delete();
-          } catch (e) {
+          } catch (e: any) {
             console.error(e);
             button.loading = false;
-            this.reject?.();
           }
         },
       }),
     );
-    this.on("delete", () => this.reject?.());
+    this.on("delete", () => this.reject?.(new Error("Canceled by user")));
 
     this.input.select();
     if (!options.multiline) {
