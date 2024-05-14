@@ -5,6 +5,7 @@ export { default as SplashLoader } from "./SplashLoader.js";
 export { default as Activatable } from "./component/Activatable.js";
 export { AutoSorterListItem, default as AutoSorterList, } from "./component/AutoSorterList.js";
 export { default as DropdownMenu } from "./component/DropdownMenu.js";
+export { default as FromNow } from "./component/FromNow.js";
 export { default as Jazzicon } from "./component/Jazzicon.js";
 export { default as LazyLoadingComponent } from "./component/LazyLoadingComponent.js";
 export { default as MaterialIcon } from "./component/MaterialIcon.js";
