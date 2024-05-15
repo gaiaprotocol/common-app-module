@@ -5,7 +5,7 @@ export default abstract class LazyLoadingComponent<
   EL extends HTMLElement = HTMLElement,
   CT extends DomNode = DomNode,
 > extends Component<EL, CT> {
-  private loaded = false;
+  protected loaded = false;
 
   constructor(tag: string) {
     super(tag + ".lazy-loading-component");

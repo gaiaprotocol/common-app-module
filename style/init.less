@@ -59,6 +59,12 @@ button {
     color: var(--placeholder-color);
 }
 
+[contenteditable="true"]:empty::before {
+    content: attr(placeholder);
+    color  : var(--placeholder-color);
+    cursor : text;
+}
+
 .clearfix {
     &::after {
         content: '';

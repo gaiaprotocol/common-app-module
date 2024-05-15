@@ -2,12 +2,13 @@ import Component from "../Component.js";
 
 export default class FileDropArea extends Component {
   constructor(
-    options: { tag: string; contenteditable?: boolean },
+    options: { tag: string; contenteditable?: boolean; placeholder?: string },
     onDrop: (files: File[]) => void,
   ) {
     super(options.tag + ".file-drop-area");
     if (options.contenteditable) {
       this.domElement.contentEditable = "true";
+      this.domElement.setAttribute("placeholder", options.placeholder || "");
       this.onDom("paste", (e: ClipboardEvent) => {
         e.preventDefault();
         const text = e.clipboardData?.getData("text/plain");
