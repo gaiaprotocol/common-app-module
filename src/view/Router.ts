@@ -107,7 +107,9 @@ class Router extends EventContainer {
       );
       if (matchPattern(uriParts, patterns, excludes, params)) {
         if (openingView === undefined) {
-          this.openingViews.push(new viewType(params, uri, data));
+          const view = new viewType();
+          view.changeParams(params, uri, data);
+          this.openingViews.push(view);
           viewCreated = true;
         } else {
           openingView.changeParams(params, uri, data);
@@ -141,7 +143,9 @@ class Router extends EventContainer {
     const uriParts = uri.split("/");
     const params: ViewParams = {};
     if (matchPattern(uriParts, patterns, excludes, params)) {
-      this.openingViews.push(new viewType(params, uri));
+      const view = new viewType();
+      view.changeParams(params, uri);
+      this.openingViews.push(view);
     }
   }
 
@@ -210,7 +214,9 @@ class Router extends EventContainer {
     for (const { patterns, excludes, viewType } of this.routes) {
       const params: ViewParams = {};
       if (matchPattern(uriParts, patterns, excludes, params)) {
-        this.openingViews.push(new viewType(params, uri));
+        const view = new viewType();
+        view.changeParams(params, uri);
+        this.openingViews.push(view);
       }
     }
   }
