@@ -2,16 +2,27 @@ import BrowserInfo from "../BrowserInfo.js";
 import Constants from "../Constants.js";
 
 class DateUtil {
-  public format(date: string | number | Date) {
+  public format(date: string | number | Date, time = false) {
     if (date === Constants.NEGATIVE_INFINITY) return "";
 
     const inputDate = date instanceof Date ? date : new Date(date);
 
-    const rtf = new Intl.DateTimeFormat(BrowserInfo.language, {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
+    const rtf = new Intl.DateTimeFormat(
+      BrowserInfo.language,
+      time
+        ? {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+        }
+        : {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        },
+    );
 
     return rtf.format(inputDate);
   }
