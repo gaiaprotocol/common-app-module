@@ -5,6 +5,7 @@ import LoadingSpinner from "../loading/LoadingSpinner.js";
 
 export default class RichDisplay extends Component {
   public static NOT_FOUND_IMAGE = "/images/image-not-found.png";
+  private static cached: Record<string, boolean> = {};
 
   private uploadingSpinners: LoadingSpinner[] = [];
 
@@ -17,22 +18,29 @@ export default class RichDisplay extends Component {
         if (file.fileType.startsWith("image/")) {
           let imageNotFound = false;
 
+          const cached = RichDisplay.cached[file.url];
           const loadingSpinner = new LoadingSpinner();
-          const imageContainer = el(".image-container.loading", loadingSpinner)
-            .appendTo(this);
+          const imageContainer = el(
+            ".image-container" + (!cached ? ".loading" : ""),
+            !cached ? loadingSpinner : undefined,
+          ).appendTo(this);
 
-          const image = el<HTMLImageElement>("img.hidden", {
-            src: file.url,
-            alt: file.fileName,
-            load: () => {
-              if (!this.deleted) {
-                image.deleteClass("hidden");
-                this.emit("imageLoaded", image.domElement.height);
-                if (!loadingSpinner.deleted) loadingSpinner.delete();
-                imageContainer.deleteClass("loading");
-              }
+          const image = el<HTMLImageElement>(
+            "img" + (!cached ? ".hidden" : ""),
+            {
+              src: file.url,
+              alt: file.fileName,
+              load: () => {
+                RichDisplay.cached[file.url] = true;
+                if (!this.deleted) {
+                  image.deleteClass("hidden");
+                  this.emit("imageLoaded", image.domElement.height);
+                  if (!loadingSpinner.deleted) loadingSpinner.delete();
+                  imageContainer.deleteClass("loading");
+                }
+              },
             },
-          });
+          );
 
           image.domElement.onerror = () => {
             image.deleteClass("hidden");
