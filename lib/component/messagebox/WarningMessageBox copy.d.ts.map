@@ -1,1 +1,0 @@
-{"version":3,"file":"WarningMessageBox copy.d.ts","sourceRoot":"","sources":["../../../src/component/messagebox/WarningMessageBox copy.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,MAAM,sBAAsB,CAAC;AAEhD,OAAO,SAAS,MAAM,iBAAiB,CAAC;AAGxC,MAAM,CAAC,OAAO,OAAO,iBAAkB,SAAQ,SAAS;gBAC1C,OAAO,EAAE;QAAE,GAAG,CAAC,EAAE,MAAM,CAAC;QAAC,OAAO,EAAE,QAAQ,GAAG,QAAQ,EAAE,CAAA;KAAE;CAYtE"}
