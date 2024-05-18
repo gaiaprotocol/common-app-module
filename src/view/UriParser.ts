@@ -3,10 +3,10 @@ import { ViewParams } from "./View.js";
 class UriParser {
   private paramRegex = /{(.+)}/;
 
-  public match(
+  public _match(
     uriParts: string[],
     patternParts: string[],
-    params?: ViewParams,
+    params: ViewParams,
   ): boolean {
     for (let i = 0; i < uriParts.length; i++) {
       const patternPart = patternParts[i];
@@ -28,7 +28,7 @@ class UriParser {
       }
 
       if (uriPart && paramMatch) {
-        params && (params[paramMatch[1]] = uriPart);
+        params[paramMatch[1]] = uriPart;
       } else if (patternPart !== "*" && patternPart !== uriPart) {
         return false;
       }
@@ -41,6 +41,17 @@ class UriParser {
       }
     }
     return true;
+  }
+
+  public match(
+    uriParts: string[],
+    patternParts: string[],
+    params?: ViewParams,
+  ): boolean {
+    const newParams = {};
+    const result = this._match(uriParts, patternParts, newParams);
+    if (result && params) Object.assign(params, newParams);
+    return result;
   }
 
   public parse(uri: string, pattern: string, params: ViewParams): boolean {

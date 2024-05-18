@@ -14,7 +14,10 @@ export default class AppNavBarMenu extends Component {
       toFooter?: boolean;
     },
   ) {
-    super("li.app-nav-bar-menu" + (options.toFooter ? ".to-footer" : ""));
+    super(
+      "li.app-nav-bar-menu" + (options.toFooter ? ".to-footer" : "") + "." +
+        options.id,
+    );
     this.append(
       this.icon = options.icon.clone(),
       options.title ? el("span.title", options.title) : undefined,
