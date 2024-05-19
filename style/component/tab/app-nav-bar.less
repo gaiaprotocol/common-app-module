@@ -56,29 +56,10 @@
         padding-bottom: 21px;
 
         @container (width < @safe-width) {
-            flex-grow      : 1;
-            flex-direction : row;
-            justify-content: space-between;
-            gap            : 0;
-            padding-bottom : 0;
-
-            &:not(:has(> :nth-child(5))) {
-
-                &::before,
-                &::after {
-                    content: '';
-                    margin : 0 -4%;
-                }
-            }
-
-            &:has(> :nth-child(5)) {
-
-                &::before,
-                &::after {
-                    content: '';
-                    margin : 0 -2%;
-                }
-            }
+            flex-grow     : 1;
+            flex-direction: row;
+            gap           : 0;
+            padding-bottom: 0;
         }
 
         >.app-nav-bar-menu {
@@ -87,6 +68,10 @@
             align-items   : center;
             gap           : 4px;
             cursor        : pointer;
+
+            @container (width < @safe-width) {
+                flex-grow: 1;
+            }
 
             &.to-footer {
                 margin-top: auto;

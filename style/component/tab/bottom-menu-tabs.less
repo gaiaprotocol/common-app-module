@@ -6,19 +6,13 @@
     border-top  : 1px solid var(--line-color);
     border-right: none;
 
-    display        : flex;
-    align-items    : center;
-    justify-content: space-between;
+    display    : flex;
+    align-items: center;
 
     overflow-y: visible;
 
-    &::before,
-    &::after {
-        content: '';
-        margin : 0 -4%;
-    }
-
     >.tab {
+        flex-grow     : 1;
         cursor        : pointer;
         display       : flex;
         flex-direction: column;
