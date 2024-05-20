@@ -8,7 +8,7 @@ declare class Supabase extends EventContainer {
     private supabaseKey;
     connect(devMode: boolean, supabaseUrl: string, supabaseKey: string, authorizationToken?: string): void;
     reconnect(authorizationToken?: string): void;
-    signIn(provider: Provider): Promise<void>;
+    signIn(provider: Provider, scopes?: string[]): Promise<void>;
     signOut(): Promise<void>;
     private convertNullToUndefined;
     safeResult<T>(data: T): T;

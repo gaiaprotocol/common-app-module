@@ -20,12 +20,12 @@ class Supabase extends EventContainer {
     });
   }
 
-  public async signIn(provider: Provider, scopes?: string[]) {
+  public async signIn(provider: Provider) {
     await this.client.auth.signInWithOAuth({
       provider,
       options: this.devMode
-        ? { redirectTo: "http://localhost:8413/", scopes: scopes?.join(" ") }
-        : (scopes ? { scopes: scopes?.join(" ") } : undefined),
+        ? { redirectTo: "http://localhost:8413" }
+        : undefined,
     });
   }
 
