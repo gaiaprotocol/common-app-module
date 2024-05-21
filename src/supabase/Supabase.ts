@@ -46,7 +46,7 @@ class Supabase extends EventContainer {
     await this.client.auth.signInWithOAuth({
       provider,
       options: this.devMode
-        ? { redirectTo: "http://localhost:8413/", scopes: scopes?.join(" ") }
+        ? { redirectTo: "http://localhost:8413", scopes: scopes?.join(" ") }
         : (scopes ? { scopes: scopes?.join(" ") } : undefined),
     });
   }
