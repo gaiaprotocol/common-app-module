@@ -19,6 +19,8 @@ export { default as Alert } from "./component/dialogue/Alert.js";
 export { default as Confirm } from "./component/dialogue/Confirm.js";
 export { default as ErrorAlert } from "./component/dialogue/ErrorAlert.js";
 export { default as Prompt } from "./component/dialogue/Prompt.js";
+export { default as EmbedDisplay } from "./component/embed/EmbedDisplay.js";
+export { default as EmbedUtil } from "./component/embed/EmbedUtil.js";
 export { default as AdaptiveModal } from "./component/exitable/AdaptiveModal.js";
 export { default as Drawer } from "./component/exitable/Drawer.js";
 export { default as Exitable } from "./component/exitable/Exitable.js";
