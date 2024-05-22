@@ -12,4 +12,8 @@ export default abstract class Activatable extends Component {
   public deactivate(): void {
     this.deleteClass("active");
   }
+
+  public get activated(): boolean {
+    return this.hasClass("active");
+  }
 }

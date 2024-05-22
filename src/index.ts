@@ -62,6 +62,7 @@ export { default as UploadManager } from "./user/UploadManager.js";
 export { default as UserService } from "./user/UserService.js";
 export { default as AuthUtil } from "./util/AuthUtil.js";
 export { default as AvatarUtil } from "./util/AvatarUtil.js";
+export { default as ComponentUtil } from "./util/ComponentUtil.js";
 export { default as DateUtil } from "./util/DateUtil.js";
 export { default as Debouncer } from "./util/Debouncer.js";
 export { default as ImageCompressor } from "./util/ImageCompressor.js";
