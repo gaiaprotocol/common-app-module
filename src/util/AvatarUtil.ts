@@ -36,7 +36,7 @@ class AvatarUtil {
             return;
           }
         } catch (error) {
-          console.error("Error fetching image:", error);
+          console.error("Error fetching image:", image, error);
         }
       }
     }

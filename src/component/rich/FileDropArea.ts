@@ -8,7 +8,9 @@ export default class FileDropArea extends Component {
     super(options.tag + ".file-drop-area");
     if (options.contenteditable) {
       this.domElement.contentEditable = "true";
-      this.domElement.setAttribute("placeholder", options.placeholder || "");
+      if (options.placeholder) {
+        this.domElement.setAttribute("placeholder", options.placeholder);
+      }
       this.onDom("paste", (e: ClipboardEvent) => {
         e.preventDefault();
         const text = e.clipboardData?.getData("text/plain");
