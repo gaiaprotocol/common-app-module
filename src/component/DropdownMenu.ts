@@ -40,12 +40,12 @@ export default class DropdownMenu extends Component {
     this.style({ left: options.left, top: options.top });
     this.on("visible", () => {
       const rect = this.rect;
-      if (rect.left < 0) this.style({ left: 8 });
-      else if (rect.left + rect.width > window.innerWidth) {
+      if (rect.left < 8) this.style({ left: 8 });
+      else if (rect.left + rect.width > window.innerWidth - 8) {
         this.style({ left: window.innerWidth - rect.width - 8 });
       }
-      if (rect.top < 0) this.style({ top: 8 });
-      else if (rect.top + rect.height > window.innerHeight) {
+      if (rect.top < 8) this.style({ top: 8 });
+      else if (rect.top + rect.height > window.innerHeight - 8) {
         this.style({ top: window.innerHeight - rect.height - 8 });
       }
     });
