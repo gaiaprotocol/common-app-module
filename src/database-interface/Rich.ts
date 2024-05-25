@@ -7,4 +7,5 @@ interface UploadedFile {
 
 export default interface Rich {
   files?: UploadedFile[];
+  gif?: string;
 }

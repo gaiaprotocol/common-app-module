@@ -56,7 +56,7 @@ export default class RichDisplay extends Component {
           imageContainer.append(el("a", image, {
             click: (event) => {
               event.stopPropagation();
-              if (!imageNotFound) this.openImage(file);
+              if (!imageNotFound) this.openImage(file.url, file.fileName);
             },
           }, uploading ? uploadingSpinner = new LoadingSpinner() : undefined));
 
@@ -64,10 +64,53 @@ export default class RichDisplay extends Component {
         }
       }
     }
+
+    if (rich.gif) {
+      let imageNotFound = false;
+
+      const cached = RichDisplay.cached[rich.gif];
+      const loadingSpinner = new LoadingSpinner();
+      const imageContainer = el(
+        ".image-container" + (!cached ? ".loading" : ""),
+        !cached ? loadingSpinner : undefined,
+      ).appendTo(this);
+
+      const image = el<HTMLImageElement>(
+        "img" + (!cached ? ".hidden" : ""),
+        {
+          src: rich.gif,
+          load: () => {
+            RichDisplay.cached[rich.gif!] = true;
+            if (!this.deleted) {
+              image.deleteClass("hidden");
+              if (!loadingSpinner.deleted) loadingSpinner.delete();
+              imageContainer.deleteClass("loading");
+              this.emit("imageLoaded", image.domElement.height);
+            }
+          },
+        },
+      );
+
+      image.domElement.onerror = () => {
+        image.deleteClass("hidden");
+        image.domElement.onerror = null;
+        image.domElement.src = RichDisplay.NOT_FOUND_IMAGE;
+        imageNotFound = true;
+        if (!loadingSpinner.deleted) loadingSpinner.delete();
+        imageContainer.deleteClass("loading");
+      };
+
+      imageContainer.append(el("a", image, {
+        click: (event) => {
+          event.stopPropagation();
+          if (!imageNotFound) this.openImage(rich.gif!, "Gif File");
+        },
+      }));
+    }
   }
 
-  private openImage(file: { url: string; fileName: string }) {
-    window.open(file.url, "_blank");
+  private openImage(url: string, fileName: string) {
+    window.open(url, "_blank");
     //TODO:
   }
 
