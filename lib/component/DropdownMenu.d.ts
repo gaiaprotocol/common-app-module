@@ -6,6 +6,7 @@ export default class DropdownMenu extends Component {
         tag?: string;
         left: number;
         top: number;
+        header?: DomNode;
         items: {
             icon?: DomNode;
             title: string;

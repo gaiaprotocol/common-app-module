@@ -10,6 +10,7 @@ export default class DropdownMenu extends Component {
     tag?: string;
     left: number;
     top: number;
+    header?: DomNode;
     items: {
       icon?: DomNode;
       title: string;
@@ -20,6 +21,7 @@ export default class DropdownMenu extends Component {
     super(".dropdown-menu" + (options.tag ?? ""));
 
     this.append(
+      options.header,
       this.ul = el("ul"),
       options.footer,
     );
