@@ -30,6 +30,7 @@ export default class DomNode<EL extends HTMLElement = HTMLElement, CT extends Do
     emitDomEvent(eventName: string): void;
     appendText(text: string): this;
     set text(text: string | undefined);
+    get text(): string;
     append(...children: any[]): this;
     prepend(...children: any[]): this;
     private checkVisible;

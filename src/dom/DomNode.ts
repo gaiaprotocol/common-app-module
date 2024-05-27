@@ -229,6 +229,10 @@ export default class DomNode<
     if (text) this.appendText(text);
   }
 
+  public get text(): string {
+    return this.domElement.textContent || "";
+  }
+
   public append(...children: any[]): this {
     for (const child of children) {
       if (child !== undefined) {
