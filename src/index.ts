@@ -32,6 +32,7 @@ export { default as QuantityInput } from "./component/form/QuantityInput.js";
 export { default as Switch } from "./component/form/Switch.js";
 export { default as ListLoadingBar } from "./component/loading/ListLoadingBar.js";
 export { default as LoadingContent } from "./component/loading/LoadingContent.js";
+export { default as LoadingOverlay } from "./component/loading/LoadingOverlay.js";
 export { default as LoadingSpinner } from "./component/loading/LoadingSpinner.js";
 export { default as InfoMessageBox } from "./component/messagebox/InfoMessageBox.js";
 export { default as WarningMessageBox } from "./component/messagebox/WarningMessageBox.js";

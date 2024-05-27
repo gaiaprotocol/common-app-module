@@ -4,7 +4,7 @@ export default class RichDisplay extends Component {
     static NOT_FOUND_IMAGE: string;
     private static cached;
     private uploadingSpinners;
-    constructor(rich: Rich, uploading: boolean);
+    constructor(rich: Rich, uploading?: boolean, openable?: boolean);
     private openImage;
     uploadDone(): void;
 }

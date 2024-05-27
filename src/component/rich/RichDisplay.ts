@@ -9,7 +9,7 @@ export default class RichDisplay extends Component {
 
   private uploadingSpinners: LoadingSpinner[] = [];
 
-  constructor(rich: Rich, uploading: boolean) {
+  constructor(rich: Rich, uploading = false, openable = true) {
     super(".rich-display");
     this.addAllowedEvents("imageLoaded");
 
@@ -54,10 +54,12 @@ export default class RichDisplay extends Component {
           let uploadingSpinner: LoadingSpinner | undefined;
 
           imageContainer.append(el("a", image, {
-            click: (event) => {
-              event.stopPropagation();
-              if (!imageNotFound) this.openImage(file.url, file.fileName);
-            },
+            click: openable
+              ? (event) => {
+                event.stopPropagation();
+                if (!imageNotFound) this.openImage(file.url, file.fileName);
+              }
+              : undefined,
           }, uploading ? uploadingSpinner = new LoadingSpinner() : undefined));
 
           if (uploadingSpinner) this.uploadingSpinners.push(uploadingSpinner);
@@ -101,10 +103,12 @@ export default class RichDisplay extends Component {
       };
 
       imageContainer.append(el("a", image, {
-        click: (event) => {
-          event.stopPropagation();
-          if (!imageNotFound) this.openImage(rich.gif!, "Gif File");
-        },
+        click: openable
+          ? (event) => {
+            event.stopPropagation();
+            if (!imageNotFound) this.openImage(rich.gif!, "Gif File");
+          }
+          : undefined,
       }));
     }
   }
