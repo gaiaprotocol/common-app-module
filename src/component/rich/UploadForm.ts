@@ -34,6 +34,8 @@ export default abstract class UploadForm extends Component {
     }
   }
 
+  protected abstract deleteFileHandler(file: File): void;
+
   private appendPreview(file: File) {
     if (this.uploadPreviewArea) {
       const preview = el(
@@ -45,6 +47,7 @@ export default abstract class UploadForm extends Component {
               (f) => f !== file,
             );
             preview.delete();
+            this.deleteFileHandler(file);
           },
         }),
         {
