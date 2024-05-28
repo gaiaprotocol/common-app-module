@@ -7,10 +7,13 @@ export default class FromNow extends Component {
   constructor(tag: string, date: string | number | Date | undefined) {
     super(".from-now" + tag);
     if (date) {
-      this.text = DateUtil.fromNow(date);
-      this.intervalId = setInterval(() => {
-        this.text = DateUtil.fromNow(date);
-      }, 1000) as any;
+      const d = date instanceof Date ? date : new Date(date);
+      if (d.getTime() > Date.now() - 7 * 24 * 60 * 60 * 1000) {
+        this.text = DateUtil.fromNow(d);
+        this.intervalId = setInterval(() => {
+          this.text = DateUtil.fromNow(d);
+        }, 1000) as any;
+      }
     }
   }
 
