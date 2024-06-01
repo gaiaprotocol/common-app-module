@@ -20,6 +20,7 @@ export default abstract class LazyLoadingComponent<
       this.load();
       this.loaded = true;
     }
+    return this;
   }
 
   public hide() {

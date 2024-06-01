@@ -4,7 +4,7 @@ export default abstract class LazyLoadingComponent<EL extends HTMLElement = HTML
     loaded: boolean;
     constructor(tag: string);
     protected abstract load(): void;
-    show(): void;
+    show(): this;
     hide(): void;
 }
 //# sourceMappingURL=LazyLoadingComponent.d.ts.map
