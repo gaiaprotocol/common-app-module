@@ -27,6 +27,7 @@ export { default as Exitable } from "./component/exitable/Exitable.js";
 export { default as Popup } from "./component/exitable/Popup.js";
 export { default as SidePanel } from "./component/exitable/SidePanel.js";
 export { default as Checkbox } from "./component/form/Checkbox.js";
+export { default as DynamicListInput } from "./component/form/DynamicListInput.js";
 export { default as Input } from "./component/form/Input.js";
 export { default as QuantityInput } from "./component/form/QuantityInput.js";
 export { default as Switch } from "./component/form/Switch.js";

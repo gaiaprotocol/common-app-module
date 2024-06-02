@@ -136,9 +136,22 @@
         justify-content: flex-end;
         padding        : 0 12px;
         border-top     : 1px solid var(--line-color);
+        gap            : 12px;
 
         @container (width < @safe-width) {
-            display: none;
+            &:has(>button.primary) {
+                >button.cancel {
+                    display: none;
+                }
+
+                >button.primary {
+                    flex-grow: 1;
+                }
+            }
+
+            &:not(:has(>button.primary)) {
+                display: none;
+            }
         }
     }
 }

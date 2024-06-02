@@ -12,6 +12,7 @@ export default abstract class AdaptiveModal extends Exitable {
 
   private titleDisplay: DomNode;
   protected main: DomNode;
+  private footer: DomNode;
 
   constructor(tag: string, options: ExitableOptions) {
     super(".adaptive-modal-overlay", options);
@@ -34,7 +35,7 @@ export default abstract class AdaptiveModal extends Exitable {
         }),
       ),
       this.main = el("main"),
-      el(
+      this.footer = el(
         "footer",
         new Button({
           tag: ".cancel",
@@ -49,5 +50,9 @@ export default abstract class AdaptiveModal extends Exitable {
     this.titleDisplay.empty().append(
       ...(Array.isArray(title) ? title : [title]),
     );
+  }
+
+  protected set primaryButton(button: Button) {
+    this.footer.append(button.addClass("primary"));
   }
 }

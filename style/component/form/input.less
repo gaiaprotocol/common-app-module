@@ -11,6 +11,15 @@
 
     >.label {
         text-transform: capitalize;
+
+        &:empty {
+            display: none;
+        }
+    }
+
+    &.required>.label::after {
+        content    : '*';
+        margin-left: 2px;
     }
 
     >textarea,
