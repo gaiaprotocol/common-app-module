@@ -46,7 +46,7 @@ export { default as Tabs } from "./component/tab/Tabs.js";
 export { default as Rich } from "./database-interface/Rich.js";
 export { default as UserPublic } from "./database-interface/UserPublic.js";
 export { default as BodyNode } from "./dom/BodyNode.js";
-export { default as DomNode, DomChild } from "./dom/DomNode.js";
+export { default as DomNode, DomChild, Style } from "./dom/DomNode.js";
 export { default as el } from "./dom/el.js";
 export {
   default as EventContainer,
@@ -59,6 +59,7 @@ export { default as Supabase } from "./supabase/Supabase.js";
 export { default as SupabaseService } from "./supabase/SupabaseService.js";
 export { default as Theme } from "./theme/Theme.js";
 export { default as ThemeManager } from "./theme/ThemeManager.js";
+export { default as TreeNode } from "./tree/TreeNode.js";
 export { default as OnlineUserManager } from "./user/OnlineUserManager.js";
 export { default as UploadManager } from "./user/UploadManager.js";
 export { default as UserService } from "./user/UserService.js";

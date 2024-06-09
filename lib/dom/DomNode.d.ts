@@ -1,4 +1,4 @@
-import TreeNode from "../tree/TreeNode.js";
+import EventTreeNode from "../tree/EventTreeNode.js";
 export type Style = {
     [key: string]: string | number | undefined;
 };
@@ -7,7 +7,7 @@ interface Attributes<DT extends DomNode> {
     [name: string]: Style | string | number | boolean | undefined | DomEventHandler<any, DT>;
 }
 export type DomChild<DT extends DomNode = DomNode> = Attributes<DT> | DT | string | undefined;
-export default class DomNode<EL extends HTMLElement = HTMLElement, CT extends DomNode = DomNode<HTMLElement, any>> extends TreeNode {
+export default class DomNode<EL extends HTMLElement = HTMLElement, CT extends DomNode = DomNode<HTMLElement, any>> extends EventTreeNode {
     private static readonly NUMBER_STYLE_KEY;
     private static keyframesCount;
     static createElement<EL extends HTMLElement>(tag: string): EL;
@@ -16,7 +16,7 @@ export default class DomNode<EL extends HTMLElement = HTMLElement, CT extends Do
     private domEventMap;
     private windowEventMap;
     domElement: EL;
-    constructor(domElement: EL | string, ...children: DomChild[]);
+    constructor(domElement?: EL | string, ...children: DomChild[]);
     style(style: Style): this;
     get rect(): DOMRect;
     get innerScrollPosition(): {

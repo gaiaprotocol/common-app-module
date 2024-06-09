@@ -1,10 +1,11 @@
+import EventContainer from "../event/EventContainer.js";
 import ArrayUtil from "../util/ArrayUtil.js";
 
-export default class TreeNode {
-  public parent: TreeNode | undefined;
-  protected children: TreeNode[] = [];
+export default class EventTreeNode extends EventContainer {
+  public parent: EventTreeNode | undefined;
+  protected children: EventTreeNode[] = [];
 
-  public append(...nodes: (TreeNode | undefined)[]): this {
+  public append(...nodes: (EventTreeNode | undefined)[]): this {
     for (const node of nodes) {
       if (node !== undefined) {
         node.appendTo(this);
@@ -13,7 +14,7 @@ export default class TreeNode {
     return this;
   }
 
-  public appendTo(node: TreeNode, index?: number): this {
+  public appendTo(node: EventTreeNode, index?: number): this {
     if (
       this.parent === node && index !== undefined &&
       this.parent.children.indexOf(this) < index
@@ -45,6 +46,7 @@ export default class TreeNode {
   }
 
   public delete(): void {
+    super.delete();
     this.removeFromParent();
     this.empty();
     (this.children as unknown) = undefined;

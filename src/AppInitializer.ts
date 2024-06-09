@@ -4,8 +4,8 @@ import Router from "./view/Router.js";
 class AppInitializer {
   public initialize(
     devMode: boolean,
-    supabaseUrl: string,
-    supabaseAnonKey: string,
+    supabaseUrl?: string,
+    supabaseAnonKey?: string,
     authorizationToken?: string,
   ): void {
     if (sessionStorage.__spa_path) {
@@ -13,12 +13,19 @@ class AppInitializer {
       sessionStorage.removeItem("__spa_path");
     }
 
-    Supabase.connect(devMode, supabaseUrl, supabaseAnonKey, authorizationToken);
-    Supabase.client.auth.onAuthStateChange((event) => {
-      if (event === "SIGNED_IN") {
-        Supabase.client.functions.invoke("analyze-user-additional-data");
-      }
-    });
+    if (supabaseUrl && supabaseAnonKey) {
+      Supabase.connect(
+        devMode,
+        supabaseUrl,
+        supabaseAnonKey,
+        authorizationToken,
+      );
+      Supabase.client.auth.onAuthStateChange((event) => {
+        if (event === "SIGNED_IN") {
+          Supabase.client.functions.invoke("analyze-user-additional-data");
+        }
+      });
+    }
   }
 }
 

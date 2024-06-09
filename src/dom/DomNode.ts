@@ -1,5 +1,5 @@
 import { EventHandler } from "../event/EventContainer.js";
-import TreeNode from "../tree/TreeNode.js";
+import EventTreeNode from "../tree/EventTreeNode.js";
 import ArrayUtil from "../util/ArrayUtil.js";
 
 export type Style = { [key: string]: string | number | undefined };
@@ -35,7 +35,7 @@ type Events = {
 export default class DomNode<
   EL extends HTMLElement = HTMLElement,
   CT extends DomNode = DomNode<HTMLElement, any>,
-> extends TreeNode {
+> extends EventTreeNode {
   private static readonly NUMBER_STYLE_KEY = [
     "zIndex",
     "opacity",
@@ -91,13 +91,13 @@ export default class DomNode<
 
   public domElement: EL;
 
-  constructor(domElement: EL | string, ...children: DomChild[]) {
+  constructor(domElement?: EL | string, ...children: DomChild[]) {
     super();
     this.addAllowedEvents("visible");
     if (domElement instanceof HTMLElement) {
       this.domElement = domElement;
     } else {
-      this.domElement = DomNode.createElement<EL>(domElement);
+      this.domElement = DomNode.createElement<EL>(domElement ?? "");
     }
     this.append(...children);
   }
