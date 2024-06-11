@@ -4,6 +4,8 @@ export default class TreeNode {
   public parent: TreeNode | undefined;
   protected children: TreeNode[] = [];
 
+  protected deleted = false;
+
   public append(...nodes: (TreeNode | undefined)[]): this {
     for (const node of nodes) {
       if (node !== undefined) {
@@ -48,5 +50,6 @@ export default class TreeNode {
     this.removeFromParent();
     this.empty();
     (this.children as unknown) = undefined;
+    this.deleted = true;
   }
 }

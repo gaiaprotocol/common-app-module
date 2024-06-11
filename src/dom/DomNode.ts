@@ -83,8 +83,8 @@ export default class DomNode<
     return element;
   }
 
-  declare public parent: DomNode | undefined;
-  public children: CT[] = [];
+  declare parent: DomNode | undefined;
+  declare children: CT[];
 
   private domEventMap: Events = {};
   private windowEventMap: Events = {};
