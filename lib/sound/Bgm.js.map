@@ -1,0 +1,1 @@
+{"version":3,"file":"Bgm.js","sourceRoot":"","sources":["../../src/sound/Bgm.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,YAAY,CAAC;AAE/B,MAAM,CAAC,OAAO,OAAO,GAAI,SAAQ,KAAK;IACpC,YAAY,IAAoC,EAAE,MAAM,GAAG,GAAG;QAC5D,KAAK,CAAC,IAAI,EAAE,IAAI,EAAE,MAAM,CAAC,CAAC;IAC5B,CAAC;CACF"}

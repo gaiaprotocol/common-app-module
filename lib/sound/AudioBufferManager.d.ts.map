@@ -1,0 +1,1 @@
+{"version":3,"file":"AudioBufferManager.d.ts","sourceRoot":"","sources":["../../src/sound/AudioBufferManager.ts"],"names":[],"mappings":"AAGA,cAAM,kBAAkB;IACf,UAAU,UAA+C;IAEhE,OAAO,CAAC,OAAO,CAAsC;IACrD,OAAO,CAAC,eAAe,CAA+C;IAEzD,eAAe;IAKf,UAAU,CAAC,GAAG,EAAE,MAAM;CAmBpC;;AAED,wBAAwC"}

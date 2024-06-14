@@ -54,6 +54,8 @@ export {
 } from "./event/EventContainer.js";
 export { default as I18NText } from "./i18n/I18NText.js";
 export { default as msg, msgs } from "./i18n/msg.js";
+export { default as Bgm } from "./sound/Bgm.js";
+export { default as Sound } from "./sound/Sound.js";
 export { default as Store } from "./store/Store.js";
 export { default as Supabase } from "./supabase/Supabase.js";
 export { default as SupabaseService } from "./supabase/SupabaseService.js";
