@@ -70,6 +70,7 @@ export { default as IntegerUtil } from "./util/IntegerUtil.js";
 export { default as ObjectUtil } from "./util/ObjectUtil.js";
 export { default as PolyfillUtil } from "./util/PolyfillUtil.js";
 export { default as StringUtil } from "./util/StringUtil.js";
+export { default as StyleUtil } from "./util/StyleUtil.js";
 export { default as Router } from "./view/Router.js";
 export { default as View, ViewParams } from "./view/View.js";
 //# sourceMappingURL=index.d.ts.map
