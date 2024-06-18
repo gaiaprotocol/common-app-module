@@ -51,6 +51,12 @@ export default class QuantityInput extends Component {
               this.previousValue = this.value;
             }
           },
+          change: () => {
+            if (this.value !== this.previousValue) {
+              this.emit("change");
+              this.previousValue = this.value;
+            }
+          },
         }) as any,
         this.plusButton = new Button({
           type: ButtonType.Circle,
