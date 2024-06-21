@@ -33,19 +33,16 @@ export default class Store {
     }
   }
 
-  public get<T>(key: string, defaultValue?: T): T | undefined {
+  public get<T>(key: string): T | undefined {
     let value = sessionStorage.getItem(this.getKey(key)) ||
       localStorage.getItem(this.getKey(key));
+    if (value === null) return undefined;
 
-    if (value === null) {
-      return defaultValue;
-    }
     try {
       return JsonUtil.parseWithUndefined(value);
     } catch (e) {
       console.error(`Failed to parse ${this.getKey(key)}: ${value}`);
       console.error(e);
-      return defaultValue;
     }
   }
 

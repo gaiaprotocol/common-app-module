@@ -4,7 +4,7 @@ export default class Store {
     private selectStorage;
     private getKey;
     set(key: string, value: any, permanently?: boolean): void;
-    get<T>(key: string, defaultValue?: T): T | undefined;
+    get<T>(key: string): T | undefined;
     getAll<T>(): {
         [key: string]: T;
     };
