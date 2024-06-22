@@ -3,10 +3,13 @@ export default class Sound {
     private volume;
     private src;
     private playing;
+    private paused;
     private audioBuffer;
     private audioContext;
     private gainNode;
     private source;
+    private pauseTime;
+    private offset;
     constructor(srcs: {
         ogg?: string;
         mp3?: string;
@@ -14,6 +17,7 @@ export default class Sound {
     }, loop?: boolean, volume?: number);
     private playBuffer;
     play(): this;
-    stop(): this;
+    pause(): this;
+    delete(): void;
 }
 //# sourceMappingURL=Sound.d.ts.map

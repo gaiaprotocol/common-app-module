@@ -4,5 +4,7 @@ export default class Bgm extends Sound {
         ogg?: string;
         mp3?: string;
     }, volume?: number);
+    private visibilityChangeListener;
+    delete(): void;
 }
 //# sourceMappingURL=Bgm.d.ts.map

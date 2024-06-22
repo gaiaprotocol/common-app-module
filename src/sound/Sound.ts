@@ -3,11 +3,15 @@ import AudioBufferManager from "./AudioBufferManager.js";
 export default class Sound {
   private src: string | undefined;
   private playing = false;
+  private paused = false;
 
   private audioBuffer: AudioBuffer | undefined;
   private audioContext: AudioContext | undefined;
   private gainNode: GainNode | undefined;
   private source: AudioBufferSourceNode | undefined;
+
+  private pauseTime: number = 0;
+  private offset: number = 0;
 
   constructor(
     srcs: { ogg?: string; mp3?: string; wav?: string },
@@ -40,19 +44,40 @@ export default class Sound {
         this.source.buffer = this.audioBuffer;
         this.source.loop = this.loop;
         this.source.connect(this.gainNode);
-        this.source.start();
+        this.source.start(0, this.offset);
       }
     }
   }
 
   public play() {
+    if (this.paused) {
+      this.offset += this.audioContext!.currentTime - this.pauseTime;
+    } else {
+      this.offset = 0;
+    }
     this.playing = true;
+    this.paused = false;
     this.playBuffer();
     return this;
   }
 
-  public stop() {
+  public pause() {
+    if (this.playing && !this.paused) {
+      this.paused = true;
+      this.playing = false;
+      this.pauseTime = this.audioContext!.currentTime;
+      if (this.source) {
+        this.source.stop();
+        this.source.disconnect();
+        this.source = undefined;
+      }
+    }
+    return this;
+  }
+
+  public delete() {
     this.playing = false;
+    this.paused = false;
     if (this.source) {
       this.source.stop();
       this.source.disconnect();
@@ -62,6 +87,8 @@ export default class Sound {
       this.gainNode.disconnect();
       this.gainNode = undefined;
     }
-    return this;
+    this.audioBuffer = undefined;
+    this.audioContext = undefined;
+    this.offset = 0;
   }
 }
