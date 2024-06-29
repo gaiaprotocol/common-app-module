@@ -51,6 +51,7 @@ export { default as msg, msgs } from "./i18n/msg.js";
 export { default as Bgm } from "./sound/Bgm.js";
 export { default as Sound } from "./sound/Sound.js";
 export { default as Store } from "./store/Store.js";
+export { default as ApiGateway } from "./supabase/ApiGateway.js";
 export { default as Supabase } from "./supabase/Supabase.js";
 export { default as SupabaseService } from "./supabase/SupabaseService.js";
 export { default as Theme } from "./theme/Theme.js";
@@ -71,6 +72,7 @@ export { default as ObjectUtil } from "./util/ObjectUtil.js";
 export { default as PolyfillUtil } from "./util/PolyfillUtil.js";
 export { default as StringUtil } from "./util/StringUtil.js";
 export { default as StyleUtil } from "./util/StyleUtil.js";
+export { default as NewRouter } from "./view/NewRouter.js";
 export { default as Router } from "./view/Router.js";
 export { default as View, ViewParams } from "./view/View.js";
 //# sourceMappingURL=index.d.ts.map
