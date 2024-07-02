@@ -9,7 +9,7 @@ export default class FromNow extends Component {
     date: string | number | Date | undefined,
     forceShow: boolean = false,
   ) {
-    super(".from-now" + tag);
+    super(tag + ".from-now");
     if (date) {
       const d = date instanceof Date ? date : new Date(date);
       if (forceShow || d.getTime() > Date.now() - 7 * 24 * 60 * 60 * 1000) {
