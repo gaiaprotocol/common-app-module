@@ -51,7 +51,9 @@ export default class Sound {
 
   public play() {
     if (this.paused) {
-      this.offset += this.audioContext!.currentTime - this.pauseTime;
+      if (this.audioContext) {
+        this.offset += this.audioContext.currentTime - this.pauseTime;
+      }
     } else {
       this.offset = 0;
     }
