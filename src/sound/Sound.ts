@@ -67,7 +67,7 @@ export default class Sound {
     if (this.playing && !this.paused) {
       this.paused = true;
       this.playing = false;
-      this.pauseTime = this.audioContext!.currentTime;
+      if (this.audioContext) this.pauseTime = this.audioContext.currentTime;
       if (this.source) {
         this.source.stop();
         this.source.disconnect();
