@@ -1,0 +1,1 @@
+{"version":3,"file":"FileTree.d.ts","sourceRoot":"","sources":["../../../src/component/filetree/FileTree.ts"],"names":[],"mappings":"AAAA,OAAO,SAAS,MAAM,iBAAiB,CAAC;AACxC,OAAO,YAAY,EAAE,EAAE,gBAAgB,EAAE,MAAM,mBAAmB,CAAC;AAEnE,MAAM,CAAC,OAAO,OAAO,QAAS,SAAQ,SAAS,CAAC,WAAW,EAAE,YAAY,CAAC;gBAC5D,QAAQ,EAAE,gBAAgB,EAAE;CAMzC"}

@@ -6,7 +6,7 @@ export default class AppNavBar extends Component {
     private ul;
     constructor(options: {
         id: string;
-        logo: DomChild;
+        logo?: DomChild;
         menu: {
             id: string;
             icon: DomNode;

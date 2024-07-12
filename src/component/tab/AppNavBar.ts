@@ -10,7 +10,7 @@ export default class AppNavBar extends Component {
 
   constructor(options: {
     id: string;
-    logo: DomChild;
+    logo?: DomChild;
     menu: {
       id: string;
       icon: DomNode;
@@ -23,17 +23,19 @@ export default class AppNavBar extends Component {
     this.addAllowedEvents("select");
     this.store = new Store(`tabs-${options.id}`);
 
-    this.append(el(
-      "h1.logo",
-      options.logo,
-      {
-        click: (event) => {
-          event.preventDefault();
-          const firstId = this.ul.children[0]?.options.id;
-          if (firstId) this.select(firstId);
+    if (options.logo) {
+      this.append(el(
+        "h1.logo",
+        options.logo,
+        {
+          click: (event) => {
+            event.preventDefault();
+            const firstId = this.ul.children[0]?.options.id;
+            if (firstId) this.select(firstId);
+          },
         },
-      },
-    ));
+      ));
+    }
 
     this.ul = el<HTMLElement, AppNavBarMenu>("ul").appendTo(this);
     for (const m of options.menu) {
