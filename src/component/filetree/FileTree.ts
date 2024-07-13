@@ -8,4 +8,16 @@ export default class FileTree extends Component<HTMLElement, FileTreeNode> {
       this.append(new FileTreeNode(id, child));
     }
   }
+
+  public show() {
+    this.deleteClass("hidden");
+  }
+
+  public hide() {
+    this.addClass("hidden");
+  }
+
+  public get showing() {
+    return !this.hasClass("hidden");
+  }
 }

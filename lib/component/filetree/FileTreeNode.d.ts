@@ -7,6 +7,10 @@ export interface FileTreeNodeData {
     onClick?: () => void;
 }
 export default class FileTreeNode extends Component {
+    private toggleFileTreeButton;
+    private fileTree;
     constructor(treeId: string, data: FileTreeNodeData);
+    private openFileTree;
+    private closeFileTree;
 }
 //# sourceMappingURL=FileTreeNode.d.ts.map

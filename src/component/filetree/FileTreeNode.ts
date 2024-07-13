@@ -14,6 +14,9 @@ export interface FileTreeNodeData {
 }
 
 export default class FileTreeNode extends Component {
+  private toggleFileTreeButton: Button | undefined;
+  private fileTree: FileTree | undefined;
+
   constructor(treeId: string, data: FileTreeNodeData) {
     super(".file-tree-node");
 
@@ -21,9 +24,13 @@ export default class FileTreeNode extends Component {
       el(
         "main",
         data.children
-          ? new Button({
+          ? this.toggleFileTreeButton = new Button({
             type: ButtonType.Circle,
             icon: new MaterialIcon("keyboard_arrow_down"),
+            click: () =>
+              this.fileTree?.showing
+                ? this.closeFileTree()
+                : this.openFileTree(),
           })
           : undefined,
         el(".icon", data.icon.clone()),
@@ -32,7 +39,17 @@ export default class FileTreeNode extends Component {
     );
 
     if (data.children) {
-      this.append(new FileTree(treeId, data.children));
+      this.append(this.fileTree = new FileTree(treeId, data.children));
     }
+  }
+
+  private openFileTree() {
+    this.toggleFileTreeButton!.icon = new MaterialIcon("keyboard_arrow_down");
+    this.fileTree!.show();
+  }
+
+  private closeFileTree() {
+    this.toggleFileTreeButton!.icon = new MaterialIcon("keyboard_arrow_right");
+    this.fileTree!.hide();
   }
 }
