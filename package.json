@@ -7,7 +7,7 @@
   "types": "./lib/index.d.ts",
   "main": "./lib/index.js",
   "dependencies": {
-    "@supabase/supabase-js": "^2.43.0",
+    "@supabase/supabase-js": "^2.44.4",
     "color": "^4.2.3",
     "mersenne-twister": "^1.1.0",
     "uuid": "^9.0.0"

@@ -53,6 +53,7 @@ export {
   default as EventContainer,
   EventHandler,
 } from "./event/EventContainer.js";
+export { default as EventContainerV2 } from "./event/EventContainerV2.js";
 export { default as I18NText } from "./i18n/I18NText.js";
 export { default as msg, msgs } from "./i18n/msg.js";
 export { default as Bgm } from "./sound/Bgm.js";
