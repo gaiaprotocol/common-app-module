@@ -57,7 +57,7 @@ export default class Prompt extends Popup {
         type: ButtonType.Contained,
         tag: ".confirm",
         title: options.confirmTitle ?? msg("confirm-button"),
-        onClick: async (event, button) => {
+        onClick: async (button) => {
           button.loading = true;
 
           try {

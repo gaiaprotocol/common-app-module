@@ -18,7 +18,7 @@ export default class Button extends Component<HTMLAnchorElement> {
       href?: string;
       target?: string;
       disabled?: boolean;
-      onClick?: (event: Event, node: Button) => void;
+      onClick?: (node: Button, event: Event) => void;
     },
   ) {
     super(
@@ -52,7 +52,7 @@ export default class Button extends Component<HTMLAnchorElement> {
     if (options.onClick !== undefined) {
       this.onDom("click", (event) => {
         if (this.hasClass("disabled") !== true) {
-          options.onClick!(event, this);
+          options.onClick!(this, event);
         }
       });
     }
