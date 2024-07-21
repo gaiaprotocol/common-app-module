@@ -1,1 +1,1 @@
-{"version":3,"file":"Switch.d.ts","sourceRoot":"","sources":["../../../src/component/form/Switch.ts"],"names":[],"mappings":"AACA,OAAO,SAAS,MAAM,iBAAiB,CAAC;AAExC,MAAM,CAAC,OAAO,OAAO,MAAO,SAAQ,SAAS;gBAC/B,KAAK,EAAE,OAAO;CAa3B"}
+{"version":3,"file":"Switch.d.ts","sourceRoot":"","sources":["../../../src/component/form/Switch.ts"],"names":[],"mappings":"AACA,OAAO,SAAS,MAAM,iBAAiB,CAAC;AAExC,MAAM,CAAC,OAAO,OAAO,MAAO,SAAQ,SAAS;gBAC/B,KAAK,CAAC,EAAE,OAAO;CAa5B"}

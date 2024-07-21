@@ -2,7 +2,7 @@ import el from "../../dom/el.js";
 import Component from "../Component.js";
 
 export default class Switch extends Component {
-  constructor(value: boolean) {
+  constructor(value?: boolean) {
     super("label.switch");
     this.addAllowedEvents("change");
     this.append(
