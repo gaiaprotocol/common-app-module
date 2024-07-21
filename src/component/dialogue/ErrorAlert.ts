@@ -16,7 +16,7 @@ export default class ErrorAlert extends Popup {
       new Button({
         tag: ".confirm",
         title: options.confirmTitle ?? "OK",
-        click: () => this.delete(),
+        onClick: () => this.delete(),
       }),
     );
   }

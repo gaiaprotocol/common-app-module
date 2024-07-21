@@ -31,12 +31,12 @@ class DynamicListInputItem extends Component {
           new Button({
             type: ButtonType.Circle,
             icon: new MaterialIcon("arrow_upward"),
-            click: () => this.emit("up"),
+            onClick: () => this.emit("up"),
           }),
           new Button({
             type: ButtonType.Circle,
             icon: new MaterialIcon("arrow_downward"),
-            click: () => this.emit("down"),
+            onClick: () => this.emit("down"),
           }),
         ),
       ),
@@ -54,7 +54,7 @@ class DynamicListInputItem extends Component {
         new Button({
           type: ButtonType.Circle,
           icon: new MaterialIcon("delete"),
-          click: () => this.delete(),
+          onClick: () => this.delete(),
         }),
       ),
     );
@@ -97,7 +97,7 @@ export default class DynamicListInput extends Component {
       new Button({
         type: ButtonType.Outlined,
         icon: new MaterialIcon("add"),
-        click: () => this.addItem(),
+        onClick: () => this.addItem(),
       }),
     );
 

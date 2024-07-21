@@ -27,7 +27,7 @@ export default class Confirm extends Popup {
       new Button({
         tag: ".cancel",
         title: options.cancelTitle ?? msg("cancel-button"),
-        click: () => {
+        onClick: () => {
           if (cancelCallback) cancelCallback();
           this.delete();
         },
@@ -36,7 +36,7 @@ export default class Confirm extends Popup {
         type: ButtonType.Contained,
         tag: ".confirm",
         title: options.confirmTitle ?? msg("confirm-button"),
-        click: async (event, button) => {
+        onClick: async (event, button) => {
           button.loading = true;
 
           try {

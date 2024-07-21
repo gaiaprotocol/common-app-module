@@ -35,7 +35,7 @@ export default class QuantityInput extends Component {
         this.minusButton = new Button({
           type: ButtonType.Circle,
           icon: new MaterialIcon("remove"),
-          click: () => {
+          onClick: () => {
             this.value--;
             this.emit("change");
           },
@@ -61,7 +61,7 @@ export default class QuantityInput extends Component {
         this.plusButton = new Button({
           type: ButtonType.Circle,
           icon: new MaterialIcon("add"),
-          click: () => {
+          onClick: () => {
             this.value++;
             this.emit("change");
           },

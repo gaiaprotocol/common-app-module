@@ -17,7 +17,7 @@ export default class ExitAndroidAppPopup extends Popup {
       new Button({
         tag: ".cancel",
         title: msg("cancel-button"),
-        click: () => this.delete(),
+        onClick: () => this.delete(),
       }),
     );
   }

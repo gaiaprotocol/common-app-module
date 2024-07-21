@@ -1,23 +1,18 @@
 export default abstract class EventContainerV2<
   T extends Record<string, (...args: any[]) => any>,
 > {
+  private events: { [K in keyof T]?: T[K][] } = {};
+
   public on<K extends keyof T>(eventName: K, eventHandler: T[K]): void {
+    if (!this.events[eventName]) this.events[eventName] = [];
+    this.events[eventName]!.push(eventHandler);
   }
 
   public emit<K extends keyof T>(
     eventName: K,
     ...args: Parameters<T[K]>
-  ): ReturnType<T[K]> {
-    throw new Error("Not implemented");
-  }
-}
-
-class TestEventContainer extends EventContainerV2<{
-  test: (test: number) => void;
-  test2: (test: number) => void;
-}> {
-  public test() {
-    this.on("test2", (test: number) => {});
-    this.emit("test2", 1);
+  ): ReturnType<T[K]>[] {
+    if (!this.events[eventName]) return [];
+    return this.events[eventName]!.map((handler) => handler(...args));
   }
 }

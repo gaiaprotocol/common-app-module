@@ -24,14 +24,14 @@ export default abstract class AdaptiveModal extends Exitable {
           tag: ".back",
           type: ButtonType.Circle,
           icon: new MaterialIcon("arrow_back"),
-          click: () => this.delete(),
+          onClick: () => this.delete(),
         }),
         this.titleDisplay = el("h1.title"),
         new Button({
           tag: ".close",
           type: ButtonType.Circle,
           icon: new MaterialIcon("close"),
-          click: () => this.delete(),
+          onClick: () => this.delete(),
         }),
       ),
       this.main = el("main"),
@@ -40,7 +40,7 @@ export default abstract class AdaptiveModal extends Exitable {
         new Button({
           tag: ".cancel",
           title: msg("cancel-button"),
-          click: () => this.delete(),
+          onClick: () => this.delete(),
         }),
       ),
     ).appendTo(this);

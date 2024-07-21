@@ -25,7 +25,7 @@ export default class Snackbar extends Component {
           ? new Button({
             tag: ".action",
             title: options.action.title,
-            click: () => {
+            onClick: () => {
               options.action?.click();
               this.delete();
             },
@@ -35,7 +35,7 @@ export default class Snackbar extends Component {
           type: ButtonType.Circle,
           tag: ".close",
           icon: new MaterialIcon("close"),
-          click: () => this.delete(),
+          onClick: () => this.delete(),
         }),
       ),
     );

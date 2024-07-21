@@ -17,7 +17,7 @@ export default class Alert extends Popup {
       new Button({
         tag: ".confirm",
         title: options.confirmTitle ?? "OK",
-        click: async () => {
+        onClick: async () => {
           if (callback) await callback();
           this.delete();
         },

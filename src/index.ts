@@ -83,4 +83,6 @@ export { default as StringUtil } from "./util/StringUtil.js";
 export { default as StyleUtil } from "./util/StyleUtil.js";
 export { default as NewRouter } from "./view/NewRouter.js";
 export { default as Router } from "./view/Router.js";
+export { default as RouterV2 } from "./view/RouterV2.js";
 export { default as View, ViewParams } from "./view/View.js";
+export { default as ViewV2, ViewParamsV2 } from "./view/ViewV2.js";

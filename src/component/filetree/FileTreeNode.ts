@@ -27,7 +27,7 @@ export default class FileTreeNode extends Component {
           ? this.toggleFileTreeButton = new Button({
             type: ButtonType.Circle,
             icon: new MaterialIcon("keyboard_arrow_down"),
-            click: () =>
+            onClick: () =>
               this.fileTree?.showing
                 ? this.closeFileTree()
                 : this.openFileTree(),
