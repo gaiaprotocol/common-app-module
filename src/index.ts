@@ -47,22 +47,13 @@ export { default as Constants } from "./Constants.js";
 export { default as Rich } from "./database-interface/Rich.js";
 export { default as UserPublic } from "./database-interface/UserPublic.js";
 export { default as BodyNode } from "./dom/BodyNode.js";
-export { default as DomNode, DomChild, Style } from "./dom/DomNode.js";
 export { default as el } from "./dom/el.js";
-export {
-  default as EventContainer,
-  EventHandler,
-} from "./event/EventContainer.js";
-export { default as EventContainerV2 } from "./event/EventContainerV2.js";
 export { default as I18NText } from "./i18n/I18NText.js";
 export { default as msg, msgs } from "./i18n/msg.js";
 export { default as Bgm } from "./sound/Bgm.js";
 export { default as Sound } from "./sound/Sound.js";
 export { default as SplashLoader } from "./SplashLoader.js";
 export { default as Store } from "./store/Store.js";
-export { default as ApiGateway } from "./supabase/ApiGateway.js";
-export { default as Supabase } from "./supabase/Supabase.js";
-export { default as SupabaseService } from "./supabase/SupabaseService.js";
 export { default as Theme } from "./theme/Theme.js";
 export { default as ThemeManager } from "./theme/ThemeManager.js";
 export { default as TreeNode } from "./tree/TreeNode.js";

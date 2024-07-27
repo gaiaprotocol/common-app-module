@@ -4,7 +4,7 @@ export default class Checkbox extends Component {
     constructor(options?: {
         label?: string;
     });
-    get checked(): boolean;
+    get checked(): any;
     check(): void;
     uncheck(): void;
     toggle(): void;

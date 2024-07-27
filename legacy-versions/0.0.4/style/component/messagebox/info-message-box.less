@@ -1,0 +1,33 @@
+:root {
+    --info-message-color   : #CDE8F6;
+    --info-message-bg-color: #0D2C3D;
+}
+
+.info-message-box.component {
+    display         : flex;
+    background-color: var(--info-message-bg-color);
+    color           : var(--info-message-color);
+    padding         : 12px 16px;
+    border-radius   : 12px;
+    gap             : 12px;
+
+    >i {
+        font-size: 24px;
+    }
+
+    >main {
+        display       : flex;
+        flex-direction: column;
+        gap           : 8px;
+
+        >p {
+            >a {
+                text-decoration: underline;
+            }
+
+            >b {
+                font-weight: var(--bold-weight);
+            }
+        }
+    }
+}

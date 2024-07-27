@@ -1,1 +1,1 @@
-{"version":3,"file":"DomNodeV2.d.ts","sourceRoot":"","sources":["../../src/dom/DomNodeV2.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,OAAO,OAAO,SAAS;CAE7B"}
+{"version":3,"file":"DomNodeV2.d.ts","sourceRoot":"","sources":["../../src/dom/DomNodeV2.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,OAAO,OAAO,OAAO;CAE3B"}

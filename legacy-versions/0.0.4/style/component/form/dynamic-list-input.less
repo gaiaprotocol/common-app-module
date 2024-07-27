@@ -1,0 +1,56 @@
+.dynamic-list-input.component {
+    display       : flex;
+    flex-direction: column;
+    gap           : 8px;
+
+    >.label {
+        text-transform: capitalize;
+        font-size     : 12px;
+    }
+
+    >table {
+        width          : 100%;
+        border-collapse: collapse;
+        border-spacing : 0;
+        border         : 1px solid var(--line-color);
+
+        thead {
+            >tr {
+                >th {
+                    color    : var(--title-text-color);
+                    font-size: 12px;
+
+                    &.required::after {
+                        content    : '*';
+                        margin-left: 2px;
+                    }
+                }
+            }
+        }
+
+        tr {
+            >th {
+                padding       : 8px 10px;
+                border        : 1px solid var(--line-color);
+                font-weight   : var(--bold-weight);
+                vertical-align: middle;
+            }
+
+            >td {
+                padding       : 8px 10px;
+                border        : 1px solid var(--line-color);
+                vertical-align: middle;
+
+                &.up-down-buttons>.button-container {
+                    display: flex;
+                }
+            }
+        }
+
+        @container (width < @phone-width) {
+            .up-down-buttons {
+                display: none;
+            }
+        }
+    }
+}

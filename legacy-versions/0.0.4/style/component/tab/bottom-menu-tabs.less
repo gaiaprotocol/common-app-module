@@ -1,0 +1,29 @@
+.bottom-menu-tabs.component {
+    width         : 100%;
+    height        : calc(50px + env(safe-area-inset-bottom));
+    padding-bottom: env(safe-area-inset-bottom);
+
+    border-top  : 1px solid var(--line-color);
+    border-right: none;
+
+    display    : flex;
+    align-items: center;
+
+    overflow-y: visible;
+
+    >.tab {
+        flex-grow     : 1;
+        cursor        : pointer;
+        display       : flex;
+        flex-direction: column;
+        align-items   : center;
+
+        >.icon {
+            font-size: 30px;
+        }
+
+        &.active {
+            color: var(--primary-color);
+        }
+    }
+}

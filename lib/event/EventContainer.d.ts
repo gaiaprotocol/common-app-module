@@ -1,21 +1,6 @@
-export type EventHandler = (...params: any[]) => any;
-export default abstract class EventContainer {
-    private static NEXT_ID;
-    id: number;
-    private allowedEvents;
-    private eventMap;
-    private delegateEvents;
-    deleted: boolean;
-    protected addAllowedEvents(...events: string[]): void;
-    private addEventHandler;
-    private removeDelegateEvents;
-    on(eventName: string | string[], eventHandler: EventHandler): this;
-    once(eventName: string, eventHandler: EventHandler): void;
-    off(eventName: string, eventHandler: EventHandler): void;
-    emit(eventName: string, ...params: any[]): Promise<any[]>;
-    onDelegate(delegates: EventContainer | EventContainer[], eventNames: string | string[], eventHandler: EventHandler): void;
-    offDelegate(delegate: EventContainer): void;
-    offAll(): void;
-    delete(): void;
+export default abstract class EventContainer<T extends Record<string, (...args: any[]) => any>> {
+    private events;
+    on<K extends keyof T>(eventName: K, eventHandler: T[K]): void;
+    emit<K extends keyof T>(eventName: K, ...args: Parameters<T[K]>): ReturnType<T[K]>[];
 }
 //# sourceMappingURL=EventContainer.d.ts.map

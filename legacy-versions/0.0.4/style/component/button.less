@@ -1,0 +1,82 @@
+:root {
+    --button-text-color : var(--primary-color);
+    --button-hover-color: rgba(193, 168, 125, 0.2);
+
+    --contained-button-bg-color      : var(--primary-color);
+    --contained-button-text-color    : #000;
+    --contained-button-hover-bg-color: #8e6d34;
+
+    --outlined-button-line-color      : rgba(193, 168, 125, 0.5);
+    --outlined-button-bg-color        : transparent;
+    --outlined-button-text-color      : var(--button-text-color);
+    --outlined-button-hover-bg-color  : var(--button-hover-color);
+    --outlined-button-hover-line-color: var(--primary-color);
+}
+
+button.component {
+    cursor         : pointer;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    padding        : 8px 16px;
+    border-radius  : 6px;
+    line-height    : 1em;
+    gap            : 8px;
+    text-transform : capitalize;
+    color          : var(--button-text-color);
+    transition     : background-color 0.3s ease, border-color 0.3s ease;
+    white-space    : nowrap;
+
+    @media (pointer: fine) {
+        &:hover:not(.disabled) {
+            background-color: var(--button-hover-color);
+        }
+    }
+
+    &:active:not(.disabled) {
+        background-color: var(--button-hover-color);
+    }
+
+    &.contained {
+        background-color: var(--contained-button-bg-color);
+        color           : var(--contained-button-text-color);
+
+        @media (pointer: fine) {
+            &:hover {
+                background-color: var(--contained-button-hover-bg-color);
+            }
+        }
+
+        &:active {
+            background-color: var(--contained-button-hover-bg-color);
+        }
+    }
+
+    &.outlined {
+        border          : 1px solid var(--outlined-button-line-color);
+        background-color: var(--outlined-button-bg-color);
+        color           : var(--outlined-button-text-color);
+
+        @media (pointer: fine) {
+            &:hover:not(.disabled) {
+                background-color: var(--outlined-button-hover-bg-color);
+                border-color    : var(--outlined-button-hover-line-color);
+            }
+        }
+
+        &:active:not(.disabled) {
+            background-color: var(--outlined-button-hover-bg-color);
+            border-color    : var(--outlined-button-hover-line-color);
+        }
+    }
+
+    &.circle {
+        padding      : 8px;
+        border-radius: 50%;
+    }
+
+    &.disabled {
+        cursor: not-allowed;
+        filter: grayscale(1);
+    }
+}

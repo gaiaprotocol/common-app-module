@@ -13,9 +13,7 @@ export default class DynamicListInput extends Component {
     private tbody;
     constructor(options: DynamicListInputOptions, initialValues?: any[]);
     private addItem;
-    get value(): {
-        [key: string]: string;
-    }[];
+    get value(): any;
 }
 export {};
 //# sourceMappingURL=DynamicListInput.d.ts.map

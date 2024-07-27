@@ -1,0 +1,56 @@
+:root {
+    --checkbox-border-color  : var(--input-border-color);
+    --checkbox-bg-color      : var(--input-bg-color);
+    --checkbox-check-color   : var(--input-border-color);
+    --checkbox-check-bg-color: var(--primary-color);
+}
+
+.checkbox.component {
+    display    : flex;
+    align-items: center;
+    gap        : 4px;
+
+    >.checkmark-container {
+        position: relative;
+        height  : 27px;
+        width   : 27px;
+
+        >.checkmark {
+            position        : absolute;
+            top             : 0;
+            left            : 0;
+            height          : 25px;
+            width           : 25px;
+            border          : 1px solid var(--checkbox-border-color);
+            background-color: var(--checkbox-bg-color);
+            border-radius   : 50%;
+
+            &:after {
+                display          : none;
+                content          : "";
+                position         : absolute;
+                left             : 9px;
+                top              : 5px;
+                width            : 5px;
+                height           : 10px;
+                border           : solid var(--checkbox-check-color);
+                border-width     : 0 3px 3px 0;
+                -webkit-transform: rotate(45deg);
+                -ms-transform    : rotate(45deg);
+                transform        : rotate(45deg);
+            }
+        }
+
+        >input:checked~.checkmark {
+            background-color: var(--checkbox-check-bg-color);
+        }
+
+        >input:checked~.checkmark:after {
+            display: block;
+        }
+    }
+
+    >label {
+        cursor: default;
+    }
+}

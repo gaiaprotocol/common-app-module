@@ -1,4 +1,4 @@
-export default abstract class EventContainerV2<
+export default abstract class EventContainer<
   T extends Record<string, (...args: any[]) => any>,
 > {
   private events: { [K in keyof T]?: T[K][] } = {};

@@ -1,0 +1,10 @@
+.loading-overlay {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    font-size      : 24px;
+
+    @container (width < @safe-width) {
+        font-size: 18px;
+    }
+}

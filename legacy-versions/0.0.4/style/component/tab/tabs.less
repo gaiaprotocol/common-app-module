@@ -1,0 +1,88 @@
+.tabs.component {
+    position     : relative;
+    border-bottom: 1px solid var(--line-color);
+    display      : flex;
+    align-items  : center;
+    gap          : 10px;
+    width        : 100%;
+    padding      : 0 10px;
+
+    >button.prev,
+    >button.next {
+        position        : absolute;
+        top             : 4px;
+        z-index         : 1;
+        background-color: var(--page-bg-color);
+
+        &:disabled {
+            display: none;
+        }
+
+        &::after {
+            position        : absolute;
+            left            : 0;
+            bottom          : -4px;
+            content         : '';
+            width           : 40px;
+            height          : 4px;
+            background-color: var(--page-bg-color);
+        }
+    }
+
+    >button.prev {
+        left: 0;
+    }
+
+    >button.next {
+        right: 0;
+    }
+
+    &:not(.scrollable) {
+
+        >button.prev,
+        >button.next {
+            display: none;
+        }
+    }
+
+    >ul {
+        flex-grow : 1;
+        display   : flex;
+        gap       : 40px;
+        padding   : 0 10px;
+        overflow-x: auto;
+
+        -webkit-overflow-scrolling: touch;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        >.tab {
+            cursor         : pointer;
+            min-height     : 48px;
+            display        : flex;
+            align-items    : center;
+            justify-content: center;
+            border-top     : 3px solid transparent;
+            border-bottom  : 3px solid transparent;
+            padding        : 0 10px;
+            white-space    : nowrap;
+
+            @media (pointer: fine) {
+                &:hover {
+                    color: var(--primary-color);
+                }
+            }
+
+            &:active {
+                color: var(--primary-color);
+            }
+
+            &.active {
+                color        : var(--primary-color);
+                border-bottom: 3px solid var(--primary-color);
+            }
+        }
+    }
+}
