@@ -1,20 +1,14 @@
-import EventContainer from "../event/EventContainer.js";
-import View, { ViewParams } from "./View.js";
-export type ViewType = new (...args: any[]) => View;
-declare class Router extends EventContainer {
+import View from "./View.js";
+type ViewClass = new () => View;
+declare class Router {
     private routes;
-    private redirects;
+    private viewOpening;
     private openingViews;
-    private forwarding;
     constructor();
-    check(preParams?: ViewParams, data?: any): void;
-    route(patterns: string | string[], viewType: ViewType, excludes?: string[]): void;
-    redirect(patterns: string | string[], to: string, excludes?: string[]): void;
-    go(uri: string, params?: ViewParams, data?: any): void;
-    changeUri(uri: string): void;
-    goNoHistory(uri: string, params?: ViewParams, data?: any): void;
-    waitAndGo(uri: string, params?: ViewParams, data?: any): void;
-    refresh(): void;
+    private openView;
+    route(uri: string, View: ViewClass): void;
+    private changeUri;
+    go(uri: string): void;
 }
 declare const _default: Router;
 export default _default;

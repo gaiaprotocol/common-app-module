@@ -1,6 +1,6 @@
 import DomNode from "../dom/DomNode.js";
 
-export interface ViewParamsV2 {
+export interface ViewParams {
   [name: string]: string | undefined;
 }
 
@@ -8,7 +8,7 @@ export default abstract class View {
   protected closed = false;
   protected container!: DomNode;
 
-  public changeParams(params: ViewParamsV2): void {}
+  public changeParams(params: ViewParams, uri: string, data?: any): void {}
   public close(): void {
     this.container?.delete();
     this.closed = true;
